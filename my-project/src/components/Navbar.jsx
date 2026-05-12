@@ -9,15 +9,15 @@ function Navbar() {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   return (
-    <nav className="sticky top-0 z-50 pt-4">
+    <nav className="fixed top-0 left-0 right-0 z-50 pt-6">
       <div className="w-[1265px] mx-auto">
         <div
-          className={`bg-zinc-900/80 backdrop-blur-2xl border border-white/10 shadow-2xl overflow-hidden transition-all duration-500 ease-in-out ${
-            isDropdownOpen ? "rounded-[34px] bg-zinc-950" : "rounded-[50px]"
+          className={`bg-black/20 backdrop-blur-[3px] border border-white/10 shadow-2xl overflow-hidden transition-all duration-500 ease-in-out ${
+            isDropdownOpen ? "rounded-[34px] bg-zinc-950/80" : "rounded-[50px]"
           }`}
         >
           {/* TOP BAR */}
-          <div className="h-[73px] flex items-center px-8">
+          <div className="h-[73px] flex items-center px-5">
             {/* LEFT LOGO */}
             <div className="flex items-center shrink-0">
               <img src={Logo} alt="InnoTech Logo" className="h-9 w-auto" />
@@ -29,10 +29,9 @@ function Navbar() {
                 {/* WHO WE ARE */}
                 <a
                   href="#"
-                  className="flex items-center gap-1 text-white font-[325] text-[16px] leading-normal hover:text-emerald-400 transition-colors"
+                  className="flex items-center gap-1 text-white font-['Gotham'] text-base hover:text-emerald-400 transition-colors"
                 >
                   <span>Who we are</span>
-
                   <img
                     src={Vector}
                     alt=""
@@ -46,9 +45,8 @@ function Navbar() {
                   onMouseEnter={() => setIsDropdownOpen(true)}
                   onMouseLeave={() => setIsDropdownOpen(false)}
                 >
-                  <button className="flex items-center gap-1 text-white font-[325] text-[16px] leading-normal hover:text-emerald-400 transition-colors">
+                  <button className="flex items-center gap-1 text-white font-['Gotham'] text-base hover:text-emerald-400 transition-colors">
                     <span>What we do</span>
-
                     <img
                       src={Vector}
                       alt=""
@@ -62,21 +60,21 @@ function Navbar() {
                 {/* OTHER LINKS */}
                 <a
                   href="#"
-                  className="text-white font-[325] text-[16px] leading-normal hover:text-emerald-400 transition-colors"
+                  className="text-white font-['Gotham'] text-base hover:text-emerald-400 transition-colors"
                 >
                   What we think
                 </a>
 
                 <a
                   href="#"
-                  className="text-white font-[325] text-[16px] leading-normal hover:text-emerald-400 transition-colors"
+                  className="text-white font-['Gotham'] text-base hover:text-emerald-400 transition-colors"
                 >
                   INLEARN Academy
                 </a>
 
                 <a
                   href="#"
-                  className="text-white font-[325] text-[16px] leading-normal hover:text-emerald-400 transition-colors"
+                  className="text-white font-['Gotham'] text-base hover:text-emerald-400 transition-colors"
                 >
                   INSIGHT Store
                 </a>
@@ -85,9 +83,8 @@ function Navbar() {
               {/* RIGHT SIDE */}
               <div className="flex items-center ml-[116px] pl-10 h-full">
                 {/* LANGUAGE */}
-                <button className="flex items-center gap-1 text-white font-[325] text-[16px] leading-none hover:text-emerald-400 transition-colors">
+                <button className="flex items-center gap-1 text-white font-['Gotham'] text-base leading-none hover:text-emerald-400 transition-colors">
                   <span>En</span>
-
                   <img
                     src={Vector}
                     alt=""
@@ -96,26 +93,26 @@ function Navbar() {
                 </button>
 
                 {/* DIVIDER */}
-                <div className="w-[1.5px] h-[21px] bg-white/40 mx-5"></div>
+                <div className="w-[1.5px] h-[21px] bg-white/40 mx-5" />
 
                 {/* THEME */}
                 <button className="group flex items-center justify-center w-[30px] h-[30px] transition-all duration-300">
                   <img
                     src={SunMedium}
                     alt="Theme"
-                    className="w-[24px] h-[24px] object-contain transition-all duration-300 group-hover:brightness-0 group-hover:invert group-hover:sepia group-hover:saturate-[600%] group-hover:hue-rotate-[85deg]"
+                    className="w-[30px] h-[30px] object-contain transition-all duration-300"
                   />
                 </button>
 
                 {/* DIVIDER */}
-                <div className="w-px h-[21px] bg-white/40 mx-5"></div>
+                <div className="w-px h-[21px] bg-white/40 mx-5" />
 
                 {/* SEARCH */}
                 <button className="group flex items-center justify-center w-6 h-6 transition-all duration-300">
                   <img
                     src={SearchIcon}
                     alt="Search"
-                    className="w-5 h-5 object-contain transition-all duration-300 group-hover:brightness-0 group-hover:invert group-hover:sepia group-hover:saturate-[600%] group-hover:hue-rotate-[85deg]"
+                    className="w-6 h-6 object-contain transition-all duration-300"
                   />
                 </button>
               </div>
@@ -140,35 +137,29 @@ function Navbar() {
                 </div>
 
                 <div className="w-52 inline-flex flex-col justify-start items-start gap-5">
-                  {/* INCEPTION */}
                   <div className="self-stretch flex flex-col justify-start items-start">
                     <div className="text-white text-base font-normal font-['Gotham'] hover:text-emerald-400 transition-colors cursor-pointer">
                       INCEPTION
                     </div>
-
                     <div className="self-stretch text-white/70 text-xs font-['Gotham'] leading-5">
                       Innovation and Technology Management
                     </div>
                   </div>
 
-                  {/* INSIGHT */}
                   <div className="self-stretch flex flex-col justify-start items-start">
                     <div className="text-white text-base font-normal font-['Gotham'] hover:text-emerald-400 transition-colors cursor-pointer">
                       INSIGHT
                     </div>
-
                     <div className="self-stretch text-white/70 text-xs font-['Gotham'] leading-5">
                       Science, Technology, Innovation and Market Analytics
                       Reports
                     </div>
                   </div>
 
-                  {/* INFINITY */}
                   <div className="self-stretch flex flex-col justify-start items-start">
                     <div className="text-white text-base font-normal font-['Gotham'] hover:text-emerald-400 transition-colors cursor-pointer">
                       INFINITY
                     </div>
-
                     <div className="self-stretch text-white/70 text-xs font-['Gotham'] leading-5">
                       Digital Transformation
                     </div>
@@ -187,7 +178,7 @@ function Navbar() {
                     Oil, Gas & Petrochemical
                   </div>
 
-                  <div className="text-emerald-400 text-base font-normal font-['Gotham'] cursor-pointer">
+                  <div className="text-white text-base font-normal font-['Gotham'] hover:text-emerald-400 transition-colors cursor-pointer">
                     Health
                   </div>
 
