@@ -2,54 +2,70 @@ import LatestNewsImage from "../assets/LatestNews.jpg";
 
 function LatestNews() {
   return (
-    <section className="relative w-full bg-black py-14 px-4 sm:px-6 lg:px-28">
+    <section className="relative w-full bg-black py-[60px] px-[120px] sm:px-7 lg:px-35">
       <div className="mx-auto w-full max-w-[1600px]">
-        <div className="flex min-h-[640px] flex-col overflow-hidden rounded-[50px] bg-white lg:flex-row">
+        <div className="flex h-[570px] flex-col overflow-hidden rounded-[50px] bg-white lg:flex-row">
           {/* LEFT CONTENT */}
-          <div className="flex-1 p-8 sm:p-12 lg:p-16">
-            <div className="relative mb-8 inline-flex items-center gap-3.5">
+          <div className="flex-1 self-stretch px-[68px] py-[68px] flex flex-col">
+            {/* TITLE */}
+            <div className="relative inline-flex items-center">
               <div className="absolute left-[-14px] top-[-19px] size-16 rounded-full border border-[#37B478]" />
-              <h2 className="relative z-10 text-4xl font-normal text-black font-['Gotham']">
+
+              <div className="relative z-10 text-black text-4xl font-bold font-['Gotham'] leading-none">
                 Our latest news
-              </h2>
+              </div>
             </div>
 
-            <div className="flex flex-col gap-4">
-              <h3 className="text-3xl font-normal text-black font-['Gotham'] leading-tight">
-                InnotechCo launches INCEPTION — an AI-powered innovation
-                management system
-              </h3>
+            {/* 32px */}
+            <div className="h-8" />
 
-              <div className="flex flex-wrap items-center gap-8">
-                <div className="text-base font-light text-black font-['Gotham']">
-                  November 15, 2025
-                </div>
-                <div className="text-base font-normal text-[#37B478] font-['Gotham']">
-                  2 minutes read
-                </div>
+            {/* HEADLINE */}
+            <div className="max-w-[690px] text-black text-3xl font-medium font-['Gotham'] leading-[1.28]">
+              InnotechCo launches INCEPTION — an AI-powered innovation
+              management system
+            </div>
+
+            {/* 32px */}
+            <div className="h-8" />
+
+            {/* META */}
+            <div className="flex items-center gap-8">
+              <div className="text-black text-base font-light font-['Gotham']">
+                November 15, 2025
               </div>
 
-              <p className="text-base font-normal text-black font-['Gotham'] leading-relaxed">
-                InnotechCo introduced INCEPTION, a modular innovation management
-                system that helps R&amp;D and strategy teams map their
-                innovation processes, run maturity assessments, and connect AI
-                agents to real business workflows.
-              </p>
+              <div className="text-[#37B478] text-base font-['Gotham']">
+                2 minutes read
+              </div>
             </div>
 
+            {/* DESCRIPTION */}
+            <div className="mt-10 max-w-[690px] text-black text-base font-medium font-['Gotham'] leading-[1.35]">
+              InnotechCo introduced INCEPTION, a modular innovation management
+              system that helps R&amp;D and strategy teams map their innovation
+              processes, run maturity assessments, and connect AI agents to real
+              business workflows.
+            </div>
+
+            {/* فاصله دقیق مثل فیگما */}
+            <div className="h-8" />
+
+            {/* READ MORE */}
             <button
               type="button"
-              className="mt-10 inline-flex flex-col items-center justify-start group"
+              onClick={() => {}}
+              className="group flex w-fit flex-col items-start cursor-pointer transition-all duration-300"
             >
-              <span className="text-base font-normal text-black font-['Gotham']">
+              <div className="text-black text-base font-['Gotham'] transition-colors duration-300 group-hover:text-[#37B478] mt-8">
                 Read more
-              </span>
-              <span className="mt-1 h-0.5 w-20 rounded-full bg-[#37B478] opacity-75 blur-[0.5px] transition-all duration-300 group-hover:w-24" />
+              </div>
+
+              <div className="mt-[2px] h-[2px] w-20 rounded-full bg-[#37B478] opacity-75 blur-[0.5px] transition-all duration-300 group-hover:w-24" />
             </button>
           </div>
 
           {/* RIGHT IMAGE */}
-          <div className="w-full lg:w-[496px] shrink-0">
+          <div className="w-full lg:w-[496px] shrink-0 self-stretch overflow-hidden">
             <img
               src={LatestNewsImage}
               alt="Latest news"
