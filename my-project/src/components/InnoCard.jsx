@@ -25,4 +25,5 @@ function InnoCard({children}) {
   );
 }
 
+
 export default InnoCard;
