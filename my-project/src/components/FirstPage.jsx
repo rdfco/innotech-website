@@ -16,7 +16,7 @@ function FirstPage() {
           <div className="w-64 h-20 relative mb-6">
             <div className="w-20 h-20 left-0 top-0 absolute rounded-full border-2 border-[#37B478]" />
             <div className="w-3 h-3 left-[4.72px] top-[7.08px] absolute bg-[#37B478] rounded-full" />
-            <div className="left-[27px] top-[16px] absolute text-white text-5xl font-bold font-['Gotham'] leading-none">
+            <div className="lef t-[27px] top-[16px] absolute text-white text-5xl font-bold font-['Gotham'] leading-none">
               AI Agent
             </div>
           </div>
