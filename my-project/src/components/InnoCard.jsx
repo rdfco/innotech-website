@@ -4,7 +4,6 @@ import InsightIcon from "../assets/Subtract2.svg";
 import InlearnIcon from "../assets/Subtract3.svg";
 
 function InnoCard({title, subtitle, items = []}) {
-  // انتخاب آیکن بر اساس عنوان کارت
   const iconMap = {
     INCEPTION: InceptionIcon,
     INFINITY: InfinityIcon,

@@ -7,7 +7,7 @@ function LatestNews() {
         <div className="flex h-[570px] flex-col overflow-hidden rounded-[50px] bg-white lg:flex-row">
           {/* LEFT CONTENT */}
           <div className="flex-1 self-stretch px-[68px] py-[68px] flex flex-col">
-            {/* TITLE */}
+            {/* TITLE section */}
             <div className="relative inline-flex items-center">
               <div className="absolute left-[-14px] top-[-19px] size-16 rounded-full border border-[#37B478]" />
 
@@ -16,19 +16,19 @@ function LatestNews() {
               </div>
             </div>
 
-            {/* 32px */}
+            {/* 32px spacer */}
             <div className="h-8" />
 
-            {/* HEADLINE */}
+            {/* HEADLINE text */}
             <div className="max-w-[690px] text-black text-3xl font-medium font-['Gotham'] leading-[1.28]">
               InnotechCo launches INCEPTION — an AI-powered innovation
               management system
             </div>
 
-            {/* 32px */}
+            {/* 32px spacer */}
             <div className="h-8" />
 
-            {/* META */}
+            {/* META info (date + read time) */}
             <div className="flex items-center gap-8">
               <div className="text-black text-base font-light font-['Gotham']">
                 November 15, 2025
@@ -39,7 +39,7 @@ function LatestNews() {
               </div>
             </div>
 
-            {/* DESCRIPTION */}
+            {/* DESCRIPTION text */}
             <div className="mt-10 max-w-[690px] text-black text-base font-medium font-['Gotham'] leading-[1.35]">
               InnotechCo introduced INCEPTION, a modular innovation management
               system that helps R&amp;D and strategy teams map their innovation
@@ -47,10 +47,10 @@ function LatestNews() {
               business workflows.
             </div>
 
-            {/* فاصله دقیق مثل فیگما */}
+            {/* Exact spacing like Figma */}
             <div className="h-8" />
 
-            {/* READ MORE */}
+            {/* READ MORE button */}
             <button
               type="button"
               onClick={() => {}}

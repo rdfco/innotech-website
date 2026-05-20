@@ -15,8 +15,6 @@ function App() {
       <LatestNews />
       <HowWeThink />
       <Map />
-
-      {/* Footer First Page - بدون SVG */}
       <FooterFirstPage />
     </div>
   );

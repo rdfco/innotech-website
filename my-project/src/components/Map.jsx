@@ -10,7 +10,7 @@ function Map() {
         paddingRight: "120px",
       }}
     >
-      {/* محتوای مپ */}
+      {/* Map content */}
       <div className="self-stretch relative flex flex-col justify-center items-start gap-2 mb-12">
         <div className="size-16 left-[-14px] top-[-19px] absolute rounded-full border border-[#37B478]" />
         <div className="self-stretch justify-start text-white text-4xl font-normal font-['Gotham']">

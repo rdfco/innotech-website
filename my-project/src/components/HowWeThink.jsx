@@ -2,11 +2,17 @@ import {useState} from "react";
 import HowWeThinkImage from "../assets/HowWeThink.jpg";
 
 function HowWeThink() {
-  // برای کارت اول (سمت چپ)
+  {
+    /* For first card (left side) */
+  }
   const [pos1, setPos1] = useState({x: 0, y: 0, active: false});
-  // برای کارت دوم (راست - بالا)
+  {
+    /* For second card (right - top) */
+  }
   const [pos2, setPos2] = useState({x: 0, y: 0, active: false});
-  // برای کارت سوم (راست - پایین)
+  {
+    /* For third card (right - bottom) */
+  }
   const [pos3, setPos3] = useState({x: 0, y: 0, active: false});
 
   const handleMouseMove1 = (e) => {
@@ -51,7 +57,7 @@ function HowWeThink() {
   return (
     <section className="w-full bg-black px-28 py-14 overflow-hidden relative">
       <div className="flex flex-col gap-8 relative z-10">
-        {/* TITLE */}
+        {/* TITLE section */}
         <div className="relative inline-flex items-center gap-3.5">
           <div className="absolute left-[-14px] top-[-19px] size-16 rounded-full border border-[#37B478]" />
           <div className="relative z-10 text-white text-4xl font-normal font-['Gotham']">
@@ -59,9 +65,9 @@ function HowWeThink() {
           </div>
         </div>
 
-        {/* CONTENT */}
+        {/* CONTENT section */}
         <div className="flex items-start gap-11 relative">
-          {/* LEFT BIG CARD با نئون مخصوص خودش */}
+          {/* LEFT BIG CARD with its own neon glow */}
           <div className="relative">
             {/* 🌟 NEON GLOW BEHIND LEFT CARD */}
             <div
@@ -123,7 +129,7 @@ function HowWeThink() {
 
           {/* RIGHT SIDE */}
           <div className="flex-1 h-[702px] flex flex-col justify-center gap-8">
-            {/* CARD 1 (راست - بالا) با نئون مخصوص خودش */}
+            {/* CARD 1 (right - top) with its own neon glow */}
             <div className="relative flex-1">
               {/* 🌟 NEON GLOW BEHIND RIGHT CARD 1 */}
               <div
@@ -176,7 +182,7 @@ function HowWeThink() {
               </div>
             </div>
 
-            {/* CARD 2 (راست - پایین) با نئون مخصوص خودش */}
+            {/* CARD 2 (right - bottom) with its own neon glow */}
             <div className="relative flex-1">
               {/* 🌟 NEON GLOW BEHIND RIGHT CARD 2 */}
               <div
@@ -232,7 +238,7 @@ function HowWeThink() {
           </div>
         </div>
 
-        {/* CTA */}
+        {/* CTA button */}
         <div className="flex justify-end">
           <button className="group flex flex-col items-end transition-all duration-900">
             <div className="text-white group-hover:text-[#37B478] transition-colors duration-300">
