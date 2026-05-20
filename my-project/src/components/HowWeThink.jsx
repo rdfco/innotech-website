@@ -2,20 +2,50 @@ import {useState} from "react";
 import HowWeThinkImage from "../assets/HowWeThink.jpg";
 
 function HowWeThink() {
-  const [pos, setPos] = useState({x: 0, y: 0, active: false});
+  // برای کارت اول (سمت چپ)
+  const [pos1, setPos1] = useState({x: 0, y: 0, active: false});
+  // برای کارت دوم (راست - بالا)
+  const [pos2, setPos2] = useState({x: 0, y: 0, active: false});
+  // برای کارت سوم (راست - پایین)
+  const [pos3, setPos3] = useState({x: 0, y: 0, active: false});
 
-  const handleMouseMove = (e) => {
+  const handleMouseMove1 = (e) => {
     const rect = e.currentTarget.getBoundingClientRect();
-
-    setPos({
+    setPos1({
       x: e.clientX - rect.left,
       y: e.clientY - rect.top,
       active: true,
     });
   };
 
-  const handleMouseLeave = () => {
-    setPos((p) => ({...p, active: false}));
+  const handleMouseLeave1 = () => {
+    setPos1((p) => ({...p, active: false}));
+  };
+
+  const handleMouseMove2 = (e) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    setPos2({
+      x: e.clientX - rect.left,
+      y: e.clientY - rect.top,
+      active: true,
+    });
+  };
+
+  const handleMouseLeave2 = () => {
+    setPos2((p) => ({...p, active: false}));
+  };
+
+  const handleMouseMove3 = (e) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    setPos3({
+      x: e.clientX - rect.left,
+      y: e.clientY - rect.top,
+      active: true,
+    });
+  };
+
+  const handleMouseLeave3 = () => {
+    setPos3((p) => ({...p, active: false}));
   };
 
   return (
@@ -31,113 +61,171 @@ function HowWeThink() {
 
         {/* CONTENT */}
         <div className="flex items-start gap-11 relative">
-          {/* 🌟 NEON GLOW BEHIND THE LEFT CARD - کاملاً پشت کارت */}
-          <div
-            className="pointer-events-none absolute transition-opacity duration-300"
-            style={{
-              left: 0,
-              top: 0,
-              width: "542px",
-              height: "702px",
-              opacity: pos.active ? 1 : 0,
-              background: `
-                radial-gradient(
-                  600px circle at ${pos.x}px ${pos.y}px,
-                  rgba(55, 180, 120, 0.7),
-                  transparent 75%
-                )
-              `,
-              filter: "blur(20px)",
-              borderRadius: "0px",
-              zIndex: 0,
-            }}
-          />
-
-          {/* LEFT BIG CARD */}
-          <div
-            className="w-[542px] h-[702px] rounded-[50px] border border-[#37B478] overflow-hidden flex flex-col bg-black relative z-10"
-            onMouseMove={handleMouseMove}
-            onMouseLeave={handleMouseLeave}
-          >
-            <img
-              src={HowWeThinkImage}
-              alt="How We Think"
-              className="w-full h-96 object-cover"
+          {/* LEFT BIG CARD با نئون مخصوص خودش */}
+          <div className="relative">
+            {/* 🌟 NEON GLOW BEHIND LEFT CARD */}
+            <div
+              className="pointer-events-none absolute transition-opacity duration-300"
+              style={{
+                left: 0,
+                top: 0,
+                width: "542px",
+                height: "702px",
+                opacity: pos1.active ? 1 : 0,
+                background: `
+                  radial-gradient(
+                    600px circle at ${pos1.x}px ${pos1.y}px,
+                    rgba(55, 180, 120, 0.7),
+                    transparent 75%
+                  )
+                `,
+                filter: "blur(20px)",
+                borderRadius: "50px",
+                zIndex: 0,
+              }}
             />
 
-            <div className="w-[500px] h-60 px-10 pt-8 flex flex-col gap-4">
-              <div className="text-white text-2xl font-['Gotham'] leading-[1.25]">
-                InnotechCo launches INCEPTION — an AI-powered innovation
-                management system
-              </div>
+            <div
+              className="w-[542px] h-[702px] rounded-[50px] border border-[#37B478] overflow-hidden flex flex-col bg-black relative z-10"
+              onMouseMove={handleMouseMove1}
+              onMouseLeave={handleMouseLeave1}
+            >
+              <img
+                src={HowWeThinkImage}
+                alt="How We Think"
+                className="w-full h-96 object-cover"
+              />
 
-              <div className="inline-flex items-center gap-8">
-                <div className="text-white text-base font-light font-['Gotham']">
-                  November 15, 2025
+              <div className="w-[500px] h-60 px-10 pt-8 flex flex-col gap-4">
+                <div className="text-white text-2xl font-['Gotham'] leading-[1.25]">
+                  InnotechCo launches INCEPTION — an AI-powered innovation
+                  management system
                 </div>
-                <div className="text-[#37B478] text-base font-['Gotham']">
-                  2 minutes read
-                </div>
-              </div>
 
-              <div className="text-white text-base font-['Gotham'] leading-[1.45]">
-                InnotechCo introduced INCEPTION, a modular innovation management
-                system that helps R&D and strategy teams map their innovation
-                processes, run maturity assessments, and connect AI agents to
-                real business workflows.
+                <div className="inline-flex items-center gap-8">
+                  <div className="text-white text-base font-light font-['Gotham']">
+                    November 15, 2025
+                  </div>
+                  <div className="text-[#37B478] text-base font-['Gotham']">
+                    2 minutes read
+                  </div>
+                </div>
+
+                <div className="text-white text-base font-['Gotham'] leading-[1.45]">
+                  InnotechCo introduced INCEPTION, a modular innovation
+                  management system that helps R&D and strategy teams map their
+                  innovation processes, run maturity assessments, and connect AI
+                  agents to real business workflows.
+                </div>
               </div>
             </div>
           </div>
 
           {/* RIGHT SIDE */}
-          <div className="flex-1 h-[702px] flex flex-col justify-center gap-8 relative z-10">
-            {/* CARD 1 */}
-            <div className="flex-1 rounded-[50px] border border-[#37B478] overflow-hidden flex items-center bg-black">
-              <img
-                src={HowWeThinkImage}
-                className="w-[55%] h-full object-cover"
+          <div className="flex-1 h-[702px] flex flex-col justify-center gap-8">
+            {/* CARD 1 (راست - بالا) با نئون مخصوص خودش */}
+            <div className="relative flex-1">
+              {/* 🌟 NEON GLOW BEHIND RIGHT CARD 1 */}
+              <div
+                className="pointer-events-none absolute transition-opacity duration-300"
+                style={{
+                  left: 0,
+                  top: 0,
+                  width: "100%",
+                  height: "100%",
+                  opacity: pos2.active ? 1 : 0,
+                  background: `
+                    radial-gradient(
+                      600px circle at ${pos2.x}px ${pos2.y}px,
+                      rgba(55, 180, 120, 0.7),
+                      transparent 75%
+                    )
+                  `,
+                  filter: "blur(20px)",
+                  borderRadius: "50px",
+                  zIndex: 0,
+                }}
               />
-              <div className="w-80 h-60 px-6 flex flex-col gap-4">
-                <div className="text-white text-2xl font-['Gotham'] leading-[1.2]">
-                  InnotechCo launches INCEPTION
-                </div>
-                <div className="flex justify-between items-center">
-                  <div className="text-white text-base font-light font-['Gotham']">
-                    November 15, 2025
+
+              <div
+                className="w-full h-full rounded-[50px] border border-[#37B478] overflow-hidden flex items-center bg-black relative z-10"
+                onMouseMove={handleMouseMove2}
+                onMouseLeave={handleMouseLeave2}
+              >
+                <img
+                  src={HowWeThinkImage}
+                  className="w-[55%] h-full object-cover"
+                />
+                <div className="w-80 h-60 px-6 flex flex-col gap-4">
+                  <div className="text-white text-2xl font-['Gotham'] leading-[1.2]">
+                    InnotechCo launches INCEPTION
                   </div>
-                  <div className="text-[#37B478] text-base font-['Gotham']">
-                    2 minutes read
+                  <div className="flex justify-between items-center">
+                    <div className="text-white text-base font-light font-['Gotham']">
+                      November 15, 2025
+                    </div>
+                    <div className="text-[#37B478] text-base font-['Gotham']">
+                      2 minutes read
+                    </div>
                   </div>
-                </div>
-                <div className="text-white text-base font-['Gotham'] leading-[1.45]">
-                  InnotechCo introduced INCEPTION, a modular innovation
-                  management system that helps R&D and strategy
+                  <div className="text-white text-base font-['Gotham'] leading-[1.45]">
+                    InnotechCo introduced INCEPTION, a modular innovation
+                    management system that helps R&D and strategy
+                  </div>
                 </div>
               </div>
-              
             </div>
 
-            {/* CARD 2 */}
-            <div className="flex-1 rounded-[50px] border border-[#37B478] overflow-hidden flex items-center bg-black">
-              <img
-                src={HowWeThinkImage}
-                className="w-[55%] h-full object-cover"
+            {/* CARD 2 (راست - پایین) با نئون مخصوص خودش */}
+            <div className="relative flex-1">
+              {/* 🌟 NEON GLOW BEHIND RIGHT CARD 2 */}
+              <div
+                className="pointer-events-none absolute transition-opacity duration-300"
+                style={{
+                  left: 0,
+                  top: 0,
+                  width: "100%",
+                  height: "100%",
+                  opacity: pos3.active ? 1 : 0,
+                  background: `
+                    radial-gradient(
+                      600px circle at ${pos3.x}px ${pos3.y}px,
+                      rgba(55, 180, 120, 0.7),
+                      transparent 75%
+                    )
+                  `,
+                  filter: "blur(20px)",
+                  borderRadius: "50px",
+                  zIndex: 0,
+                }}
               />
-              <div className="w-80 h-60 px-6 flex flex-col gap-4">
-                <div className="text-white text-2xl font-['Gotham'] leading-[1.2]">
-                  InnotechCo launches INCEPTION
-                </div>
-                <div className="flex justify-between items-center">
-                  <div className="text-white text-base font-light font-['Gotham']">
-                    November 15, 2025
+
+              <div
+                className="w-full h-full rounded-[50px] border border-[#37B478] overflow-hidden flex items-center bg-black relative z-10"
+                onMouseMove={handleMouseMove3}
+                onMouseLeave={handleMouseLeave3}
+              >
+                <img
+                  src={HowWeThinkImage}
+                  className="w-[55%] h-full object-cover"
+                />
+                <div className="w-80 h-60 px-6 flex flex-col gap-4">
+                  <div className="text-white text-2xl font-['Gotham'] leading-[1.2]">
+                    InnotechCo launches INCEPTION
                   </div>
-                  <div className="text-[#37B478] text-base font-['Gotham']">
-                    2 minutes read
+                  <div className="flex justify-between items-center">
+                    <div className="text-white text-base font-light font-['Gotham']">
+                      November 15, 2025
+                    </div>
+                    <div className="text-[#37B478] text-base font-['Gotham']">
+                      2 minutes read
+                    </div>
                   </div>
-                </div>
-                <div className="text-white text-base font-['Gotham'] leading-[1.45]">
-                  InnotechCo introduced INCEPTION, processes, run maturity
-                  assessments, and connect AI agents to real business workflows.
+                  <div className="text-white text-base font-['Gotham'] leading-[1.45]">
+                    InnotechCo introduced INCEPTION, processes, run maturity
+                    assessments, and connect AI agents to real business
+                    workflows.
+                  </div>
                 </div>
               </div>
             </div>

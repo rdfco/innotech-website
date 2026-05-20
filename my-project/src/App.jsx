@@ -3,6 +3,8 @@ import FirstPage from "./components/FirstPage";
 import EcosystemSection from "./components/EcosystemSection";
 import LatestNews from "./components/LatestNews";
 import HowWeThink from "./components/HowWeThink";
+import Map from "./components/Map";
+import FooterFirstPage from "./components/FooterFirstPage";
 
 function App() {
   return (
@@ -12,6 +14,10 @@ function App() {
       <EcosystemSection />
       <LatestNews />
       <HowWeThink />
+      <Map />
+
+      {/* Footer First Page - بدون SVG */}
+      <FooterFirstPage />
     </div>
   );
 }
