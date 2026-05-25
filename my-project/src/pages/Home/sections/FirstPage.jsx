@@ -1,8 +1,8 @@
-import {useTheme} from "../components/ThemeContext"; 
-import bgImage from "../assets/Firstpagepic.jpg";
+import {useTheme} from "../../../context/ThemeContext";
+import bgImage from "../../../assets/Firstpagepic.jpg";
 
 function FirstPage() {
-  const {isDarkMode} = useTheme(); 
+  const {isDarkMode} = useTheme();
 
   return (
     <section className="relative w-full min-h-[100vh] overflow-hidden z-10">

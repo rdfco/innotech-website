@@ -1,26 +1,38 @@
-import FooterSVG from "../assets/FooterFirstPage.svg";
-import FooterInnoTech from "../assets/FooterInnoTech.svg";
-import Instagram from "../assets/Instagram.svg";
-import LinkedIn from "../assets/Linkdin.svg";
-import WhatsApp from "../assets/WhatsApp.svg";
+import {useTheme} from "../../../context/ThemeContext";
+import FooterSVG from "../../../assets/FooterFirstPage.svg";
+import FooterSVGDark from "../../../assets/FooterFirstPageDark.svg";
+import FooterInnoTech from "../../../assets/FooterInnoTech.svg";
+import FooterInnoTechDark from "../../../assets/FooterInnoTechDark.svg";
+import Instagram from "../../../assets/Instagram.svg";
+import InstagramDark from "../../../assets/InstagramDark.svg";
+import LinkedIn from "../../../assets/Linkdin.svg";
+import LinkedInDark from "../../../assets/LinkdinDark.svg";
+import WhatsApp from "../../../assets/WhatsApp.svg";
+import WhatsAppDark from "../../../assets/WhatsAppDark.svg";
 
 const FooterFirstPage = ({onContactClick}) => {
+  const {isDarkMode} = useTheme();
+
+  // در لایت مود (isDarkMode = false) می‌خواهیم فوتر مشکی باشد
+  // پس باید از فایل‌های Dark استفاده کنیم وقتی لایت مود فعال است!
+  const isLightMode = !isDarkMode;
+
   return (
     <section className="relative w-full overflow-hidden -mt-30 md:-mt-40 lg:-mt-24 z-20">
       <div className="relative w-full">
         <img
-          src={FooterSVG}
+          src={isLightMode ? FooterSVGDark : FooterSVG}
           alt="Footer Background"
-          className="w-full h-auto block"
+          className="w-full h-auto block transition-opacity duration-500 ease-in-out"
         />
 
         {/* InnoTech logo + Contact Us button */}
         <div className="absolute inset-0 flex items-center justify-between px-[150px] mb-35">
           <div>
             <img
-              src={FooterInnoTech}
+              src={isLightMode ? FooterInnoTechDark : FooterInnoTech}
               alt="InnoTech Logo"
-              className="w-[125px] h-auto"
+              className="w-[125px] h-auto transition-opacity duration-500 ease-in-out"
             />
           </div>
 
@@ -44,7 +56,11 @@ const FooterFirstPage = ({onContactClick}) => {
           <div className="max-w-[1440px] mx-auto">
             <div className="self-stretch inline-flex justify-between items-center w-full">
               {/* Left side - links */}
-              <div className="flex justify-start items-center gap-6 md:gap-8 lg:gap-5 text-black">
+              <div
+                className={`flex justify-start items-center gap-6 md:gap-8 lg:gap-5 transition-colors duration-500 ease-in-out ${
+                  isLightMode ? "text-white" : "text-black"
+                }`}
+              >
                 {["Legal Notice", "Legal Notice", "GDPR", "Cookie Policy"].map(
                   (item, i) => (
                     <div
@@ -52,7 +68,11 @@ const FooterFirstPage = ({onContactClick}) => {
                       className="relative cursor-pointer px-4 py-1 rounded-full transition-all duration-300 group hover:-translate-y-0.5 active:scale-95 overflow-hidden"
                     >
                       <div className="absolute inset-0 bg-green-500 rounded-full scale-75 opacity-0 transition-all duration-300 group-hover:scale-100 group-hover:opacity-100 active:scale-110 active:opacity-70" />
-                      <span className="relative z-10 font-['Gotham'] text-base transition-colors duration-300 group-hover:text-white">
+                      <span
+                        className={`relative z-10 font-['Gotham'] text-base transition-colors duration-300 group-hover:text-white ${
+                          isLightMode ? "text-white" : "text-black"
+                        }`}
+                      >
                         {item}
                       </span>
                     </div>
@@ -64,23 +84,23 @@ const FooterFirstPage = ({onContactClick}) => {
               <div className="flex justify-end items-center gap-5">
                 <div className="size-8 relative cursor-pointer hover:scale-110 transition-transform">
                   <img
-                    src={Instagram}
+                    src={isLightMode ? InstagramDark : Instagram}
                     alt="Instagram"
-                    className="w-full h-full object-contain"
+                    className="w-full h-full object-contain transition-opacity duration-500 ease-in-out"
                   />
                 </div>
                 <div className="size-8 relative cursor-pointer hover:scale-110 transition-transform">
                   <img
-                    src={LinkedIn}
+                    src={isLightMode ? LinkedInDark : LinkedIn}
                     alt="LinkedIn"
-                    className="w-full h-full object-contain"
+                    className="w-full h-full object-contain transition-opacity duration-500 ease-in-out"
                   />
                 </div>
                 <div className="size-8 relative cursor-pointer hover:scale-110 transition-transform">
                   <img
-                    src={WhatsApp}
+                    src={isLightMode ? WhatsAppDark : WhatsApp}
                     alt="WhatsApp"
-                    className="w-full h-full object-contain"
+                    className="w-full h-full object-contain transition-opacity duration-500 ease-in-out"
                   />
                 </div>
               </div>

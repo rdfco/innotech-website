@@ -1,10 +1,10 @@
 import {useEffect, useMemo, useRef, useState} from "react";
-import {useTheme} from "../components/ThemeContext";
-import Logo from "../assets/NavbarInnoTech.svg";
-import SunMedium from "../assets/SunMedium.svg";
-import Moon from "../assets/Moon.svg";
-import SearchIcon from "../assets/Search.svg";
-import Vector from "../assets/Vector.svg";
+import { useTheme } from "../../context/ThemeContext";
+import Logo from "../../assets/NavbarInnoTech.svg";
+import SunMedium from "../../assets/SunMedium.svg";
+import Moon from "../../assets/Moon.svg";
+import SearchIcon from "../../assets/Search.svg";
+import Vector from "../../assets/Vector.svg";
 
 const searchItems = [
   {title: "What we do", type: "Page"},
@@ -15,7 +15,7 @@ const searchItems = [
 ];
 
 function Navbar() {
-  const {isDarkMode, toggleTheme} = useTheme(); 
+  const {isDarkMode, toggleTheme} = useTheme();
 
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
@@ -233,14 +233,14 @@ function Navbar() {
                     isDarkMode ? "text-white" : "text-black"
                   } text-base font-['Gotham']`}
                 >
-                  Capability:
+                  Services:
                 </div>
                 <div className="w-52 inline-flex flex-col justify-start items-start gap-5">
                   <div className="self-stretch flex flex-col justify-start items-start">
                     <div
                       className={`${
                         isDarkMode ? "text-white" : "text-black"
-                      } text-base font-normal font-['Gotham'] hover:text-emerald-400 transition-colors cursor-pointer`}
+                      } text-base font-bold font-['Gotham'] hover:text-emerald-400 transition-colors cursor-pointer`}
                     >
                       INCEPTION
                     </div>
@@ -256,7 +256,7 @@ function Navbar() {
                     <div
                       className={`${
                         isDarkMode ? "text-white" : "text-black"
-                      } text-base font-normal font-['Gotham'] hover:text-emerald-400 transition-colors cursor-pointer`}
+                      } text-base font-bold font-['Gotham'] hover:text-emerald-400 transition-colors cursor-pointer`}
                     >
                       INSIGHT
                     </div>
@@ -265,7 +265,7 @@ function Navbar() {
                         isDarkMode ? "text-white/70" : "text-black/60"
                       } self-stretch text-xs font-['Gotham'] leading-5`}
                     >
-                      Science, Technology, Innovation and Market Analytics
+                      Science, Technology, Innovation and Market Analytics &
                       Reports
                     </div>
                   </div>
@@ -273,7 +273,7 @@ function Navbar() {
                     <div
                       className={`${
                         isDarkMode ? "text-white" : "text-black"
-                      } text-base font-normal font-['Gotham'] hover:text-emerald-400 transition-colors cursor-pointer`}
+                      } text-base font-bold font-['Gotham'] hover:text-emerald-400 transition-colors cursor-pointer`}
                     >
                       INFINITY
                     </div>
@@ -282,32 +282,32 @@ function Navbar() {
                         isDarkMode ? "text-white/70" : "text-black/60"
                       } self-stretch text-xs font-['Gotham'] leading-5`}
                     >
-                      Digital Transformation
+                      Digital Transformation and Industry 4.0
                     </div>
                   </div>
                 </div>
               </div>
-              <div className="py-2 flex justify-center items-start gap-12">
+              <div className="py-2 flex justify-center items-start gap-12 ">
                 <div
                   className={`${
                     isDarkMode ? "text-white" : "text-black"
                   } text-base font-['Gotham']`}
                 >
-                  Industry:
+                  Industries:
                 </div>
                 <div className="w-52 inline-flex flex-col justify-start items-start gap-5">
                   {[
-                    "Oil, Gas & Petrochemical",
-                    "Health",
-                    "Mining",
-                    "AI & Digital",
                     "Automotive",
+                    "Energy & Materials ",
+                    "Health",
+                    "High Tech",
+                    "Metals & Mining",
                   ].map((item) => (
                     <div
                       key={item}
                       className={`${
                         isDarkMode ? "text-white" : "text-black"
-                      } text-base font-normal font-['Gotham'] hover:text-emerald-400 transition-colors cursor-pointer`}
+                      } text-base font-bold font-['Gotham'] hover:text-emerald-400 transition-colors cursor-pointer`}
                     >
                       {item}
                     </div>

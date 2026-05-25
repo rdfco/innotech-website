@@ -1,4 +1,4 @@
-import {useTheme} from "./ThemeContext";
+import {useTheme} from "../context/ThemeContext";
 import InceptionIcon from "../assets/Inception-Icon 1.svg";
 import InfinityIcon from "../assets/Subtract.svg";
 import InsightIcon from "../assets/Subtract2.svg";
@@ -97,11 +97,11 @@ function InnoCard({title, subtitle, items = []}) {
     >
       <div className="flex flex-col justify-start items-center gap-4">
         <div className="inline-flex justify-start items-center gap-3">
-          <div className="size-9 relative overflow-hidden shrink-0">
+          <div className="size-9 relative overflow-hidden shrink-0 transition-all duration-500 ease-in-out">
             <img
               src={CurrentIcon}
               alt={`${title} Icon`}
-              className={`size-9 object-contain ${iconFilter}`}
+              className={`size-9 object-contain transition-all duration-500 ease-in-out ${iconFilter}`}
               style={
                 !isDarkMode
                   ? {
@@ -115,17 +115,19 @@ function InnoCard({title, subtitle, items = []}) {
 
           <div className="flex flex-col justify-start items-start">
             <div
-              className={`${textColor} text-base font-bold font-['Gotham'] leading-none`}
+              className={`${textColor} text-base font-bold font-['Gotham'] leading-none transition-colors duration-500 ease-in-out`}
               dangerouslySetInnerHTML={{__html: renderBoldText(title)}}
             />
-            <div className={`${subtitleColor} text-xs font-['Gotham'] mt-1`}>
+            <div
+              className={`${subtitleColor} text-xs font-['Gotham'] mt-1 transition-colors duration-500 ease-in-out`}
+            >
               {subtitle}
             </div>
           </div>
         </div>
 
         <div
-          className={`w-44 h-0 rounded-[50px] outline-2 -outline-offset-1 ${lineColor} ${lineBlur}`}
+          className={`w-44 h-0 rounded-[50px] outline-2 -outline-offset-1 ${lineColor} ${lineBlur} transition-all duration-500 ease-in-out`}
         />
       </div>
 
@@ -138,18 +140,18 @@ function InnoCard({title, subtitle, items = []}) {
             <div className="self-stretch inline-flex justify-start items-start gap-1">
               <div className="w-4 self-stretch flex justify-center items-center gap-2.5">
                 <div
-                  className={`w-2 h-2 rounded-full border-[0.50px] ${bulletColor}`}
+                  className={`w-2 h-2 rounded-full border-[0.50px] ${bulletColor} transition-all duration-500 ease-in-out`}
                 />
               </div>
 
               <div
-                className={`flex-1 justify-start ${textColor} text-sm font-['Gotham'] whitespace-pre-line`}
+                className={`flex-1 justify-start ${textColor} text-sm font-['Gotham'] whitespace-pre-line transition-colors duration-500 ease-in-out`}
                 dangerouslySetInnerHTML={{__html: renderBoldText(item.label)}}
               />
             </div>
 
             <div
-              className={`self-stretch text-left ${textColor} text-xs font-light font-['Gotham'] leading-tight whitespace-pre-line`}
+              className={`self-stretch text-left ${textColor} text-xs font-light font-['Gotham'] leading-tight whitespace-pre-line transition-colors duration-500 ease-in-out`}
               dangerouslySetInnerHTML={{
                 __html: renderBoldText(item.description),
               }}
