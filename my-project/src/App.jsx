@@ -16,9 +16,9 @@ function App() {
     <ThemeProvider>
       {" "}
       <div className="relative w-full min-h-screen overflow-x-hidden">
-        <Navbar /> 
+        <Navbar />
         <FirstPage />
-        <EcosystemSection /> 
+        <EcosystemSection />
         <LatestNews />
         <WhatWeThink />
         <Map />

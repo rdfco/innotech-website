@@ -1,8 +1,9 @@
-import { createContext, useContext, useState } from "react";
+// src/components/ThemeContext.jsx
+import {createContext, useContext, useState} from "react";
 
 const ThemeContext = createContext();
 
-export function ThemeProvider({ children }) {
+export function ThemeProvider({children}) {
   const [isDarkMode, setIsDarkMode] = useState(true);
 
   const toggleTheme = () => {
@@ -16,9 +17,7 @@ export function ThemeProvider({ children }) {
   };
 
   return (
-    <ThemeContext.Provider value={value}>
-      {children}
-    </ThemeContext.Provider>
+    <ThemeContext.Provider value={value}>{children}</ThemeContext.Provider>
   );
 }
 
