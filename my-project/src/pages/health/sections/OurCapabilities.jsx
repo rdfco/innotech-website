@@ -1,4 +1,5 @@
 import {useState} from "react";
+import {useTheme} from "../../../context/useTheme";
 
 const services = [
   {
@@ -28,7 +29,25 @@ const services = [
   },
 ];
 
-function ServiceCard({title, description, isWide = false}) {
+function ServiceTitle({title}) {
+  const match = title.match(/^(.*?)(\s*\([^)]*\))$/);
+
+  if (!match) {
+    return title;
+  }
+
+  return (
+    <>
+      {match[1]}
+      <span className="text-base font-normal leading-none">
+        {" "}
+        {match[2].trim()}
+      </span>
+    </>
+  );
+}
+
+function ServiceCard({title, description, isWide = false, isDarkMode}) {
   const [pos, setPos] = useState({x: 0, y: 0, active: false});
 
   const handleMouseMove = (e) => {
@@ -47,7 +66,7 @@ function ServiceCard({title, description, isWide = false}) {
   return (
     <div
       className={`relative isolate w-full overflow-visible ${
-        isWide ? "" : "h-[230px]"
+        isWide ? "" : "min-h-[230px]"
       }`}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
@@ -70,8 +89,10 @@ function ServiceCard({title, description, isWide = false}) {
       />
 
       <article
-        className={`relative z-10 flex min-w-0 items-start justify-end gap-2.5 overflow-hidden rounded-[25px] border border-[#1D5F3F] bg-[#050505] p-9 shadow-[inset_1px_-1px_2px_0px_rgba(29,95,63,1)] ${
-          isWide ? "w-full" : "h-[230px] w-full"
+        className={`relative z-10 flex min-w-0 items-start justify-end gap-3 overflow-hidden rounded-[25px] border border-[#1D5F3F] px-8 py-8 shadow-[inset_1px_-1px_2px_0px_rgba(29,95,63,1)] md:px-9 md:py-8 ${
+          isDarkMode ? "bg-[#050505]" : "bg-white"
+        } ${
+          isWide ? "w-full" : "min-h-[230px] w-full"
         }`}
       >
         <div
@@ -79,11 +100,15 @@ function ServiceCard({title, description, isWide = false}) {
           className="pointer-events-none absolute inset-0 rounded-[25px] bg-[#37B478]/5"
         />
 
-        <div className="relative z-10 flex min-w-0 flex-1 flex-col items-start gap-4 text-white">
-          <h3 className="font-['Gotham'] text-2xl font-bold leading-normal">
-            {title}
+        <div
+          className={`relative z-10 flex min-w-0 flex-1 flex-col items-start gap-3 pb-1 ${
+            isDarkMode ? "text-white" : "text-black"
+          }`}
+        >
+          <h3 className="font-['Gotham'] text-2xl font-bold leading-tight">
+            <ServiceTitle title={title} />
           </h3>
-          <p className="font-['Gotham'] text-base leading-normal">
+          <p className="font-['Gotham'] text-base leading-[1.4]">
             {description}
           </p>
         </div>
@@ -98,25 +123,39 @@ function ServiceCard({title, description, isWide = false}) {
 }
 
 function OurServicesIn() {
+  const {isDarkMode} = useTheme();
+
   return (
-    <section className="self-stretch bg-[#050505] px-6 py-14 md:px-16 xl:px-[120px]">
+    <section
+      className={`self-stretch px-6 py-14 md:px-16 xl:px-[120px] ${
+        isDarkMode ? "bg-[#050505]" : "bg-white"
+      }`}
+    >
       <div className="flex w-full flex-col items-start gap-8">
         <div className="relative flex w-full flex-col items-start justify-center gap-2">
           <div className="absolute left-[-14px] top-[-19px] size-16 rounded-full border border-[#37B478]" />
-          <h2 className="font-['Gotham'] text-4xl font-bold text-white">
-            OUR SERVICES IN
+          <h2
+            className={`font-['Gotham'] text-4xl font-bold ${
+              isDarkMode ? "text-white" : "text-black"
+            }`}
+          >
+            OUR CAPABILITIES
           </h2>
         </div>
 
         <div className="flex w-full flex-col items-start gap-[42px]">
           <div className="grid w-full grid-cols-1 gap-[42px] overflow-visible lg:grid-cols-2">
             {services.slice(0, 4).map((service, index) => (
-              <ServiceCard key={`${service.title}-${index}`} {...service} />
+              <ServiceCard
+                key={`${service.title}-${index}`}
+                {...service}
+                isDarkMode={isDarkMode}
+              />
             ))}
           </div>
 
           <div className="flex w-full items-start">
-            <ServiceCard {...services[4]} isWide />
+            <ServiceCard {...services[4]} isWide isDarkMode={isDarkMode} />
           </div>
         </div>
       </div>

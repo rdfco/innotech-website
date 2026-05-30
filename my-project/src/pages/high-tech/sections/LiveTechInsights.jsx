@@ -64,7 +64,7 @@ function LiveTechInsights() {
         <div className="relative inline-flex items-center gap-3.5">
           <div className="absolute left-[-14px] top-[-19px] size-16 rounded-full border border-[#37B478]" />
           <div
-            className={`relative z-10 text-4xl font-normal font-['Gotham'] transition-colors duration-500 ease-in-out ${
+            className={`relative z-10 text-4xl font-bold font-['Gotham'] transition-colors duration-500 ease-in-out ${
               isDarkMode ? "text-white" : "text-black"
             }`}
           >
@@ -111,13 +111,13 @@ function LiveTechInsights() {
                 className="w-full h-96 object-cover"
               />
 
-              <div className="w-[500px] h-60 px-10 pt-8 flex flex-col gap-4">
+              <div className="w-[500px] flex-1 px-10 py-8 flex flex-col gap-3">
                 <div
-                  className={`text-2xl font-['Gotham'] leading-[1.25] transition-colors duration-500 ease-in-out ${
+                  className={`text-xl font-['Gotham'] font-bold leading-tight transition-colors duration-500 ease-in-out ${
                     isDarkMode ? "text-white" : "text-black"
                   }`}
                 >
-                  AI infrastructure races from experimentation to scale
+                  Large Language Model Technology
                 </div>
 
                 <div className="inline-flex items-center gap-8">
@@ -126,7 +126,7 @@ function LiveTechInsights() {
                       isDarkMode ? "text-white" : "text-black"
                     }`}
                   >
-                    June 1, 2026
+                    June 4, 2026
                   </div>
                   <div className="text-[#37B478] text-base font-['Gotham']">
                     2 minutes read
@@ -134,11 +134,14 @@ function LiveTechInsights() {
                 </div>
 
                 <div
-                  className={`text-base font-['Gotham'] leading-[1.45] transition-colors duration-500 ease-in-out ${
+                  className={`text-base font-['Gotham'] leading-[1.4] transition-colors duration-500 ease-in-out ${
                     isDarkMode ? "text-white" : "text-black"
                   }`}
                 >
-                  High-tech companies are rethinking compute, data, and product strategy as AI moves deeper into customer and enterprise workflows.
+                  The amount of patent registration of companies in the last 5
+                  years can indicate the possible business strategies of these
+                  companies in the coming years. Google Inc is the leader in
+                  patent registration in this Sector.
                 </div>
               </div>
             </div>
@@ -147,7 +150,7 @@ function LiveTechInsights() {
           {/* RIGHT SIDE */}
           <div className="flex-1 h-[702px] flex flex-col justify-center gap-8">
             {/* CARD 1 (right - top) with its own neon glow */}
-            <div className="relative flex-1">
+            <div className="relative h-[335px]">
               {/* 🌟 NEON GLOW BEHIND RIGHT CARD 1 */}
               <div
                 className="pointer-events-none absolute transition-opacity duration-300"
@@ -171,7 +174,7 @@ function LiveTechInsights() {
               />
 
               <div
-                className={`w-full h-full rounded-[50px] border border-[#37B478] overflow-hidden flex items-center transition-colors duration-500 ease-in-out relative z-10 ${
+                className={`w-full h-[335px] rounded-[50px] border border-[#37B478] overflow-hidden flex items-center transition-colors duration-500 ease-in-out relative z-10 ${
                   isDarkMode ? "bg-black" : "bg-white"
                 }`}
                 onMouseMove={handleMouseMove2}
@@ -179,15 +182,15 @@ function LiveTechInsights() {
               >
                 <img
                   src={techInsightTop}
-                  className="w-[55%] h-full object-cover"
+                  className="w-[55%] h-[335px] self-start object-cover"
                 />
-                <div className="w-80 h-60 px-6 flex flex-col gap-4">
+                <div className="min-w-0 flex-1 min-h-60 px-6 py-6 flex flex-col justify-center gap-3">
                   <div
-                    className={`text-2xl font-['Gotham'] leading-[1.2] transition-colors duration-500 ease-in-out ${
+                    className={`text-2xl font-bold font-['Gotham'] leading-tight transition-colors duration-500 ease-in-out ${
                       isDarkMode ? "text-white" : "text-black"
                     }`}
                   >
-                    Platform shifts create new software growth paths
+                    IBM Visual Insights
                   </div>
                   <div className="flex justify-between items-center">
                     <div
@@ -195,25 +198,27 @@ function LiveTechInsights() {
                         isDarkMode ? "text-white" : "text-black"
                       }`}
                     >
-                      June 1, 2026
+                      November 15, 2025
                     </div>
                     <div className="text-[#37B478] text-base font-['Gotham']">
                       2 minutes read
                     </div>
                   </div>
                   <div
-                    className={`text-base font-['Gotham'] leading-[1.45] transition-colors duration-500 ease-in-out ${
+                    className={`text-base font-['Gotham'] leading-[1.4] transition-colors duration-500 ease-in-out ${
                       isDarkMode ? "text-white" : "text-black"
                     }`}
                   >
-                    Product teams are tracking adoption signals across cloud, automation, cybersecurity, and developer ecosystems.
+                    IBM aims to enhance the capabilities of Visual Insights by
+                    incorporating more sophisticated AI algorithms and expanding
+                    its applications across more industries.
                   </div>
                 </div>
               </div>
             </div>
 
             {/* CARD 2 (right - bottom) with its own neon glow */}
-            <div className="relative flex-1">
+            <div className="relative h-[335px]">
               {/* 🌟 NEON GLOW BEHIND RIGHT CARD 2 */}
               <div
                 className="pointer-events-none absolute transition-opacity duration-300"
@@ -237,7 +242,7 @@ function LiveTechInsights() {
               />
 
               <div
-                className={`w-full h-full rounded-[50px] border border-[#37B478] overflow-hidden flex items-center transition-colors duration-500 ease-in-out relative z-10 ${
+                className={`w-full h-[335px] rounded-[50px] border border-[#37B478] overflow-hidden flex items-center transition-colors duration-500 ease-in-out relative z-10 ${
                   isDarkMode ? "bg-black" : "bg-white"
                 }`}
                 onMouseMove={handleMouseMove3}
@@ -245,15 +250,15 @@ function LiveTechInsights() {
               >
                 <img
                   src={techInsightBottom}
-                  className="w-[55%] h-full object-cover"
+                  className="w-[55%] h-[335px] self-start object-cover"
                 />
-                <div className="w-80 h-60 px-6 flex flex-col gap-4">
+                <div className="min-w-0 flex-1 min-h-60 px-6 py-6 flex flex-col justify-center gap-3">
                   <div
-                    className={`text-2xl font-['Gotham'] leading-[1.2] transition-colors duration-500 ease-in-out ${
+                    className={`text-2xl font-bold font-['Gotham'] leading-tight transition-colors duration-500 ease-in-out ${
                       isDarkMode ? "text-white" : "text-black"
                     }`}
                   >
-                    Semiconductor strategy turns more regional
+                    Dynamic Spectrum Access System
                   </div>
                   <div className="flex justify-between items-center">
                     <div
@@ -261,18 +266,21 @@ function LiveTechInsights() {
                         isDarkMode ? "text-white" : "text-black"
                       }`}
                     >
-                      June 1, 2026
+                      June 4, 2026
                     </div>
                     <div className="text-[#37B478] text-base font-['Gotham']">
                       2 minutes read
                     </div>
                   </div>
                   <div
-                    className={`text-base font-['Gotham'] leading-[1.45] transition-colors duration-500 ease-in-out ${
+                    className={`text-base font-['Gotham'] leading-[1.4] transition-colors duration-500 ease-in-out ${
                       isDarkMode ? "text-white" : "text-black"
                     }`}
                   >
-                    Supply chain resilience, advanced packaging, and capacity planning are shaping the next wave of technology leadership.
+                    Building on the success of initial feasibility tests, Sony
+                    and Mitsui plan to further refine the DSA system by
+                    incorporating machine learning techniques to enhance
+                    predictive interference management.
                   </div>
                 </div>
               </div>

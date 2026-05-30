@@ -4,29 +4,31 @@ import trexImage from "../../../assets/images/experts/trex.png";
 import itonicsImage from "../../../assets/images/experts/itonics.png";
 import statistaImage from "../../../assets/images/experts/statista.png";
 import excludeShape from "../../../assets/icons/Exclude.svg";
+import excludeBlackShape from "../../../assets/icons/ExcludeBlack.svg";
+import {useTheme} from "../../../context/useTheme";
 
 const expertCards = [
   {
-    id: "trex",
+    id: "statistaImage",
     image: statistaImage,
-    title: "Golam reza Jamshidi",
-    subtitle: "CEO of Nouri Petrochemical Company",
+    title: "Cord Blood Technology",
+    subtitle: "Copyrighted collaborative data ",
   },
   {
     id: "itonics",
     image: itonicsImage,
-    title: "Automotive industry trends 2026",
-    subtitle: "ITONICS Automotive Industry Trends",
+    title: "Report: Pharma R&D in 2026",
+    subtitle: "Practical actions to modernize your Pharma R&D operation",
   },
   {
-    id: "statista",
+    id: "trexImage",
     image: trexImage,
-    title: "Golam reza Jamshidi",
-    subtitle: "CEO of Nouri Petrochemical Company",
+    title: "Bottling and Packaging",
+    subtitle: "Regional best practices",
   },
 ];
 
-function ExpertCard({image, title, subtitle}) {
+function ExpertCard({image, title, subtitle, isDarkMode}) {
   const [pos, setPos] = useState({x: 0, y: 0, active: false});
 
   const handleMouseMove = (event) => {
@@ -64,12 +66,16 @@ function ExpertCard({image, title, subtitle}) {
         }}
       />
 
-      <article className="relative z-10 flex h-[250px] min-w-0 flex-col overflow-hidden rounded-[25px] border border-[#37B478] bg-[#050505] p-6 sm:p-9">
+      <article
+        className={`relative z-10 flex h-[250px] min-w-0 flex-col overflow-hidden rounded-[25px] border border-[#37B478] p-6 sm:p-9 ${
+          isDarkMode ? "bg-[#050505]" : "bg-white"
+        }`}
+      >
         {" "}
         {/* ← h-full + flex-col */}
         <img
           className="pointer-events-none absolute left-[-34px] top-[-72px] h-[242px] w-[234px] rotate-[10deg] opacity-100"
-          src={excludeShape}
+          src={isDarkMode ? excludeShape : excludeBlackShape}
           alt=""
           aria-hidden="true"
         />
@@ -82,12 +88,16 @@ function ExpertCard({image, title, subtitle}) {
             className="shrink-0 rounded-bl-[30px] rounded-br-[20px] rounded-tr-[20px] bg-[#22C55E] px-4 py-2 font-['Gotham'] text-base font-bold leading-none text-black shadow-lg transition-all duration-200 hover:scale-[1.03] hover:bg-[#16A34A] hover:shadow-xl active:scale-95"
             type="button"
           >
-            Quick Content
+            Exclusive content
           </button>
         </div>
         {/* بخش متن - با mt-auto برای چسباندن به پایین */}
-        <div className="relative z-10 mt-auto flex w-full flex-col text-white">
-          <h3 className="font-['Gotham'] text-2xl font-bold leading-none">
+        <div
+          className={`relative z-10 mt-auto flex w-full flex-col ${
+            isDarkMode ? "text-white" : "text-black"
+          }`}
+        >
+          <h3 className="font-['Gotham'] text-2xl font-bold leading-none pt-3">
             {title}
           </h3>
           <p className="mt-1 font-['Gotham'] text-base font-normal leading-none">
@@ -100,13 +110,23 @@ function ExpertCard({image, title, subtitle}) {
 }
 
 function OurExpert() {
+  const {isDarkMode} = useTheme();
+
   return (
-    <section className="self-stretch bg-[#050505] px-6 py-14 md:px-16 xl:px-[120px] xl:py-[60px]">
+    <section
+      className={`self-stretch px-6 py-14 md:px-16 xl:px-[120px] xl:py-[60px] ${
+        isDarkMode ? "bg-[#050505]" : "bg-white"
+      }`}
+    >
       <div className="flex w-full flex-col items-start gap-8">
         <div className="relative flex w-full items-center gap-[15px]">
           <div className="absolute left-[-14px] top-[-19px] size-[62px] rounded-full border border-[#37B478]" />
-          <h2 className="relative z-10 font-['Gotham'] text-4xl font-bold leading-normal text-white">
-            Our Expert in inception
+          <h2
+            className={`relative z-10 font-['Gotham'] text-4xl font-bold leading-normal ${
+              isDarkMode ? "text-white" : "text-black"
+            }`}
+          >
+            LATEST IN OUR ECOSYTEM OF CHANGE
           </h2>
         </div>
 
@@ -114,7 +134,7 @@ function OurExpert() {
           {" "}
           {/* ← items-stretch اضافه شد */}
           {expertCards.map((card) => (
-            <ExpertCard key={card.id} {...card} />
+            <ExpertCard key={card.id} {...card} isDarkMode={isDarkMode} />
           ))}
         </div>
       </div>

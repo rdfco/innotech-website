@@ -111,9 +111,9 @@ function LiveHealthInsights() {
                 className="w-full h-96 object-cover"
               />
 
-              <div className="w-[500px] h-60 px-10 pt-8 flex flex-col gap-4">
+              <div className="w-[500px] flex-1 px-10 py-8 flex flex-col gap-3">
                 <div
-                  className={`text-2xl font-['Gotham'] leading-[1.25] transition-colors duration-500 ease-in-out ${
+                  className={`text-2xl font-bold font-['Gotham'] leading-tight transition-colors duration-500 ease-in-out ${
                     isDarkMode ? "text-white" : "text-black"
                   }`}
                 >
@@ -134,7 +134,7 @@ function LiveHealthInsights() {
                 </div>
 
                 <div
-                  className={`text-base font-['Gotham'] leading-[1.45] transition-colors duration-500 ease-in-out ${
+                  className={`text-base font-['Gotham'] leading-[1.4] transition-colors duration-500 ease-in-out ${
                     isDarkMode ? "text-white" : "text-black"
                   }`}
                 >
@@ -151,7 +151,7 @@ function LiveHealthInsights() {
           {/* RIGHT SIDE */}
           <div className="flex-1 h-[702px] flex flex-col justify-center gap-8">
             {/* CARD 1 (right - top) with its own neon glow */}
-            <div className="relative flex-1">
+            <div className="relative h-[335px]">
               {/* 🌟 NEON GLOW BEHIND RIGHT CARD 1 */}
               <div
                 className="pointer-events-none absolute transition-opacity duration-300"
@@ -175,7 +175,7 @@ function LiveHealthInsights() {
               />
 
               <div
-                className={`w-full h-full rounded-[50px] border border-[#37B478] overflow-hidden flex items-center transition-colors duration-500 ease-in-out relative z-10 ${
+                className={`w-full h-[335px] rounded-[50px] border border-[#37B478] overflow-hidden flex items-center transition-colors duration-500 ease-in-out relative z-10 ${
                   isDarkMode ? "bg-black" : "bg-white"
                 }`}
                 onMouseMove={handleMouseMove2}
@@ -183,11 +183,11 @@ function LiveHealthInsights() {
               >
                 <img
                   src={healthInsightTop}
-                  className="w-[55%] h-full object-cover"
+                  className="w-[55%] h-[335px] self-start object-cover"
                 />
-                <div className="w-80 h-60 px-6 flex flex-col gap-4">
+                <div className="min-w-0 flex-1 min-h-60 px-6 py-6 flex flex-col justify-center gap-3">
                   <div
-                    className={`text-2xl font-['Gotham'] leading-[1.2] transition-colors duration-500 ease-in-out ${
+                    className={`text-2xl font-bold font-['Gotham'] leading-tight transition-colors duration-500 ease-in-out ${
                       isDarkMode ? "text-white" : "text-black"
                     }`}
                   >
@@ -206,7 +206,7 @@ function LiveHealthInsights() {
                     </div>
                   </div>
                   <div
-                    className={`text-base font-['Gotham'] leading-[1.45] transition-colors duration-500 ease-in-out ${
+                    className={`text-base font-['Gotham'] leading-[1.4] transition-colors duration-500 ease-in-out ${
                       isDarkMode ? "text-white" : "text-black"
                     }`}
                   >
@@ -220,7 +220,7 @@ function LiveHealthInsights() {
             </div>
 
             {/* CARD 2 (right - bottom) with its own neon glow */}
-            <div className="relative flex-1">
+            <div className="relative h-[335px]">
               {/* 🌟 NEON GLOW BEHIND RIGHT CARD 2 */}
               <div
                 className="pointer-events-none absolute transition-opacity duration-300"
@@ -244,7 +244,7 @@ function LiveHealthInsights() {
               />
 
               <div
-                className={`w-full h-full rounded-[50px] border border-[#37B478] overflow-hidden flex items-center transition-colors duration-500 ease-in-out relative z-10 ${
+                className={`w-full h-[335px] rounded-[50px] border border-[#37B478] overflow-hidden flex items-center transition-colors duration-500 ease-in-out relative z-10 ${
                   isDarkMode ? "bg-black" : "bg-white"
                 }`}
                 onMouseMove={handleMouseMove3}
@@ -252,11 +252,11 @@ function LiveHealthInsights() {
               >
                 <img
                   src={healthInsightBottom}
-                  className="w-[55%] h-full object-cover"
+                  className="w-[55%] h-[335px] self-start object-cover"
                 />
-                <div className="w-80 h-60 px-6 flex flex-col gap-4">
+                <div className="min-w-0 flex-1 min-h-60 px-6 py-6 flex flex-col justify-center gap-3">
                   <div
-                    className={`text-2xl font-['Gotham'] leading-[1.2] transition-colors duration-500 ease-in-out ${
+                    className={`text-2xl font-bold font-['Gotham'] leading-tight transition-colors duration-500 ease-in-out ${
                       isDarkMode ? "text-white" : "text-black"
                     }`}
                   >
@@ -275,7 +275,7 @@ function LiveHealthInsights() {
                     </div>
                   </div>
                   <div
-                    className={`text-base font-['Gotham'] leading-[1.45] transition-colors duration-500 ease-in-out ${
+                    className={`text-base font-['Gotham'] leading-[1.4] transition-colors duration-500 ease-in-out ${
                       isDarkMode ? "text-white" : "text-black"
                     }`}
                   >

@@ -1,6 +1,6 @@
 import MetalsAndMiningPicCard from "./sections/MetalsAndMiningPicCard";
 import Acceleration from "./sections/Acceleration.jsx";
-import OurExpert from "./sections/OurExpert";
+import OurEcosystem from "./sections/OurEcosystem.jsx";
 import OurCapabilities from "./sections/OurCapabilities.jsx";
 import LiveMetalsInsights from "./sections/LiveMetalsInsights";
 
@@ -11,7 +11,7 @@ function MetalsAndMining() {
       <Acceleration />
       <OurCapabilities />
       <LiveMetalsInsights />
-      <OurExpert />
+      <OurEcosystem />
     </>
   );
 }

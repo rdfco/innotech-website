@@ -1,16 +1,16 @@
 import AutomotiveSection from "./sections/AutomotivePicCard";
-import Introduction from "./sections/Introduction";
+import Acceleration from "./sections/Acceleration";
 import OurExpert from "./sections/OurExpert";
-import OurServicesIn from "./sections/OurServicesIn";
-import WhatWeThink from "../home/sections/WhatWeThink";
+import OurCapabilities from "./sections/OurCapabilities";
+import LiveMobilityInsights from "./sections/LiveMobilityInsights";
 
 function Automotive() {
   return (
     <>
       <AutomotiveSection />
-      <Introduction />
-      <OurServicesIn />
-      <WhatWeThink />
+      <Acceleration />
+      <OurCapabilities />
+      <LiveMobilityInsights />
       <OurExpert />
     </>
   );
