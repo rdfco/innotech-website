@@ -1,6 +1,6 @@
-import healthImage from "../../../assets/images/industries/health.png";
-import industriesExcludeImage from "../../../assets/images/industries/IndustriesExclude.png";
-import industriesExcludeBlackImage from "../../../assets/images/industries/IndustriesExcludeBlack.png";
+import healthImage from "../../../assets/images/industries/health/health.png";
+import industriesExcludeImage from "../../../assets/images/industries/shared/IndustriesExclude.png";
+import industriesExcludeBlackImage from "../../../assets/images/industries/shared/IndustriesExcludeBlack.png";
 import {useTheme} from "../../../context/useTheme";
 
 function BreadcrumbChevron() {

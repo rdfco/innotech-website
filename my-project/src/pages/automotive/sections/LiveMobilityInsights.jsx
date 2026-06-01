@@ -66,12 +66,10 @@ function LiveMobilityInsights() {
         src={insightExclude}
         alt=""
         aria-hidden
-        className="pointer-events-none absolute left-[-300px] top-[180px] z-0 max-w-none"
+        className="pointer-events-none absolute left-[-330px] top-[75px] z-0 max-w-none"
         style={{
           width: "2147.087px",
           height: "2851.58px",
-          transform: "rotate(73.001deg)",
-          transformOrigin: "top left",
         }}
       />
       <div className="flex flex-col gap-8 relative z-10">

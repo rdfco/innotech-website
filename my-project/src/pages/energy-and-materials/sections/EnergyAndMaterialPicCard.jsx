@@ -1,6 +1,6 @@
-import energyandmaterialspic from "../../../assets/images/industries/energyandmaterials.png";
-import industriesExcludeImage from "../../../assets/images/industries/IndustriesExclude.png";
-import industriesExcludeBlackImage from "../../../assets/images/industries/IndustriesExcludeBlack.png";
+import energyandmaterialspic from "../../../assets/images/industries/energy-and-materials/energyandmaterials.png";
+import industriesExcludeImage from "../../../assets/images/industries/shared/IndustriesExclude.png";
+import industriesExcludeBlackImage from "../../../assets/images/industries/shared/IndustriesExcludeBlack.png";
 import {useTheme} from "../../../context/useTheme";
 
 function BreadcrumbChevron() {

@@ -1,8 +1,13 @@
 import {useTheme} from "../../../context/useTheme";
 import bgImage from "../../../assets/images/home/Firstpagepic.jpg";
+import aiAgentExcludeImage from "../../../assets/images/home/AIagentExclude.png";
+import aiAgentExcludeWhiteImage from "../../../assets/images/home/AIagentExcludeWhite.png";
 
 function FirstPage() {
   const {isDarkMode} = useTheme();
+  const aiAgentExclude = isDarkMode
+    ? aiAgentExcludeImage
+    : aiAgentExcludeWhiteImage;
 
   return (
     <section className="relative w-full min-h-[100vh] overflow-hidden z-10">
@@ -21,8 +26,15 @@ function FirstPage() {
               : "bg-white/30 border-black/20"
           }`}
         >
+          <img
+            src={aiAgentExclude}
+            alt=""
+            aria-hidden
+            className="pointer-events-none absolute inset-0 z-0 size-full object-fill left-[-90px]"
+          />
+
           {/* AI Agent title */}
-          <div className="w-64 h-20 relative mb-6">
+          <div className="relative z-10 w-64 h-20 mb-6">
             <div className="w-20 h-20 left-0 top-0 absolute rounded-full border-2 border-[#37B478]" />
             <div className="w-3 h-3 left-[4.72px] top-[7.08px] absolute bg-[#37B478] rounded-full" />
             <div
@@ -36,7 +48,7 @@ function FirstPage() {
 
           {/* Description text */}
           <div
-            className={`text-2xl place-self-auto justify-start font-medium font-['Gotham'] leading-tight mt-6 pr-8 transition-colors duration-500 ease-in-out ${
+            className={`relative z-10 text-2xl place-self-auto justify-start font-medium font-['Gotham'] leading-tight mt-6 pr-8 transition-colors duration-500 ease-in-out ${
               isDarkMode ? "text-white" : "text-black"
             }`}
           >
@@ -45,7 +57,7 @@ function FirstPage() {
           </div>
 
           {/* Read more button and underline */}
-          <div className="mt-4">
+          <div className="relative z-10 mt-4">
             <button
               type="button"
               onClick={() => {}}

@@ -1,8 +1,8 @@
 import {useState} from "react";
 
-import IDC from "../../../assets/images/industries/IDC.png";
+import IDC from "../../../assets/images/industries/shared/IDC.png";
 import itonicsImage from "../../../assets/images/experts/itonics.png";
-import BrightIdea from "../../../assets/images/industries/BrightIdea.png";
+import BrightIdea from "../../../assets/images/industries/shared/BrightIdea.png";
 import excludeShape from "../../../assets/icons/Exclude.svg";
 import excludeBlackShape from "../../../assets/icons/ExcludeBlack.svg";
 import {useTheme} from "../../../context/useTheme";

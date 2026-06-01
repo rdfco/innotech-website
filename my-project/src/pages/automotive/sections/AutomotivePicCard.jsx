@@ -1,6 +1,6 @@
-import automotiveImage from "../../../assets/images/industries/automotive.png";
-import industriesExcludeImage from "../../../assets/images/industries/IndustriesExclude.png";
-import industriesExcludeBlackImage from "../../../assets/images/industries/IndustriesExcludeBlack.png";
+import automotiveImage from "../../../assets/images/industries/automotive/automotive.png";
+import industriesExcludeImage from "../../../assets/images/industries/shared/IndustriesExclude.png";
+import industriesExcludeBlackImage from "../../../assets/images/industries/shared/IndustriesExcludeBlack.png";
 import {useTheme} from "../../../context/useTheme";
 
 function BreadcrumbChevron() {

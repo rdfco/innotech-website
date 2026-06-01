@@ -1,8 +1,8 @@
 import {useState} from "react";
 import {useTheme} from "../../../context/useTheme";
-import energyInsightLeft from "../../../assets/images/industries/energyandmaterials1.png";
-import energyInsightTop from "../../../assets/images/industries/energyandmaterials2.jpg";
-import energyInsightBottom from "../../../assets/images/industries/energyandmaterials3.jpg";
+import energyInsightLeft from "../../../assets/images/industries/energy-and-materials/energyandmaterials1.png";
+import energyInsightTop from "../../../assets/images/industries/energy-and-materials/energyandmaterials2.jpg";
+import energyInsightBottom from "../../../assets/images/industries/energy-and-materials/energyandmaterials3.jpg";
 import insightExcludeImage from "../../../assets/icons/InsightExclude.png";
 import insightExcludeBlackImage from "../../../assets/icons/InsightExcludeBlack.png";
 
@@ -68,12 +68,10 @@ function LiveEnergyInsights() {
         src={insightExclude}
         alt=""
         aria-hidden
-        className="pointer-events-none absolute left-[-300px] top-[180px] z-0 max-w-none"
+        className="pointer-events-none absolute left-[-60px] top-[105px] z-0 max-w-none"
         style={{
           width: "2147.087px",
           height: "2851.58px",
-          transform: "rotate(73.001deg)",
-          transformOrigin: "top left",
         }}
       />
       <div className="flex flex-col gap-8 relative z-10">

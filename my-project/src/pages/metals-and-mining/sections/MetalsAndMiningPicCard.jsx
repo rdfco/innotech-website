@@ -1,6 +1,6 @@
-import metalsAndMiningImage from "../../../assets/images/industries/metalsandmining.png";
-import industriesExcludeImage from "../../../assets/images/industries/IndustriesExclude.png";
-import industriesExcludeBlackImage from "../../../assets/images/industries/IndustriesExcludeBlack.png";
+import metalsAndMiningImage from "../../../assets/images/industries/metals-and-mining/metalsandmining.png";
+import industriesExcludeImage from "../../../assets/images/industries/shared/IndustriesExclude.png";
+import industriesExcludeBlackImage from "../../../assets/images/industries/shared/IndustriesExcludeBlack.png";
 import {useTheme} from "../../../context/useTheme";
 
 function BreadcrumbChevron() {

@@ -1,8 +1,8 @@
 import {useState} from "react";
 import {useTheme} from "../../../context/useTheme";
-import healthInsightLeft from "../../../assets/images/industries/health1.png";
-import healthInsightTop from "../../../assets/images/industries/health2.png";
-import healthInsightBottom from "../../../assets/images/industries/health3.png";
+import healthInsightLeft from "../../../assets/images/industries/health/health1.png";
+import healthInsightTop from "../../../assets/images/industries/health/health2.png";
+import healthInsightBottom from "../../../assets/images/industries/health/health3.png";
 import insightExcludeImage from "../../../assets/icons/InsightExclude.png";
 import insightExcludeBlackImage from "../../../assets/icons/InsightExcludeBlack.png";
 
@@ -68,12 +68,10 @@ function LiveHealthInsights() {
         src={insightExclude}
         alt=""
         aria-hidden
-        className="pointer-events-none absolute left-[-300px] top-[180px] z-0 max-w-none"
+        className="pointer-events-none absolute left-[-60px] top-[105px] z-0 max-w-none"
         style={{
           width: "2147.087px",
           height: "2851.58px",
-          transform: "rotate(73.001deg)",
-          transformOrigin: "top left",
         }}
       />
       <div className="flex flex-col gap-8 relative z-10">
