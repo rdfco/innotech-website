@@ -8,6 +8,9 @@ import Footer from "./components/layout/Footer";
 import Navbar from "./components/layout/Navbar";
 
 import Home from "./pages/home/Home";
+import AiAgent from "./pages/ai-agent/AiAgent";
+import WhatWeThink from "./pages/what-we-think/WhatWeThink";
+import WhoWeAre from "./pages/who-we-are/WhoWeAre";
 
 import Automotive from "./pages/automotive/Automotive";
 import EnergyAndMaterials from "./pages/energy-and-materials/EnergyAndMaterials";
@@ -18,15 +21,20 @@ import MetalsAndMining from "./pages/metals-and-mining/MetalsAndMining";
 function App() {
   const [isContactOpen, setIsContactOpen] = useState(false);
   const {pathname} = useLocation();
-  const footerTopSpacing = [
-    "/automotive",
-    "/energy-and-materials",
-    "/health",
-    "/high-tech",
-    "/metals-and-mining",
-  ].includes(pathname)
-    ? "mt-0"
-    : undefined;
+  const footerTopSpacing =
+    pathname === "/what-we-think"
+      ? "-mt-10"
+      : [
+          "/automotive",
+          "/energy-and-materials",
+          "/health",
+          "/high-tech",
+          "/metals-and-mining",
+          "/ai-agent",
+          "/who-we-are",
+        ].includes(pathname)
+        ? "mt-0"
+        : undefined;
 
   return (
     <ThemeProvider>
@@ -34,6 +42,9 @@ function App() {
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/ai-agent" element={<AiAgent />} />
+          <Route path="/what-we-think" element={<WhatWeThink />} />
+          <Route path="/who-we-are" element={<WhoWeAre />} />
           <Route path="/automotive" element={<Automotive />} />
           <Route path="/energy-and-materials" element={<EnergyAndMaterials />} />
           <Route path="/health" element={<Health />} />

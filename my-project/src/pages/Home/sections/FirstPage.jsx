@@ -1,3 +1,5 @@
+import {Link} from "react-router-dom";
+
 import {useTheme} from "../../../context/useTheme";
 import bgImage from "../../../assets/images/home/Firstpagepic.jpg";
 import aiAgentExcludeImage from "../../../assets/images/home/AIagentExclude.png";
@@ -58,9 +60,8 @@ function FirstPage() {
 
           {/* Read more button and underline */}
           <div className="relative z-10 mt-4">
-            <button
-              type="button"
-              onClick={() => {}}
+            <Link
+              to="/ai-agent"
               className="group flex w-fit flex-col items-start cursor-pointer transition-all duration-300"
             >
               <div
@@ -71,7 +72,7 @@ function FirstPage() {
                 Read more
               </div>
               <div className="mt-1 h-0.5 w-20 rounded-full bg-[#37B478] transition-all duration-300 group-hover:w-24" />
-            </button>
+            </Link>
           </div>
         </div>
       </div>

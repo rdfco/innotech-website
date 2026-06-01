@@ -8,7 +8,9 @@ import Vector from "../../assets/icons/Vector.svg";
 import {Link} from "react-router-dom";
 
 const searchItems = [
+  {title: "Who we are", type: "Page"},
   {title: "What we do", type: "Page"},
+  {title: "What we think", type: "Page"},
   {title: "INSIGHT Store", type: "Page"},
   {title: "Innovation and Technology Management", type: "Article"},
   {title: "Digital Transformation Report", type: "Report"},
@@ -99,14 +101,18 @@ function Navbar() {
 
             <div className="flex-1 flex justify-center">
               <div className="hidden md:flex items-center gap-10">
-                <a
-                  href="#"
+                <Link
+                  to="/who-we-are"
+                  onClick={() => {
+                    setIsDropdownOpen(false);
+                    setIsSearchOpen(false);
+                  }}
                   className={`flex items-center gap-1 ${
                     isDarkMode ? "text-white" : "text-black"
                   } font-['Gotham'] text-base hover:text-emerald-400 transition-colors`}
                 >
                   <span>Who we are</span>
-                </a>
+                </Link>
 
                 <div className="relative">
                   <button
@@ -128,14 +134,18 @@ function Navbar() {
                   </button>
                 </div>
 
-                <a
-                  href="#"
+                <Link
+                  to="/what-we-think"
+                  onClick={() => {
+                    setIsDropdownOpen(false);
+                    setIsSearchOpen(false);
+                  }}
                   className={`${
                     isDarkMode ? "text-white" : "text-black"
                   } font-['Gotham'] text-base hover:text-emerald-400 transition-colors`}
                 >
                   What we think
-                </a>
+                </Link>
 
                 <a
                   href="#"
