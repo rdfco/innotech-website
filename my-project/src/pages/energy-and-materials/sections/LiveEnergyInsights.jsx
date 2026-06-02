@@ -11,7 +11,7 @@ function InsightReadMoreLink({isDarkMode}) {
   return (
     <Link
       to="/ai-agent"
-      className={`group mt-auto flex w-fit flex-col items-start text-base transition-colors duration-300 hover:text-[#37B478] ${
+      className={`group mt-1 flex w-fit flex-col items-start text-base transition-colors duration-300 hover:text-[#37B478] ${
         isDarkMode ? "text-white" : "text-black"
       }`}
     >

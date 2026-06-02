@@ -7,7 +7,7 @@ function ReadMoreLink({isDarkMode}) {
   return (
     <Link
       to="/ai-agent"
-      className={`group mt-auto flex w-fit flex-col items-start text-base transition-colors duration-300 hover:text-[#37B478] ${
+      className={`group mt-1 flex w-fit flex-col items-start text-base transition-colors duration-300 hover:text-[#37B478] ${
         isDarkMode ? "text-white" : "text-black"
       }`}
     >
@@ -124,7 +124,7 @@ function HowWeThink() {
                 className="w-full h-96 object-cover"
               />
 
-              <div className="w-[500px] h-60 px-10 pt-8 flex flex-col gap-4">
+              <div className="flex min-h-0 w-[500px] flex-1 flex-col justify-center gap-3 px-10 py-7">
                 <div
                   className={`text-2xl font-['Gotham'] leading-[1.25] transition-colors duration-500 ease-in-out ${
                     isDarkMode ? "text-white" : "text-black"
@@ -200,7 +200,7 @@ function HowWeThink() {
                   src={HowWeThinkImage}
                   className="w-[55%] h-full object-cover"
                 />
-                <div className="w-80 h-60 px-6 flex flex-col gap-4">
+                <div className="flex min-w-0 flex-1 flex-col justify-center gap-3 self-stretch px-6 py-6">
                   <div
                     className={`text-2xl font-['Gotham'] leading-[1.2] transition-colors duration-500 ease-in-out ${
                       isDarkMode ? "text-white" : "text-black"
@@ -269,7 +269,7 @@ function HowWeThink() {
                   src={HowWeThinkImage}
                   className="w-[55%] h-full object-cover"
                 />
-                <div className="w-80 h-60 px-6 flex flex-col gap-4">
+                <div className="flex min-w-0 flex-1 flex-col justify-center gap-3 self-stretch px-6 py-6">
                   <div
                     className={`text-2xl font-['Gotham'] leading-[1.2] transition-colors duration-500 ease-in-out ${
                       isDarkMode ? "text-white" : "text-black"

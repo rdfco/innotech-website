@@ -92,7 +92,7 @@ function ArticleCopy({
         : "flex flex-col items-start";
 
   return (
-    <div className="flex size-full flex-col items-start justify-center gap-4 p-9 text-left font-['Gotham'] leading-normal [word-break:break-word]">
+    <div className="flex size-full flex-col items-start justify-center gap-3 p-9 text-left font-['Gotham'] leading-normal [word-break:break-word]">
       <h2
         className={`w-full text-[28px] font-medium leading-[1.15] transition-colors duration-500 ease-in-out ${textColor}`}
       >
@@ -116,7 +116,7 @@ function ArticleCopy({
 
       <Link
         to="/ai-agent"
-        className={`group mt-auto flex w-fit flex-col items-start text-base transition-colors duration-300 hover:text-[#37B478] ${textColor}`}
+        className={`group mt-1 flex w-fit flex-col items-start text-base transition-colors duration-300 hover:text-[#37B478] ${textColor}`}
       >
         <span>Read more</span>
         <span className="mt-1 h-[2px] w-0 rounded-full bg-[#37B478] transition-all duration-300 group-hover:w-full" />

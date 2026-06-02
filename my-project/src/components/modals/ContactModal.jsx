@@ -1,4 +1,4 @@
-import {useEffect, useMemo, useRef, useState} from "react";
+import {useCallback, useEffect, useMemo, useRef, useState} from "react";
 import {useTheme} from "../../context/useTheme";
 
 const countries = [
@@ -202,19 +202,21 @@ const countries = [
 
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
+const defaultContactValues = {
+  name: "",
+  email: "",
+  title: "",
+  company: "",
+  region: "",
+  message: "",
+};
+
 function ContactModal({isOpen, onClose}) {
   const {isDarkMode} = useTheme();
   const [shouldRender, setShouldRender] = useState(isOpen);
   const [visible, setVisible] = useState(false);
   const [isRegionOpen, setIsRegionOpen] = useState(false);
-  const [values, setValues] = useState({
-    name: "",
-    email: "",
-    title: "",
-    company: "",
-    region: "",
-    message: "",
-  });
+  const [values, setValues] = useState(defaultContactValues);
   const [errors, setErrors] = useState({});
   const regionRef = useRef(null);
 
@@ -230,6 +232,17 @@ function ContactModal({isOpen, onClose}) {
     setValues((current) => ({...current, [field]: value}));
     setErrors((current) => ({...current, [field]: ""}));
   };
+
+  const resetForm = useCallback(() => {
+    setValues(defaultContactValues);
+    setErrors({});
+    setIsRegionOpen(false);
+  }, []);
+
+  const handleClose = useCallback(() => {
+    resetForm();
+    onClose();
+  }, [onClose, resetForm]);
 
   const getRegionMatch = (region) =>
     countries.find(
@@ -312,12 +325,12 @@ function ContactModal({isOpen, onClose}) {
 
   useEffect(() => {
     const handleEsc = (e) => {
-      if (e.key === "Escape") onClose();
+      if (e.key === "Escape") handleClose();
     };
 
     if (isOpen) window.addEventListener("keydown", handleEsc);
     return () => window.removeEventListener("keydown", handleEsc);
-  }, [isOpen, onClose]);
+  }, [isOpen, handleClose]);
 
   if (!shouldRender) return null;
 
@@ -332,7 +345,7 @@ function ContactModal({isOpen, onClose}) {
   const closeIconColor = isDarkMode ? "text-white" : "text-black";
   const overlayBg = isDarkMode ? "bg-black/70" : "bg-white/70";
   const submitBtnBg = isDarkMode ? "bg-[#37B478]" : "bg-[#37B478]";
-  const submitTextColor = isDarkMode ? "text-black" : "text-white";
+  const submitTextColor = "text-white";
   const errorColor = isDarkMode ? "text-red-300" : "text-red-600";
   const getFieldOutline = (field) =>
     errors[field]
@@ -347,7 +360,7 @@ function ContactModal({isOpen, onClose}) {
         className={`absolute inset-0 ${overlayBg} backdrop-blur-sm transition-opacity duration-1000 ease-out ${
           visible ? "opacity-100" : "opacity-0"
         }`}
-        onClick={onClose}
+        onClick={handleClose}
       />
 
       {/* Modal */}
@@ -376,7 +389,7 @@ function ContactModal({isOpen, onClose}) {
           {/* Close Button */}
           <button
             type="button"
-            onClick={onClose}
+            onClick={handleClose}
             aria-label="Close modal"
             className="size-6 relative overflow-hidden flex items-center justify-center"
           >

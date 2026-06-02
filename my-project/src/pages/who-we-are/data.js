@@ -10,10 +10,10 @@ import HistoryCurve from "../../assets/images/who-we-are/HistoryCurve.png";
 import HistoryCurveLight from "../../assets/images/who-we-are/HistoryCurveLight.png";
 import OurExpertPerson from "../../assets/images/who-we-are/OurExpertPerson.png";
 import WindTurbines from "../../assets/images/who-we-are/WindTurbines.png";
-import CubeIcon from "../../assets/images/who-we-are/stats/CubeIcon.png";
-import DealHandshake from "../../assets/images/who-we-are/stats/DealHandshake.png";
-import EmployeesIcon from "../../assets/images/who-we-are/stats/EmployeesIcon.png";
-import FactoryIcon from "../../assets/images/who-we-are/stats/FactoryIcon.png";
+import CubeIcon from "../../assets/images/who-we-are/stats/CubeIcon.svg";
+import DealHandshake from "../../assets/images/who-we-are/stats/DealHandshake.svg";
+import EmployeesIcon from "../../assets/images/who-we-are/stats/EmployeesIcon.svg";
+import FactoryIcon from "../../assets/images/who-we-are/stats/FactoryIcon.svg";
 
 export const whoWeAreImages = {
   backgroundMiddleDark: BackgroundMiddleLight,
@@ -30,7 +30,32 @@ export const whoWeAreImages = {
   intro: WindTurbines,
 };
 
-export const stats = [EmployeesIcon, FactoryIcon, DealHandshake, CubeIcon];
+export const stats = [
+  {
+    id: "experts-primary",
+    icon: EmployeesIcon,
+    label: "Expert",
+    value: 45,
+  },
+  {
+    id: "experts-secondary",
+    icon: FactoryIcon,
+    label: "Expert",
+    value: 12,
+  },
+  {
+    id: "partners",
+    icon: DealHandshake,
+    label: "partners",
+    value: 32,
+  },
+  {
+    id: "program",
+    icon: CubeIcon,
+    label: "Program",
+    value: 20,
+  },
+];
 
 export const experts = Array.from({length: 6}, (_, index) => ({
   id: index,
