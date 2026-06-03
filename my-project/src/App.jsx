@@ -8,21 +8,24 @@ import Footer from "./components/layout/Footer";
 import Navbar from "./components/layout/Navbar";
 import ScrollToTop from "./components/layout/ScrollToTop";
 
-import {industryRoutes, routes} from "./routes";
+import {industryRoutes, serviceRoutes, routes} from "./routes";
 
 const Home = lazy(() => import("./pages/home/Home"));
 const AiAgent = lazy(() => import("./pages/ai-agent/AiAgent"));
 const Archives = lazy(() => import("./pages/archives/Archives"));
 const WhatWeThink = lazy(() => import("./pages/what-we-think/WhatWeThink"));
 const WhoWeAre = lazy(() => import("./pages/who-we-are/WhoWeAre"));
+const Inception = lazy(() => import("./pages/what-we-do/inception/Inception"));
+const Insight = lazy(() => import("./pages/what-we-do/insight/Insight"));
+const Infinity = lazy(() => import("./pages/what-we-do/infinity/Infinity"));
 const Automotive = lazy(() => import("./pages/automotive/Automotive"));
-const EnergyAndMaterials = lazy(
-  () => import("./pages/energy-and-materials/EnergyAndMaterials"),
+const EnergyAndMaterials = lazy(() =>
+  import("./pages/energy-and-materials/EnergyAndMaterials"),
 );
 const Health = lazy(() => import("./pages/health/Health"));
 const HighTech = lazy(() => import("./pages/high-tech/HighTech"));
-const MetalsAndMining = lazy(
-  () => import("./pages/metals-and-mining/MetalsAndMining"),
+const MetalsAndMining = lazy(() =>
+  import("./pages/metals-and-mining/MetalsAndMining"),
 );
 
 function App() {
@@ -32,13 +35,14 @@ function App() {
     pathname === routes.whatWeThink
       ? "-mt-10"
       : [
+          ...serviceRoutes,
           ...industryRoutes,
           routes.aiAgent,
           routes.archives,
           routes.whoWeAre,
         ].includes(pathname)
-        ? "mt-0"
-        : undefined;
+      ? "mt-0"
+      : undefined;
 
   return (
     <ThemeProvider>
@@ -52,6 +56,9 @@ function App() {
             <Route path={routes.archives} element={<Archives />} />
             <Route path={routes.whatWeThink} element={<WhatWeThink />} />
             <Route path={routes.whoWeAre} element={<WhoWeAre />} />
+            <Route path={routes.inception} element={<Inception />} />
+            <Route path={routes.insight} element={<Insight />} />
+            <Route path={routes.infinity} element={<Infinity />} />
             <Route path={routes.automotive} element={<Automotive />} />
             <Route
               path={routes.energyAndMaterials}

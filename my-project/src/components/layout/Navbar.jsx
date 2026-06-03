@@ -221,7 +221,10 @@ function Navbar() {
                   {[
                     {label: "En", name: "English"},
                     {label: "Tr", name: "Türkçe"},
-                    {label: "Ar", name: "\u0627\u0644\u0639\u0631\u0628\u064a\u0629"},
+                    {
+                      label: "Ar",
+                      name: "\u0627\u0644\u0639\u0631\u0628\u064a\u0629",
+                    },
                   ].map((language) => (
                     <button
                       key={language.label}
@@ -303,60 +306,50 @@ function Navbar() {
                 </div>
 
                 <div className="w-52 inline-flex flex-col justify-start items-start gap-5">
-                  <div className="self-stretch flex flex-col justify-start items-start">
-                    <div
-                      className={`${
-                        isDarkMode ? "text-white" : "text-black"
-                      } text-base font-bold font-['Gotham'] hover:text-emerald-400 transition-colors cursor-pointer`}
+                  {[
+                    {
+                      label: "INCEPTION",
+                      description: "Innovation and Technology Management",
+                      to: routes.inception,
+                    },
+                    {
+                      label: "INSIGHT",
+                      description:
+                        "Science, Technology, Innovation and Market Analytics & Reports",
+                      to: routes.insight,
+                    },
+                    {
+                      label: "INFINITY",
+                      description: "Digital Transformation and Industry 4.0",
+                      to: routes.infinity,
+                    },
+                  ].map((service) => (
+                    <Link
+                      key={service.label}
+                      to={service.to}
+                      onClick={() => {
+                        setIsDropdownOpen(false);
+                        setIsLanguageOpen(false);
+                      }}
+                      className="self-stretch flex flex-col justify-start items-start"
                     >
-                      INCEPTION
-                    </div>
+                      <div
+                        className={`${
+                          isDarkMode ? "text-white" : "text-black"
+                        } text-base font-bold font-['Gotham'] hover:text-emerald-400 transition-colors cursor-pointer`}
+                      >
+                        {service.label}
+                      </div>
 
-                    <div
-                      className={`${
-                        isDarkMode ? "text-white/70" : "text-black/60"
-                      } self-stretch text-xs font-['Gotham'] leading-5`}
-                    >
-                      Innovation and Technology Management
-                    </div>
-                  </div>
-
-                  <div className="self-stretch flex flex-col justify-start items-start">
-                    <div
-                      className={`${
-                        isDarkMode ? "text-white" : "text-black"
-                      } text-base font-bold font-['Gotham'] hover:text-emerald-400 transition-colors cursor-pointer`}
-                    >
-                      INSIGHT
-                    </div>
-
-                    <div
-                      className={`${
-                        isDarkMode ? "text-white/70" : "text-black/60"
-                      } self-stretch text-xs font-['Gotham'] leading-5`}
-                    >
-                      Science, Technology, Innovation and Market Analytics &
-                      Reports
-                    </div>
-                  </div>
-
-                  <div className="self-stretch flex flex-col justify-start items-start">
-                    <div
-                      className={`${
-                        isDarkMode ? "text-white" : "text-black"
-                      } text-base font-bold font-['Gotham'] hover:text-emerald-400 transition-colors cursor-pointer`}
-                    >
-                      INFINITY
-                    </div>
-
-                    <div
-                      className={`${
-                        isDarkMode ? "text-white/70" : "text-black/60"
-                      } self-stretch text-xs font-['Gotham'] leading-5`}
-                    >
-                      Digital Transformation and Industry 4.0
-                    </div>
-                  </div>
+                      <div
+                        className={`${
+                          isDarkMode ? "text-white/70" : "text-black/60"
+                        } self-stretch text-xs font-['Gotham'] leading-5`}
+                      >
+                        {service.description}
+                      </div>
+                    </Link>
+                  ))}
                 </div>
               </div>
 
