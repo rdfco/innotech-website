@@ -1,220 +1,33 @@
-import {useEffect, useMemo, useRef, useState} from "react";
+import {useCallback, useEffect, useMemo, useRef, useState} from "react";
 import {useTheme} from "../../context/useTheme";
-
-const countries = [
-  "Afghanistan",
-  "Albania",
-  "Algeria",
-  "Andorra",
-  "Angola",
-  "Antigua and Barbuda",
-  "Argentina",
-  "Armenia",
-  "Australia",
-  "Austria",
-  "Azerbaijan",
-  "Bahamas",
-  "Bahrain",
-  "Bangladesh",
-  "Barbados",
-  "Belarus",
-  "Belgium",
-  "Belize",
-  "Benin",
-  "Bhutan",
-  "Bolivia",
-  "Bosnia and Herzegovina",
-  "Botswana",
-  "Brazil",
-  "Brunei",
-  "Bulgaria",
-  "Burkina Faso",
-  "Burundi",
-  "Cabo Verde",
-  "Cambodia",
-  "Cameroon",
-  "Canada",
-  "Central African Republic",
-  "Chad",
-  "Chile",
-  "China",
-  "Colombia",
-  "Comoros",
-  "Congo",
-  "Costa Rica",
-  "Cote d'Ivoire",
-  "Croatia",
-  "Cuba",
-  "Cyprus",
-  "Czechia",
-  "Democratic Republic of the Congo",
-  "Denmark",
-  "Djibouti",
-  "Dominica",
-  "Dominican Republic",
-  "Ecuador",
-  "Egypt",
-  "El Salvador",
-  "Equatorial Guinea",
-  "Eritrea",
-  "Estonia",
-  "Eswatini",
-  "Ethiopia",
-  "Fiji",
-  "Finland",
-  "France",
-  "Gabon",
-  "Gambia",
-  "Georgia",
-  "Germany",
-  "Ghana",
-  "Greece",
-  "Grenada",
-  "Guatemala",
-  "Guinea",
-  "Guinea-Bissau",
-  "Guyana",
-  "Haiti",
-  "Honduras",
-  "Hungary",
-  "Iceland",
-  "India",
-  "Indonesia",
-  "Iran",
-  "Iraq",
-  "Ireland",
-  "Israel",
-  "Italy",
-  "Jamaica",
-  "Japan",
-  "Jordan",
-  "Kazakhstan",
-  "Kenya",
-  "Kiribati",
-  "Kuwait",
-  "Kyrgyzstan",
-  "Laos",
-  "Latvia",
-  "Lebanon",
-  "Lesotho",
-  "Liberia",
-  "Libya",
-  "Liechtenstein",
-  "Lithuania",
-  "Luxembourg",
-  "Madagascar",
-  "Malawi",
-  "Malaysia",
-  "Maldives",
-  "Mali",
-  "Malta",
-  "Marshall Islands",
-  "Mauritania",
-  "Mauritius",
-  "Mexico",
-  "Micronesia",
-  "Moldova",
-  "Monaco",
-  "Mongolia",
-  "Montenegro",
-  "Morocco",
-  "Mozambique",
-  "Myanmar",
-  "Namibia",
-  "Nauru",
-  "Nepal",
-  "Netherlands",
-  "New Zealand",
-  "Nicaragua",
-  "Niger",
-  "Nigeria",
-  "North Korea",
-  "North Macedonia",
-  "Norway",
-  "Oman",
-  "Pakistan",
-  "Palau",
-  "Palestine",
-  "Panama",
-  "Papua New Guinea",
-  "Paraguay",
-  "Peru",
-  "Philippines",
-  "Poland",
-  "Portugal",
-  "Qatar",
-  "Romania",
-  "Russia",
-  "Rwanda",
-  "Saint Kitts and Nevis",
-  "Saint Lucia",
-  "Saint Vincent and the Grenadines",
-  "Samoa",
-  "San Marino",
-  "Sao Tome and Principe",
-  "Saudi Arabia",
-  "Senegal",
-  "Serbia",
-  "Seychelles",
-  "Sierra Leone",
-  "Singapore",
-  "Slovakia",
-  "Slovenia",
-  "Solomon Islands",
-  "Somalia",
-  "South Africa",
-  "South Korea",
-  "South Sudan",
-  "Spain",
-  "Sri Lanka",
-  "Sudan",
-  "Suriname",
-  "Sweden",
-  "Switzerland",
-  "Syria",
-  "Taiwan",
-  "Tajikistan",
-  "Tanzania",
-  "Thailand",
-  "Timor-Leste",
-  "Togo",
-  "Tonga",
-  "Trinidad and Tobago",
-  "Tunisia",
-  "Turkey",
-  "Turkmenistan",
-  "Tuvalu",
-  "Uganda",
-  "Ukraine",
-  "United Arab Emirates",
-  "United Kingdom",
-  "United States",
-  "Uruguay",
-  "Uzbekistan",
-  "Vanuatu",
-  "Vatican City",
-  "Venezuela",
-  "Vietnam",
-  "Yemen",
-  "Zambia",
-  "Zimbabwe",
-].sort((a, b) => a.localeCompare(b));
+import {countries} from "../../data/countries";
 
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+
+const defaultContactValues = {
+  name: "",
+  email: "",
+  title: "",
+  company: "",
+  region: "",
+  industry: "",
+  message: "",
+};
+
+const industryOptions = [
+  "Automotive",
+  "Energy and Materials",
+  "Health",
+  "High Tech",
+  "Metals and Mining",
+];
 
 function ContactModal({isOpen, onClose}) {
   const {isDarkMode} = useTheme();
   const [shouldRender, setShouldRender] = useState(isOpen);
   const [visible, setVisible] = useState(false);
   const [isRegionOpen, setIsRegionOpen] = useState(false);
-  const [values, setValues] = useState({
-    name: "",
-    email: "",
-    title: "",
-    company: "",
-    region: "",
-    message: "",
-  });
+  const [values, setValues] = useState(defaultContactValues);
   const [errors, setErrors] = useState({});
   const regionRef = useRef(null);
 
@@ -230,6 +43,17 @@ function ContactModal({isOpen, onClose}) {
     setValues((current) => ({...current, [field]: value}));
     setErrors((current) => ({...current, [field]: ""}));
   };
+
+  const resetForm = useCallback(() => {
+    setValues(defaultContactValues);
+    setErrors({});
+    setIsRegionOpen(false);
+  }, []);
+
+  const handleClose = useCallback(() => {
+    resetForm();
+    onClose();
+  }, [onClose, resetForm]);
 
   const getRegionMatch = (region) =>
     countries.find(
@@ -312,12 +136,12 @@ function ContactModal({isOpen, onClose}) {
 
   useEffect(() => {
     const handleEsc = (e) => {
-      if (e.key === "Escape") onClose();
+      if (e.key === "Escape") handleClose();
     };
 
     if (isOpen) window.addEventListener("keydown", handleEsc);
     return () => window.removeEventListener("keydown", handleEsc);
-  }, [isOpen, onClose]);
+  }, [isOpen, handleClose]);
 
   if (!shouldRender) return null;
 
@@ -332,12 +156,13 @@ function ContactModal({isOpen, onClose}) {
   const closeIconColor = isDarkMode ? "text-white" : "text-black";
   const overlayBg = isDarkMode ? "bg-black/70" : "bg-white/70";
   const submitBtnBg = isDarkMode ? "bg-[#37B478]" : "bg-[#37B478]";
-  const submitTextColor = isDarkMode ? "text-black" : "text-white";
+  const submitTextColor = "text-white";
   const errorColor = isDarkMode ? "text-red-300" : "text-red-600";
   const getFieldOutline = (field) =>
     errors[field]
       ? "outline-red-500"
       : inputOutline;
+  const fieldFrameClassName = `w-full px-4 py-3 ${inputBg} rounded-[50px] outline outline-1 outline-offset-[-1px] inline-flex justify-start items-start gap-2.5`;
 
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center p-6">
@@ -346,7 +171,7 @@ function ContactModal({isOpen, onClose}) {
         className={`absolute inset-0 ${overlayBg} backdrop-blur-sm transition-opacity duration-1000 ease-out ${
           visible ? "opacity-100" : "opacity-0"
         }`}
-        onClick={onClose}
+        onClick={handleClose}
       />
 
       {/* Modal */}
@@ -375,7 +200,7 @@ function ContactModal({isOpen, onClose}) {
           {/* Close Button */}
           <button
             type="button"
-            onClick={onClose}
+            onClick={handleClose}
             aria-label="Close modal"
             className="size-6 relative overflow-hidden flex items-center justify-center"
           >
@@ -396,7 +221,7 @@ function ContactModal({isOpen, onClose}) {
 
         {/* Name */}
         <div
-          className={`self-stretch px-4 py-3 ${inputBg} rounded-[50px] outline outline-1 outline-offset-[-1px] ${inputOutline} inline-flex justify-start items-start gap-2.5`}
+          className={`self-stretch ${fieldFrameClassName} ${inputOutline}`}
         >
           <input
             type="text"
@@ -410,7 +235,7 @@ function ContactModal({isOpen, onClose}) {
         {/* Email */}
         <div className="relative self-stretch">
           <div
-            className={`self-stretch px-4 py-3 ${inputBg} rounded-[50px] outline outline-1 outline-offset-[-1px] ${getFieldOutline("email")} inline-flex justify-start items-start gap-2.5`}
+            className={`${fieldFrameClassName} ${getFieldOutline("email")}`}
           >
             <input
               type="email"
@@ -461,7 +286,7 @@ function ContactModal({isOpen, onClose}) {
         {/* Region */}
         <div className="relative self-stretch" ref={regionRef}>
           <div
-            className={`self-stretch px-4 py-3 ${inputBg} rounded-[50px] outline outline-1 outline-offset-[-1px] ${getFieldOutline("region")} inline-flex justify-between items-center`}
+            className={`${fieldFrameClassName} ${getFieldOutline("region")}`}
           >
             <input
               type="text"
@@ -510,7 +335,7 @@ function ContactModal({isOpen, onClose}) {
             <div
               id="region-listbox"
               role="listbox"
-              className={`absolute left-0 right-0 top-[52px] z-[120] max-h-64 overflow-y-auto rounded-3xl border p-2 shadow-2xl ${
+              className={`absolute left-0 right-0 top-[calc(100%+8px)] z-[120] max-h-64 overflow-y-auto rounded-3xl border p-2 shadow-2xl ${
                 isDarkMode
                   ? "border-white/15 bg-zinc-950 text-white"
                   : "border-black/15 bg-white text-black"
@@ -554,12 +379,21 @@ function ContactModal({isOpen, onClose}) {
         <div
           className={`self-stretch px-4 py-3 ${inputBg} rounded-[50px] outline outline-1 outline-offset-[-1px] ${inputOutline} inline-flex justify-between items-center`}
         >
-          <input
-            type="text"
-            className={`flex-1 bg-transparent outline-none ${textColor} ${placeholderColor} text-sm font-['Gotham']`}
-            placeholder="Select industry"
-            readOnly
-          />
+          <select
+            value={values.industry}
+            onChange={(event) => updateValue("industry", event.target.value)}
+            className={`flex-1 appearance-none bg-transparent outline-none ${textColor} text-sm font-['Gotham'] ${
+              values.industry ? "" : isDarkMode ? "text-white" : "text-black/50"
+            }`}
+            aria-label="Select industry"
+          >
+            <option value="">Select industry</option>
+            {industryOptions.map((industry) => (
+              <option key={industry} value={industry}>
+                {industry}
+              </option>
+            ))}
+          </select>
 
           <svg
             viewBox="0 0 24 24"

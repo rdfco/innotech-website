@@ -16,8 +16,6 @@ const Footer = ({
 }) => {
   const {isDarkMode} = useTheme();
 
-  // در لایت مود (isDarkMode = false) می‌خواهیم فوتر مشکی باشد
-  // پس باید از فایل‌های Dark استفاده کنیم وقتی لایت مود فعال است!
   const isLightMode = !isDarkMode;
 
   return (
@@ -33,7 +31,7 @@ const Footer = ({
           className="w-full h-auto block transition-opacity duration-500 ease-in-out"
         />
 
-        {/* InnoTech logo + Contact Us button */}
+        {/* Brand lockup and contact action */}
         <div className="absolute inset-0 flex items-center justify-between px-[150px] mb-35">
           <div>
             <img
@@ -47,7 +45,7 @@ const Footer = ({
             onClick={onContactClick}
             className="px-4 py-2 
              bg-[#22C55E] hover:bg-[#16A34A] 
-             text-white text-2xl font-bold 
+             text-white text-2xl 
              font-['Gotham'] 
              rounded-[50px] 
              inline-flex items-center justify-center
@@ -58,11 +56,11 @@ const Footer = ({
           </button>
         </div>
 
-        {/* Footer bottom bar  */}
+        {/* Footer bottom bar */}
         <div className="absolute bottom-0 left-0 right-0 px-6 pb-8 lg:pb-12 lg:px-[145px]">
           <div className="max-w-[1440px] mx-auto">
             <div className="self-stretch inline-flex justify-between items-center w-full">
-              {/* Left side - links */}
+              {/* Legal links */}
               <div
                 className={`flex justify-start items-center gap-6 md:gap-8 lg:gap-5 transition-colors duration-500 ease-in-out ${
                   isLightMode ? "text-white" : "text-black"
@@ -87,7 +85,7 @@ const Footer = ({
                 )}
               </div>
 
-              {/* Social Media */}
+              {/* Social links */}
               <div className="flex justify-end items-center gap-5">
                 <div className="size-8 relative cursor-pointer hover:scale-110 transition-transform">
                   <img

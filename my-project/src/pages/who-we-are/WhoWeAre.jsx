@@ -28,7 +28,7 @@ function WhoWeAre() {
         <HeroSection textColor={textColor} />
         <IntroSection image={whoWeAreImages.intro} textColor={textColor} />
         <HistorySection image={historyImage} textColor={textColor} />
-        <StatsSection stats={stats} />
+        <StatsSection stats={stats} isDarkMode={isDarkMode} />
         <VideoSection
           icon={whoWeAreImages.circlePlay}
           isDarkMode={isDarkMode}
