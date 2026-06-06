@@ -1,6 +1,6 @@
 import {useTheme} from "../../../../../context/useTheme";
 import infinityIcon from "../../../../../assets/icons/Subtract.svg";
-import infinityExclude from "../../../../../assets/images/excludes/INFINITY/Exclude.png";
+import infinityExclude from "../../../../../assets/images/excludes/infinity/Exclude.png";
 
 function InfinityIntro() {
   const {isDarkMode} = useTheme();

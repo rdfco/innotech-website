@@ -5,28 +5,21 @@ import ServiceRoad from "../shared/components/ServiceRoad";
 import ServiceStats from "../shared/components/ServiceStats";
 import ServicePartners from "../shared/components/ServicePartners";
 import ServiceShowcase from "../shared/components/ServiceShowcase";
-import {servicePartners} from "../shared/partners";
-import {serviceShowcases} from "../shared/showcases";
-import {
-  infinityActions,
-  infinityCapabilities,
-  infinityRoad,
-  infinityStats,
-} from "./data";
+import {actions, capabilities, partners, road, showcase, stats} from "./data";
 
 function InfinityPage() {
   return (
     <>
       <InfinityIntro />
-      <ServiceRoad {...infinityRoad} />
+      <ServiceRoad {...road} />
       <ServiceCapabilities
         title="TRANSFORMATION DOMAINS"
-        items={infinityCapabilities}
+        items={capabilities}
       />
-      <ServiceStats stats={infinityStats} />
-      <ServiceActionSection title="INFINITY IN ACTION" items={infinityActions} />
-      <ServicePartners service="Infinity" partners={servicePartners.infinity} />
-      <ServiceShowcase {...serviceShowcases.infinity} />
+      <ServiceStats stats={stats} />
+      <ServiceActionSection title="INFINITY IN ACTION" items={actions} />
+      <ServicePartners service="Infinity" partners={partners} />
+      <ServiceShowcase {...showcase} />
     </>
   );
 }

@@ -1,6 +1,100 @@
-export {
-  infinityActions,
-  infinityCapabilities,
-  infinityRoad,
-  infinityStats,
-} from "../shared/data";
+import {partnerImages} from "../../../../assets/images/shared";
+
+export const partners = [
+  {name: "TREX", image: partnerImages.trex},
+  {name: "Lean", image: partnerImages.lean},
+  {name: "IDC", image: partnerImages.idc},
+  {name: "Alleanita", image: partnerImages.alleanita},
+  {name: "Startin", image: partnerImages.startin},
+];
+
+export const showcase = {
+  title: "TEST THE ENGINE",
+  cards: [
+    {id: "infinity-readiness", buttonLabel: "Try It Now", title: "Digital Readiness Snapshot"},
+    {id: "infinity-workflow", buttonLabel: "Explore Demo", title: "AI Workflow Simulation"},
+    {id: "infinity-dashboard", buttonLabel: "View Demo", title: "Transformation Dashboard Preview"},
+  ],
+};
+
+export const road = {
+  title: "Digital Transformation System",
+  items: [
+    {title: "Module 1", subtitle: "Maturity Assessment", bold: true},
+    {title: "Module 2", subtitle: "Digital Architecture"},
+    {title: "Module 3", subtitle: "Value-Estimation"},
+    {title: "Module 4", subtitle: "Solution Design"},
+    {title: "Implementation", bold: true},
+  ],
+};
+
+export const stats = [
+  {value: 50, prefix: "+", label: "Digital Transformation Programs"},
+  {
+    value: 8,
+    prefix: "",
+    label: "Industries",
+    valueWeight: "normal",
+    labelWeight: "normal",
+  },
+  {value: 40, prefix: "+", label: "Process Mapping & Dashboards"},
+  {value: 30, prefix: "+", label: "AI &\nAutomation\nInitiatives"},
+];
+
+export const capabilities = [
+  {
+    title: "Automotive & Mobility",
+    description:
+      "We support automotive and mobility companies with digital innovation roadmaps, technology trend mapping, AI use-case identification, product and business model innovation, and connected operating-model design. INFINITY helps turn fragmented mobility initiatives into governed digital transformation portfolios.",
+  },
+  {
+    title: "Energy & Materials",
+    description:
+      "We design technology and innovation management systems, digital transformation roadmaps, AI strategies, technology monitoring processes, and R&D governance models for oil, gas, energy, petrochemical, and industrial materials companies. INFINITY connects strategy, operations, and digital execution.",
+  },
+  {
+    title: "Healthcare & Life Sciences",
+    description:
+      "We support biotech, vaccine, diagnostics, and healthcare organizations with commercialization workflows, R&D prioritization, digital innovation systems, technology transfer models, and innovation portfolio governance. INFINITY helps scientific organizations structure knowledge, projects, and transformation decisions.",
+  },
+  {
+    title: "High Tech & AI",
+    description:
+      "We help telecom, software, digital infrastructure, and technology-driven organizations redesign business processes, map business-to-technology dependencies, build AI-enabled workflows, and optimize operating models. INFINITY connects digital architecture, process intelligence, and transformation execution.",
+  },
+  {
+    title: "Metals & Mining",
+    description:
+      "We support steel, mining, alumina, and mineral companies with technology roadmapping, technology needs identification, digital maturity assessment, carbon management foresight, technology monitoring, and innovation management systems. INFINITY helps industrial teams scale transformation with governance and measurable priorities.",
+  },
+];
+
+export const actions = [
+  {
+    title: "Consultation",
+    subtitle: "Digital Transformation Advisory",
+    paragraphs: [
+      "Our consultation work helps organizations move from scattered digital initiatives to a structured transformation program. We assess the current operating model, identify process gaps, map business-to-technology dependencies, and define the roadmap needed to connect strategy with execution.",
+      "The focus is not on adding tools for the sake of technology. We clarify where digital transformation can reduce manual work, improve decision-making, strengthen coordination, and create measurable operational value across departments and business units.",
+      "Through maturity assessment, process redesign, governance definition, and implementation planning, INFINITY gives leadership teams a practical transformation path that is clear, sequenced, and ready for execution.",
+    ],
+  },
+  {
+    title: "Software",
+    subtitle: "Digital Operating Systems",
+    paragraphs: [
+      "Our software work turns transformation strategy into visible, usable systems. We design dashboards, workflow platforms, AI-supported documentation tools, decision-support interfaces, and monitoring layers that help teams manage performance, projects, risks, and operational priorities in one place.",
+      "The goal is to reduce fragmented reporting and create a single digital view of the organization. Teams can track process performance, monitor transformation progress, coordinate actions, and use data to support daily and strategic decisions.",
+      "By combining automation, analytics, and user-centered workflow design, INFINITY helps organizations build software environments that support adoption, improve visibility, and make transformation measurable.",
+    ],
+  },
+  {
+    title: "Hardware",
+    subtitle: "Connected Operations",
+    paragraphs: [
+      "Our hardware work connects physical operations to the digital transformation system. We support the use of sensors, industrial devices, shop-floor data points, control systems, and monitoring infrastructure to capture operational signals that were previously invisible or manually reported.",
+      "This creates the foundation for real-time supervision, predictive maintenance, process optimization, equipment monitoring, and stronger operational reliability. Instead of separating digital systems from the physical environment, INFINITY links machines, people, data, and decisions.",
+      "Through practical hardware integration and operational architecture, organizations gain better visibility over assets, faster response to abnormalities, and a stronger base for automation, AI enablement, and continuous improvement.",
+    ],
+  },
+];

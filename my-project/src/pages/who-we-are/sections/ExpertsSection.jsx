@@ -1,5 +1,5 @@
 import ExpertCard from "../components/ExpertCard";
-import SectionTitle from "../components/SectionTitle";
+import SectionTitle from "../../../components/ui/SectionTitle";
 
 function ExpertsSection({experts, image, isDarkMode, textColor}) {
   return (

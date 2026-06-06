@@ -5,28 +5,21 @@ import ServiceRoad from "../shared/components/ServiceRoad";
 import ServiceStats from "../shared/components/ServiceStats";
 import ServicePartners from "../shared/components/ServicePartners";
 import ServiceShowcase from "../shared/components/ServiceShowcase";
-import {servicePartners} from "../shared/partners";
-import {serviceShowcases} from "../shared/showcases";
-import {
-  inceptionActions,
-  inceptionCapabilities,
-  inceptionRoad,
-  inceptionStats,
-} from "./data";
+import {actions, capabilities, partners, road, showcase, stats} from "./data";
 
 function Inception() {
   return (
     <>
       <InceptionIntro />
-      <ServiceRoad {...inceptionRoad} />
+      <ServiceRoad {...road} />
       <ServiceCapabilities
         title="WHERE INCEPTION BUILDS"
-        items={inceptionCapabilities}
+        items={capabilities}
       />
-      <ServiceStats stats={inceptionStats} />
-      <ServiceActionSection title="INCEPTION IN ACTION" items={inceptionActions} />
-      <ServicePartners service="Inception" partners={servicePartners.inception} />
-      <ServiceShowcase {...serviceShowcases.inception} />
+      <ServiceStats stats={stats} />
+      <ServiceActionSection title="INCEPTION IN ACTION" items={actions} />
+      <ServicePartners service="Inception" partners={partners} />
+      <ServiceShowcase {...showcase} />
     </>
   );
 }

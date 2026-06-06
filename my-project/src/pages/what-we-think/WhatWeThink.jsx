@@ -1,31 +1,17 @@
-import {useState} from "react";
 import ReadMoreLink from "../../components/ui/ReadMoreLink";
 import {useTheme} from "../../context/useTheme";
 import BlackExcludeLeftWhatWeThink from "../../assets/images/excludes/what-we-think/BlackExcludeLeftWhatWeThink.png";
 import BlackExcludeRightWhatWeThink from "../../assets/images/excludes/what-we-think/BlackExcludeRightWhatWeThink.png";
 import ExcludeLeftWhatWeThink from "../../assets/images/excludes/what-we-think/ExcludeLeftWhatWeThink.png";
 import ExcludeRightWhatWeThink from "../../assets/images/excludes/what-we-think/ExcludeRightWhatWeThink.png";
+import HowWeThinkImage from "../../assets/images/shared/how-we-think.jpg";
 import {article, compactTitle, featuredTitle} from "./data";
 import {routes} from "../../routes";
+import {usePointerGlow} from "../../hooks/usePointerGlow";
 
-const HowWeThinkImage = "/assets/shared/how-we-think.jpg";
 
 function HoverCard({children, className = "", isDarkMode}) {
-  const [position, setPosition] = useState({x: 0, y: 0, active: false});
-
-  const handleMouseMove = (event) => {
-    const rect = event.currentTarget.getBoundingClientRect();
-
-    setPosition({
-      x: event.clientX - rect.left,
-      y: event.clientY - rect.top,
-      active: true,
-    });
-  };
-
-  const handleMouseLeave = () => {
-    setPosition((current) => ({...current, active: false}));
-  };
+  const {position, handlers} = usePointerGlow();
 
   return (
     <div className={`relative ${className}`}>
@@ -40,8 +26,7 @@ function HoverCard({children, className = "", isDarkMode}) {
       />
 
       <article
-        onMouseMove={handleMouseMove}
-        onMouseLeave={handleMouseLeave}
+        {...handlers}
         className={`relative z-10 size-full overflow-hidden rounded-[50px] border border-[#37B478] transition-colors duration-500 ease-in-out ${
           isDarkMode ? "bg-black" : "bg-white"
         }`}

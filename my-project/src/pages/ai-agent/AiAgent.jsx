@@ -1,6 +1,5 @@
-import {useState} from "react";
-
 import {useTheme} from "../../context/useTheme";
+import {usePointerGlow} from "../../hooks/usePointerGlow";
 import AIHumanFace from "../../assets/images/ai-agent/AIHumanFace.png";
 import BlackWhatAreAiAgentImage from "../../assets/images/ai-agent/BlackWhatAreAiAgent.png";
 import WhatAreAiAgentImage from "../../assets/images/ai-agent/WhatAreAiAgent.png";
@@ -64,27 +63,12 @@ function StepItem({title, body, textColor}) {
 }
 
 function HoverFrame({children, className = ""}) {
-  const [position, setPosition] = useState({x: 0, y: 0, active: false});
-
-  const handleMouseMove = (event) => {
-    const rect = event.currentTarget.getBoundingClientRect();
-
-    setPosition({
-      x: event.clientX - rect.left,
-      y: event.clientY - rect.top,
-      active: true,
-    });
-  };
-
-  const handleMouseLeave = () => {
-    setPosition((current) => ({...current, active: false}));
-  };
+  const {position, handlers} = usePointerGlow();
 
   return (
     <div
       className={`relative ${className}`}
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
+      {...handlers}
     >
       <div
         className="pointer-events-none absolute inset-0 rounded-[50px] transition-opacity duration-300"

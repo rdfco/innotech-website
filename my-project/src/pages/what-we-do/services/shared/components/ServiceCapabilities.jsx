@@ -1,26 +1,14 @@
-import {useState} from "react";
-
 import {useTheme} from "../../../../../context/useTheme";
+import {usePointerGlow} from "../../../../../hooks/usePointerGlow";
+import SectionTitle from "../../../../../components/ui/SectionTitle";
 
 function CapabilityCard({title, description, isDarkMode}) {
-  const [glowPosition, setGlowPosition] = useState({x: 0, y: 0, active: false});
-
-  const handleMouseMove = (event) => {
-    const rect = event.currentTarget.getBoundingClientRect();
-    setGlowPosition({
-      x: event.clientX - rect.left,
-      y: event.clientY - rect.top,
-      active: true,
-    });
-  };
+  const {position: glowPosition, handlers} = usePointerGlow();
 
   return (
     <div
       className="relative isolate min-h-[230px] w-full overflow-visible"
-      onMouseMove={handleMouseMove}
-      onMouseLeave={() =>
-        setGlowPosition((position) => ({...position, active: false}))
-      }
+      {...handlers}
     >
       <div
         className="pointer-events-none absolute inset-0 -z-10 rounded-[25px] transition-opacity duration-300"
@@ -58,12 +46,9 @@ function ServiceCapabilities({title, items}) {
   return (
     <section className={`self-stretch px-6 py-24 md:px-16 xl:px-[120px] ${isDarkMode ? "bg-[#050505]" : "bg-white"}`}>
       <div className="mx-auto flex w-full max-w-[1600px] flex-col items-start gap-8">
-        <div className="relative flex w-full flex-col items-start justify-center gap-2">
-          <div className="absolute left-[-14px] top-[-19px] size-16 rounded-full border border-[#37B478]" />
-          <h2 className={`relative z-10 font-['Gotham'] text-4xl font-bold ${isDarkMode ? "text-white" : "text-black"}`}>
-            {title}
-          </h2>
-        </div>
+        <SectionTitle textClassName={isDarkMode ? "text-white" : "text-black"}>
+          {title}
+        </SectionTitle>
 
         <div className="grid w-full grid-cols-1 gap-[42px] overflow-visible lg:grid-cols-2">
           {items.map((item, index) => (

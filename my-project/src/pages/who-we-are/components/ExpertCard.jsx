@@ -1,30 +1,14 @@
-import {useState} from "react";
-
 import excludeBlackShape from "../../../assets/images/excludes/shared/ExcludeBlack.svg";
 import excludeShape from "../../../assets/images/excludes/shared/Exclude.svg";
+import {usePointerGlow} from "../../../hooks/usePointerGlow";
 
 function ExpertCard({image, title, subtitle, isDarkMode}) {
-  const [position, setPosition] = useState({x: 0, y: 0, active: false});
-
-  const handleMouseMove = (event) => {
-    const rect = event.currentTarget.getBoundingClientRect();
-
-    setPosition({
-      x: event.clientX - rect.left,
-      y: event.clientY - rect.top,
-      active: true,
-    });
-  };
-
-  const handleMouseLeave = () => {
-    setPosition((current) => ({...current, active: false}));
-  };
+  const {position, handlers} = usePointerGlow();
 
   return (
     <div
       className="relative isolate h-full min-w-0 flex-1 overflow-visible"
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
+      {...handlers}
     >
       <div
         className="pointer-events-none absolute inset-0 -z-10 transition-opacity duration-300"

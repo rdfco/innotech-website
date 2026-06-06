@@ -1,4 +1,4 @@
-﻿import {useEffect, useMemo, useRef, useState} from "react";
+import {useEffect, useMemo, useRef, useState} from "react";
 import {useTheme} from "../../context/useTheme";
 import Logo from "../../assets/logos/NavbarInnoTech.svg";
 import SunMedium from "../../assets/icons/SunMedium.svg";

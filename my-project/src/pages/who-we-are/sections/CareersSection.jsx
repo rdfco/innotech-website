@@ -1,4 +1,4 @@
-import SectionTitle from "../components/SectionTitle";
+import SectionTitle from "../../../components/ui/SectionTitle";
 
 function CareersSection({image, invertedTextColor, inverseCardBackground}) {
   return (

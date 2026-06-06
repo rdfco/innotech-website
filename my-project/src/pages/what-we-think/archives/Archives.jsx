@@ -2,30 +2,18 @@ import {useMemo, useState} from "react";
 
 import ReadMoreLink from "../../../components/ui/ReadMoreLink";
 import {useTheme} from "../../../context/useTheme";
-const HowWeThinkImage = "/assets/shared/how-we-think.jpg";
+import HowWeThinkImage from "../../../assets/images/shared/how-we-think.jpg";
 import {archiveItems, sortOptions} from "./data";
+import {usePointerGlow} from "../../../hooks/usePointerGlow";
 
 function ArchiveCard({item, isDarkMode}) {
-  const [position, setPosition] = useState({x: 0, y: 0, active: false});
+  const {position, handlers} = usePointerGlow();
   const textColor = isDarkMode ? "text-white" : "text-black";
-
-  const handleMouseMove = (event) => {
-    const rect = event.currentTarget.getBoundingClientRect();
-
-    setPosition({
-      x: event.clientX - rect.left,
-      y: event.clientY - rect.top,
-      active: true,
-    });
-  };
 
   return (
     <div
       className="relative min-w-0"
-      onMouseMove={handleMouseMove}
-      onMouseLeave={() =>
-        setPosition((current) => ({...current, active: false}))
-      }
+      {...handlers}
     >
       <div
         className="pointer-events-none absolute inset-0 rounded-[28px] transition-opacity duration-300"

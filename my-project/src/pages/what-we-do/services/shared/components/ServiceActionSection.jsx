@@ -1,24 +1,14 @@
-import {useState} from "react";
-
 import {useTheme} from "../../../../../context/useTheme";
+import {usePointerGlow} from "../../../../../hooks/usePointerGlow";
+import SectionTitle from "../../../../../components/ui/SectionTitle";
 
 function ActionCard({item, isDarkMode}) {
-  const [glow, setGlow] = useState({x: 0, y: 0, active: false});
-
-  const handleMouseMove = (event) => {
-    const rect = event.currentTarget.getBoundingClientRect();
-    setGlow({
-      x: event.clientX - rect.left,
-      y: event.clientY - rect.top,
-      active: true,
-    });
-  };
+  const {position: glow, handlers} = usePointerGlow();
 
   return (
     <div
       className="relative isolate h-full min-w-0 overflow-visible"
-      onMouseMove={handleMouseMove}
-      onMouseLeave={() => setGlow((current) => ({...current, active: false}))}
+      {...handlers}
     >
       <div
         className="pointer-events-none absolute inset-0 -z-10 rounded-[25px] transition-opacity duration-300"
@@ -63,12 +53,9 @@ function ServiceActionSection({title, items}) {
   return (
     <section className={`w-full px-6 py-24 md:px-16 xl:px-[120px] ${isDarkMode ? "bg-[#050505]" : "bg-white"}`}>
       <div className="mx-auto flex w-full max-w-[1600px] flex-col items-start gap-8">
-        <div className="relative flex w-full items-center">
-          <div className="absolute left-[-14px] top-[-19px] size-16 rounded-full border border-[#37B478]" />
-          <h2 className={`relative z-10 font-['Gotham'] text-4xl font-bold ${isDarkMode ? "text-white" : "text-black"}`}>
-            {title}
-          </h2>
-        </div>
+        <SectionTitle textClassName={isDarkMode ? "text-white" : "text-black"}>
+          {title}
+        </SectionTitle>
 
         <div className="grid w-full grid-cols-1 items-stretch gap-8 lg:grid-cols-3">
           {items.map((item) => (

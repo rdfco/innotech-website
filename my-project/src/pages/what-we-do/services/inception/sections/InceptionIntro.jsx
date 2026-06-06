@@ -1,7 +1,7 @@
 import {useTheme} from "../../../../../context/useTheme";
 import inceptionIcon from "../../../../../assets/icons/Inception-Icon 1.svg";
-import inceptionLeftExclude from "../../../../../assets/images/excludes/INCEPTION/LeftExclude.png";
-import inceptionRightExclude from "../../../../../assets/images/excludes/INCEPTION/RightExclude.png";
+import inceptionLeftExclude from "../../../../../assets/images/excludes/inception/LeftExclude.png";
+import inceptionRightExclude from "../../../../../assets/images/excludes/inception/RightExclude.png";
 
 function Inception() {
   const {isDarkMode} = useTheme();

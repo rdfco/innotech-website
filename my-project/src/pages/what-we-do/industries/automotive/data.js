@@ -1,7 +1,7 @@
 import automotiveHero from "../../../../assets/images/industries/automotive/automotive.png";
 import {expertImages} from "../../../../assets/images/shared";
+import HowWeThinkImage from "../../../../assets/images/shared/how-we-think.jpg";
 
-const HowWeThinkImage = "/assets/shared/how-we-think.jpg";
 const {itonics: itonicsImage, statista: statistaImage, trex: trexImage} =
   expertImages;
 

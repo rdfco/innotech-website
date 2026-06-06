@@ -1,34 +1,17 @@
-import {useState} from "react";
-
 import inceptionIcon from "../../../../../assets/icons/Inception-Icon 1.svg";
 import excludeShape from "../../../../../assets/images/excludes/shared/Exclude.svg";
 import excludeBlackShape from "../../../../../assets/images/excludes/shared/ExcludeBlack.svg";
 import {useTheme} from "../../../../../context/useTheme";
+import SectionTitle from "../../../../../components/ui/SectionTitle";
+import {usePointerGlow} from "../../../../../hooks/usePointerGlow";
 
 function ShowcaseCard({buttonLabel, title, subtitle, isDarkMode}) {
-  const [glowPosition, setGlowPosition] = useState({x: 0, y: 0, active: false});
-
-  const handleMouseMove = (event) => {
-    const rect = event.currentTarget.getBoundingClientRect();
-    setGlowPosition({
-      x: event.clientX - rect.left,
-      y: event.clientY - rect.top,
-      active: true,
-    });
-  };
-
-  const handleMouseLeave = () => {
-    setGlowPosition((previousPosition) => ({
-      ...previousPosition,
-      active: false,
-    }));
-  };
+  const {position: glowPosition, handlers} = usePointerGlow();
 
   return (
     <div
       className="relative isolate h-full min-w-0 flex-1 overflow-visible"
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
+      {...handlers}
     >
       <div
         className="pointer-events-none absolute inset-0 -z-10 transition-opacity duration-300"
@@ -107,16 +90,9 @@ function ServiceShowcase({title, cards}) {
       }`}
     >
       <div className="flex w-full flex-col items-start gap-8">
-        <div className="relative flex w-full items-center gap-[15px]">
-          <div className="absolute left-[-14px] top-[-19px] size-[62px] rounded-full border border-[#37B478]" />
-          <h2
-            className={`relative z-10 font-['Gotham'] text-4xl font-bold leading-normal ${
-              isDarkMode ? "text-white" : "text-black"
-            }`}
-          >
-            {title}
-          </h2>
-        </div>
+        <SectionTitle textClassName={isDarkMode ? "text-white" : "text-black"}>
+          {title}
+        </SectionTitle>
 
         <div className="grid w-full grid-cols-1 items-stretch gap-8 overflow-visible lg:grid-cols-3">
           {cards.map((card) => (

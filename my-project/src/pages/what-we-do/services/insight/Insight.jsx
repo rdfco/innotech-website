@@ -6,29 +6,22 @@ import ServiceRoad from "../shared/components/ServiceRoad";
 import ServiceStats from "../shared/components/ServiceStats";
 import ServicePartners from "../shared/components/ServicePartners";
 import ServiceShowcase from "../shared/components/ServiceShowcase";
-import {servicePartners} from "../shared/partners";
-import {serviceShowcases} from "../shared/showcases";
-import {
-  insightActions,
-  insightCapabilities,
-  insightRoad,
-  insightStats,
-} from "./data";
+import {actions, capabilities, partners, road, showcase, stats} from "./data";
 
 function Insight() {
   return (
     <>
       <InsightIntro />
-      <ServiceRoad {...insightRoad} />
+      <ServiceRoad {...road} />
       <ReportStoreCard />
       <ServiceCapabilities
         title="OUR INDUSTRIAL EXPERTISE"
-        items={insightCapabilities}
+        items={capabilities}
       />
-      <ServiceStats stats={insightStats} />
-      <ServiceActionSection title="THE INSIGHT TRINITY" items={insightActions} />
-      <ServicePartners service="Insight" partners={servicePartners.insight} />
-      <ServiceShowcase {...serviceShowcases.insight} />
+      <ServiceStats stats={stats} />
+      <ServiceActionSection title="THE INSIGHT TRINITY" items={actions} />
+      <ServicePartners service="Insight" partners={partners} />
+      <ServiceShowcase {...showcase} />
     </>
   );
 }

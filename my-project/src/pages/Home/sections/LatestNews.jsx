@@ -62,7 +62,7 @@ function LatestNews() {
 
             {/* Summary */}
             <div
-              className={`mt-10 max-w-[690px] text-base font-medium font-['Gotham'] leading-[1.35] transition-colors duration-500 ease-in-out ${
+              className={`mt-10 max-w-[690px] text-base font-semilight font-['Gotham'] leading-[1.35] transition-colors duration-500 ease-in-out ${
                 isDarkMode ? "text-black" : "text-white"
               }`}
             >

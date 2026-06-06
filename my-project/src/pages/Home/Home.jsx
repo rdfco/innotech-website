@@ -1,7 +1,7 @@
 import FirstPage from "./sections/FirstPage";
 import EcosystemSection from "./sections/EcosystemSection";
 import LatestNews from "./sections/LatestNews";
-import WhatWeThink from "./sections/WhatWeThink";
+import LIVEINSIGHTS from "./sections/LiveInsights";
 import Map from "./sections/Map";
 
 function Home() {
@@ -10,7 +10,7 @@ function Home() {
       <FirstPage />
       <EcosystemSection />
       <LatestNews />
-      <WhatWeThink />
+      <LIVEINSIGHTS />
       <Map />
     </>
   );
