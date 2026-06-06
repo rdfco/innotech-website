@@ -1,6 +1,6 @@
 import {useState} from "react";
 
-import {useTheme} from "../../../../context/useTheme";
+import {useTheme} from "../../../../../context/useTheme";
 
 function ActionCard({item, isDarkMode}) {
   const [glow, setGlow] = useState({x: 0, y: 0, active: false});
@@ -47,7 +47,7 @@ function ActionCard({item, isDarkMode}) {
 
         <div className="relative z-10 flex min-w-0 flex-1 flex-col justify-center gap-3 px-0 font-['Gotham'] text-base font-normal leading-[1.35] md:px-4 xl:px-8">
           {item.paragraphs.map((paragraph) => (
-            <p key={paragraph} className="min-w-0 break-words text-left">
+            <p key={paragraph} className="min-w-0 wrap-break-words text-left">
               {paragraph}
             </p>
           ))}

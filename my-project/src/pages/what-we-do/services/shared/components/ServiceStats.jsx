@@ -1,16 +1,16 @@
 import {useEffect, useRef, useState} from "react";
 
-import excludeLeft from "../../../../assets/images/excludes/Excludeleftservices.png";
-import excludeLeftWhite from "../../../../assets/images/excludes/Excludeleftserviceswhite.png";
-import excludeMiddle from "../../../../assets/images/excludes/Excludemiddleservices.png";
-import excludeMiddleWhite from "../../../../assets/images/excludes/Excludemiddleserviceswhite.png";
-import excludeRight from "../../../../assets/images/excludes/ExcludeRightservices.png";
-import excludeRightWhite from "../../../../assets/images/excludes/ExcludeRightserviceswhite.png";
-import union from "../../../../assets/images/excludes/Union.png";
-import unionBlack from "../../../../assets/images/excludes/UnionBlack.png";
-import {useTheme} from "../../../../context/useTheme";
+import excludeLeft from "../../../../../assets/images/excludes/Excludeleftservices.png";
+import excludeLeftWhite from "../../../../../assets/images/excludes/Excludeleftserviceswhite.png";
+import excludeMiddle from "../../../../../assets/images/excludes/Excludemiddleservices.png";
+import excludeMiddleWhite from "../../../../../assets/images/excludes/Excludemiddleserviceswhite.png";
+import excludeRight from "../../../../../assets/images/excludes/ExcludeRightservices.png";
+import excludeRightWhite from "../../../../../assets/images/excludes/ExcludeRightserviceswhite.png";
+import union from "../../../../../assets/images/excludes/Union.png";
+import unionBlack from "../../../../../assets/images/excludes/UnionBlack.png";
+import {useTheme} from "../../../../../context/useTheme";
 
-const countDuration = 1200;
+const countDuration = 2000;
 
 function useCountUp(target, isActive) {
   const [count, setCount] = useState(0);

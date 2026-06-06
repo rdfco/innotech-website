@@ -1,6 +1,6 @@
 import {useState} from "react";
 
-import {useTheme} from "../../../../context/useTheme";
+import {useTheme} from "../../../../../context/useTheme";
 
 function CapabilityCard({title, description, isDarkMode}) {
   const [glowPosition, setGlowPosition] = useState({x: 0, y: 0, active: false});

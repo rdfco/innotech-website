@@ -2,10 +2,10 @@ import energyHero from "../../../../assets/images/industries/energy-and-material
 import energyInsightLeft from "../../../../assets/images/industries/energy-and-materials/energyandmaterials1.png";
 import energyInsightTop from "../../../../assets/images/industries/energy-and-materials/energyandmaterials2.jpg";
 import energyInsightBottom from "../../../../assets/images/industries/energy-and-materials/energyandmaterials3.jpg";
+import {ecosystemImages, expertImages} from "../../../../assets/images/shared";
 
-const BrightIdea = "/assets/shared/ecosystem/brightidea.png";
-const IDC = "/assets/shared/ecosystem/idc.png";
-const itonicsImage = "/assets/shared/experts/itonics.png";
+const {brightidea: BrightIdea, idc: IDC} = ecosystemImages;
+const {itonics: itonicsImage} = expertImages;
 
 const inceptionCard = {
   title: "InnotechCo launches INCEPTION",

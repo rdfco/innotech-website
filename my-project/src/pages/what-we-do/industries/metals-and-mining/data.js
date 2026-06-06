@@ -2,10 +2,10 @@ import metalsHero from "../../../../assets/images/industries/metals-and-mining/m
 import metalsInsightLeft from "../../../../assets/images/industries/metals-and-mining/metalsandmining1.png";
 import metalsInsightTop from "../../../../assets/images/industries/metals-and-mining/metalsandmining2.png";
 import metalsInsightBottom from "../../../../assets/images/industries/metals-and-mining/metalsandmining3.png";
+import {ecosystemImages, expertImages} from "../../../../assets/images/shared";
 
-const BrightIdea = "/assets/shared/ecosystem/brightidea.png";
-const IDC = "/assets/shared/ecosystem/idc.png";
-const itonicsImage = "/assets/shared/experts/itonics.png";
+const {brightidea: BrightIdea, idc: IDC} = ecosystemImages;
+const {itonics: itonicsImage} = expertImages;
 
 const inceptionCard = {
   title: "InnotechCo launches INCEPTION",

@@ -1,14 +1,18 @@
 import InceptionIntro from "./sections/InceptionIntro";
-import ServiceCapabilities from "../components/ServiceCapabilities";
-import ServiceActionSection from "../components/ServiceActionSection";
-import ServiceRoad from "../components/ServiceRoad";
-import ServiceStats from "../components/ServiceStats";
+import ServiceCapabilities from "../shared/components/ServiceCapabilities";
+import ServiceActionSection from "../shared/components/ServiceActionSection";
+import ServiceRoad from "../shared/components/ServiceRoad";
+import ServiceStats from "../shared/components/ServiceStats";
+import ServicePartners from "../shared/components/ServicePartners";
+import ServiceShowcase from "../shared/components/ServiceShowcase";
+import {servicePartners} from "../shared/partners";
+import {serviceShowcases} from "../shared/showcases";
 import {
   inceptionActions,
   inceptionCapabilities,
   inceptionRoad,
   inceptionStats,
-} from "../data";
+} from "./data";
 
 function Inception() {
   return (
@@ -21,6 +25,8 @@ function Inception() {
       />
       <ServiceStats stats={inceptionStats} />
       <ServiceActionSection title="INCEPTION IN ACTION" items={inceptionActions} />
+      <ServicePartners service="Inception" partners={servicePartners.inception} />
+      <ServiceShowcase {...serviceShowcases.inception} />
     </>
   );
 }

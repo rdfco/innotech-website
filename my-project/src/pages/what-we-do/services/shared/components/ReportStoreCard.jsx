@@ -1,7 +1,7 @@
-import careersImage from "../../../../assets/images/who-we-are/Careers.png";
-import marketResearchLogo from "../../../../assets/icons/MarketResearch.svg";
-import randMLogo from "../../../../assets/icons/RandM.svg";
-import {useTheme} from "../../../../context/useTheme";
+import careersImage from "../../../../../assets/images/who-we-are/Careers.png";
+import marketResearchLogo from "../../../../../assets/icons/MarketResearch.svg";
+import randMLogo from "../../../../../assets/icons/RandM.svg";
+import {useTheme} from "../../../../../context/useTheme";
 
 function ReportStoreCard() {
   const {isDarkMode} = useTheme();
@@ -41,7 +41,7 @@ function ReportStoreCard() {
             <img
               src={randMLogo}
               alt="R and M"
-              className="h-16 w-auto max-w-[180px] object-contain"
+              className="h-16 w-auto max-w-[180px] object-contain  "
             />
             <img
               src={marketResearchLogo}

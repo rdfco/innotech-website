@@ -1,14 +1,18 @@
 import InfinityIntro from "./sections/InfinityIntro";
-import ServiceActionSection from "../components/ServiceActionSection";
-import ServiceCapabilities from "../components/ServiceCapabilities";
-import ServiceRoad from "../components/ServiceRoad";
-import ServiceStats from "../components/ServiceStats";
+import ServiceActionSection from "../shared/components/ServiceActionSection";
+import ServiceCapabilities from "../shared/components/ServiceCapabilities";
+import ServiceRoad from "../shared/components/ServiceRoad";
+import ServiceStats from "../shared/components/ServiceStats";
+import ServicePartners from "../shared/components/ServicePartners";
+import ServiceShowcase from "../shared/components/ServiceShowcase";
+import {servicePartners} from "../shared/partners";
+import {serviceShowcases} from "../shared/showcases";
 import {
   infinityActions,
   infinityCapabilities,
   infinityRoad,
   infinityStats,
-} from "../data";
+} from "./data";
 
 function InfinityPage() {
   return (
@@ -21,6 +25,8 @@ function InfinityPage() {
       />
       <ServiceStats stats={infinityStats} />
       <ServiceActionSection title="INFINITY IN ACTION" items={infinityActions} />
+      <ServicePartners service="Infinity" partners={servicePartners.infinity} />
+      <ServiceShowcase {...serviceShowcases.infinity} />
     </>
   );
 }

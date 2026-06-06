@@ -2,10 +2,10 @@ import healthHero from "../../../../assets/images/industries/health/health.png";
 import healthInsightLeft from "../../../../assets/images/industries/health/health1.png";
 import healthInsightTop from "../../../../assets/images/industries/health/health2.png";
 import healthInsightBottom from "../../../../assets/images/industries/health/health3.png";
+import {expertImages} from "../../../../assets/images/shared";
 
-const itonicsImage = "/assets/shared/experts/itonics.png";
-const statistaImage = "/assets/shared/experts/statista.png";
-const trexImage = "/assets/shared/experts/trex.png";
+const {itonics: itonicsImage, statista: statistaImage, trex: trexImage} =
+  expertImages;
 
 const inceptionCard = {
   title: "InnotechCo launches INCEPTION",

@@ -1,9 +1,9 @@
 import automotiveHero from "../../../../assets/images/industries/automotive/automotive.png";
+import {expertImages} from "../../../../assets/images/shared";
 
 const HowWeThinkImage = "/assets/shared/how-we-think.jpg";
-const itonicsImage = "/assets/shared/experts/itonics.png";
-const statistaImage = "/assets/shared/experts/statista.png";
-const trexImage = "/assets/shared/experts/trex.png";
+const {itonics: itonicsImage, statista: statistaImage, trex: trexImage} =
+  expertImages;
 
 const inceptionCard = {
   title: "InnotechCo launches INCEPTION",

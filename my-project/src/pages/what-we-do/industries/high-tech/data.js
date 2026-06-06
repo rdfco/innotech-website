@@ -2,10 +2,10 @@ import highTechHero from "../../../../assets/images/industries/high-tech/hightec
 import techInsightLeft from "../../../../assets/images/industries/high-tech/hightech1.png";
 import techInsightTop from "../../../../assets/images/industries/high-tech/hightech2.png";
 import techInsightBottom from "../../../../assets/images/industries/high-tech/hightech3.png";
+import {ecosystemImages, expertImages} from "../../../../assets/images/shared";
 
-const BrightIdea = "/assets/shared/ecosystem/brightidea.png";
-const IDC = "/assets/shared/ecosystem/idc.png";
-const itonicsImage = "/assets/shared/experts/itonics.png";
+const {brightidea: BrightIdea, idc: IDC} = ecosystemImages;
+const {itonics: itonicsImage} = expertImages;
 
 const inceptionCard = {
   title: "InnotechCo launches INCEPTION",
