@@ -11,7 +11,7 @@ const modules = [
   {
     title: "Module 2",
     subtitle: "Process Design",
-    position: {x: 353, y: 124},
+    position: {x: 353, y: 130},
   },
   {
     title: "Module 3",
@@ -21,11 +21,11 @@ const modules = [
   {
     title: "Module 4",
     subtitle: "Tech Monitoring",
-    position: {x: 788, y: 124},
+    position: {x: 788, y: 130},
   },
   {
-    title: "Innovation Management System",
-    subtitle: "",
+    title: "Module 5",
+    subtitle: "Innovation Management System",
     position: {x: 971, y: 228},
   },
 ];

@@ -12,13 +12,13 @@ function InsightIntro() {
 
   return (
     <main
-      className={`relative flex min-h-screen w-full items-center justify-center overflow-hidden px-6 pt-28 ${pageBg}`}
+      className={`relative flex min-h-screen w-full items-center justify-center overflow-visible px-6 pt-28 ${pageBg}`}
     >
       <img
         src={excludeImage}
         alt=""
         aria-hidden
-        className="pointer-events-none absolute left-1/2 top-1/2 z-10 w-[min(760px,135vw)] max-w-none -translate-x-1/2 -translate-y-[250px] select-none"
+        className="pointer-events-none absolute left-1/2 top-1/2 z-10 w-[min(700px,135vw)] max-w-none -translate-x-1/2 -translate-y-[250px] select-none"
       />
 
       <section className="relative z-20 flex w-[min(466px,calc(100vw-48px))] flex-col items-center justify-start gap-4 text-center">
