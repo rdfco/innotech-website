@@ -9,10 +9,6 @@ import {ecosystemCards} from "./data";
 function EcosystemSection() {
   const {isDarkMode} = useTheme();
 
-
-
-
-  
   return (
     <section
       className={`relative w-full ${isDarkMode ? "bg-black" : "bg-white"}`}
