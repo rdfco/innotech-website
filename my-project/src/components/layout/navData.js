@@ -4,6 +4,7 @@ export const searchItems = [
   {title: "Who we are", type: "Page"},
   {title: "What we do", type: "Page"},
   {title: "What we think", type: "Page"},
+  {title: "INLEARN Academy", type: "Page"},
   {title: "INSIGHT Store", type: "Page"},
   {title: "Innovation and Technology Management", type: "Article"},
   {title: "Digital Transformation Report", type: "Report"},

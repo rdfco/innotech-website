@@ -164,13 +164,19 @@ function Navbar() {
                   What we think
                 </Link>
 
-                <span
+                <Link
+                  to={routes.inlearnAcademy}
+                  onClick={() => {
+                    setIsDropdownOpen(false);
+                    setIsLanguageOpen(false);
+                    setIsSearchOpen(false);
+                  }}
                   className={`${
                     isDarkMode ? "text-white" : "text-black"
-                  } font-['Gotham'] text-base opacity-70`}
+                  } font-['Gotham'] text-base hover:text-emerald-400 transition-colors`}
                 >
                   INLEARN Academy
-                </span>
+                </Link>
 
                 <span
                   className={`${

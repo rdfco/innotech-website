@@ -66,7 +66,7 @@ const Footer = ({
                   isLightMode ? "text-white" : "text-black"
                 }`}
               >
-                {["Legal Notice", "Legal Notice", "GDPR", "Cookie Policy"].map(
+                {["GDPR", "Cookie Policy"].map(
                   (item, i) => (
                     <div
                       key={i}

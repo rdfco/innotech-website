@@ -12,6 +12,9 @@ import {industryRoutes, serviceRoutes, routes} from "./routes";
 
 const Home = lazy(() => import("./pages/home/Home"));
 const AiAgent = lazy(() => import("./pages/ai-agent/AiAgent"));
+const InlearnAcademy = lazy(() =>
+  import("./pages/inlearn-academy/InlearnAcademy"),
+);
 const Archives = lazy(() => import("./pages/what-we-think/archives/Archives"));
 const WhatWeThink = lazy(() => import("./pages/what-we-think/WhatWeThink"));
 const WhoWeAre = lazy(() => import("./pages/who-we-are/WhoWeAre"));
@@ -50,6 +53,7 @@ function App() {
           ...serviceRoutes,
           ...industryRoutes,
           routes.aiAgent,
+          routes.inlearnAcademy,
           routes.archives,
           routes.whoWeAre,
         ].includes(pathname)
@@ -65,6 +69,7 @@ function App() {
           <Routes>
             <Route path={routes.home} element={<Home />} />
             <Route path={routes.aiAgent} element={<AiAgent />} />
+            <Route path={routes.inlearnAcademy} element={<InlearnAcademy />} />
             <Route path={routes.archives} element={<Archives />} />
             <Route path={routes.whatWeThink} element={<WhatWeThink />} />
             <Route path={routes.whoWeAre} element={<WhoWeAre />} />

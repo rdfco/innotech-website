@@ -248,7 +248,7 @@ function LiveInsightsSection() {
         {/* CTA button */}
         <div className="flex justify-end">
           <Link
-            to={routes.aiAgent}
+            to={routes.archives}
             className="group flex flex-col items-end transition-all duration-900"
           >
             <div

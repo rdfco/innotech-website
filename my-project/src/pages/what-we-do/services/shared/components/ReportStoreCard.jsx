@@ -22,9 +22,9 @@ function ReportStoreCard() {
             Report Store
           </h2>
           <div className="flex w-full items-start gap-3">
-            <span className="mt-3 size-2.5 shrink-0 rounded-full bg-[#37B478]" />
+            <span className="mt-8 size-2.5 shrink-0 rounded-full bg-[#37B478]" />
             <h3
-              className={`w-full font-['Gotham'] text-3xl font-medium leading-[1.2] ${cardText}`}
+              className={`w-full mt-5 font-['Gotham'] text-2xl font-light leading-[1.5] ${cardText}`}
             >
               PLRs, MRRs, and SLRs provide precise, data-driven intelligence for
               technology and market decision-making.

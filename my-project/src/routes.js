@@ -1,6 +1,7 @@
 export const routes = {
   home: "/",
   aiAgent: "/ai-agent",
+  inlearnAcademy: "/inlearn-academy",
   archives: "/archives",
   whatWeThink: "/what-we-think",
   whoWeAre: "/who-we-are",
