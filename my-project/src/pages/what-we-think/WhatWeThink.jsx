@@ -6,6 +6,7 @@ import ExcludeRightWhatWeThink from "../../assets/images/excludes/what-we-think/
 import {cards} from "./data";
 import {usePointerGlow} from "../../hooks/usePointerGlow";
 import ReadMoreLink from "../../components/ui/ReadMoreLink";
+import {routes} from "../../routes";
 
 function ArticleCopy({card, metaLayout = "stack", isDarkMode}) {
   return (
@@ -118,6 +119,16 @@ function WhatWeThink() {
         </div>
 
         <ArticleCard card={cards.heroBottom} variant="horizontal" metaLayout="between" isDarkMode={isDarkMode} />
+
+        <div className="what-we-think-archives-link">
+          <ReadMoreLink
+            to={routes.archives}
+            label="see all archives"
+            isDarkMode={isDarkMode}
+            align="end"
+            className="font-['Gotham'] text-lg"
+          />
+        </div>
       </section>
     </main>
   );

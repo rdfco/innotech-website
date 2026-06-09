@@ -88,6 +88,10 @@ body {
   font-weight: 400;
 }
 
+.what-we-think-page.is-light .what-we-think-heading h1 {
+  color: #000;
+}
+
 .what-we-think-grid {
   position: relative;
   z-index: 1;
@@ -297,6 +301,13 @@ body {
   flex-shrink: 0;
   font-size: 14px;
   line-height: 1;
+}
+
+.what-we-think-archives-link {
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+  padding: 16px 0 40px;
 }
 
 .what-we-think-card--small .what-we-think-read-more,
