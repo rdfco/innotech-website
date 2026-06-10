@@ -17,7 +17,7 @@ function Inception() {
         items={capabilities}
       />
       <ServiceStats stats={stats} />
-      <ServiceActionSection title="INCEPTION IN ACTION" items={actions} />
+      <ServiceActionSection title="QUALIFICATION AT EVERY LEVEL" items={actions} />
       <ServicePartners service="Inception" partners={partners} />
       <ServiceShowcase {...showcase} />
     </>

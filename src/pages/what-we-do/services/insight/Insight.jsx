@@ -15,7 +15,7 @@ function Insight() {
       <ServiceRoad {...road} />
       <ReportStoreCard />
       <ServiceCapabilities
-        title="OUR INDUSTRIAL EXPERTISE"
+        title=" INDUSTRIAL SCOPES"
         items={capabilities}
       />
       <ServiceStats stats={stats} />

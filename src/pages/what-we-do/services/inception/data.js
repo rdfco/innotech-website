@@ -65,30 +65,30 @@ export const capabilities = [
 
 export const actions = [
   {
-    title: "Governance",
-    subtitle: "Decision System",
+    title: "Professional ",
+    subtitle: "ISO 56000 Training",
     paragraphs: [
-      "INCEPTION builds the governance layer behind innovation. We define who owns each decision, how ideas move between committees, which criteria shape prioritization, and how strategic alignment, feasibility, novelty, risk, and value are translated into repeatable decision rules.",
-      "The purpose is to remove informal judgment from critical innovation decisions. Instead of scattered reviews, unclear ownership, and subjective approvals, organizations receive a structured decision system that connects leadership priorities with operational execution.",
-      "Through stage-gates, RACI logic, KPI ownership, escalation rules, portfolio criteria, and decision documentation, INCEPTION helps teams govern innovation with clarity, speed, and accountability across functions.",
+      "Participants learn the principles, terminology, structures, and tools of the ISO 56000 family and understand how they apply inside real organizations.",
+      "The program covers innovation strategy, leadership, opportunity and idea management, portfolio governance, measurement, collaboration, and continual improvement. Practical exercises connect the standards to actual decisions, processes, and implementation challenges.",
+      "Participating individuals receive documented training and qualification based on the completed program.",
     ],
   },
   {
-    title: "Pipeline",
-    subtitle: "Idea-to-Project Flow",
+    title: "Team ",
+    subtitle: "Applied Innovation Practice",
     paragraphs: [
-      "INCEPTION turns disconnected ideas into a managed innovation pipeline. We design how internal and external ideas are captured, enriched, evaluated, prioritized, converted into projects, monitored during implementation, and reviewed after results are delivered.",
-      "The focus is to stop ideas from being lost, duplicated, or evaluated inconsistently. Each idea gets a clear path: intake, screening, scoring, expert review, project formation, implementation tracking, impact calculation, and learning feedback.",
-      "Through process flows, BPMN models, forms, templates, stage-gates, evaluation logic, and portfolio handoffs, INCEPTION creates a closed-loop system from idea generation to measurable innovation outcomes.",
+      "We assess current capability, identify knowledge and process gaps, and build a focused learning path around the team’s responsibilities within the innovation management system.",
+      "Workshops use real organizational cases to develop common language, clarify roles, strengthen decision routines, and improve how opportunities, ideas, projects, and portfolios move between functions. Teams practice evaluation, prioritization, governance, measurement, and cross-functional handovers.",
+      "The outcome is a qualified and implementation-ready team with clearer ownership, stronger collaboration, and the practical capability to operate, monitor, and improve the organization’s innovation processes.",
     ],
   },
   {
-    title: "Visibility",
-    subtitle: "Innovation Dashboard",
+    title: "Organization",
+    subtitle: "Global Standardization",
     paragraphs: [
-      "INCEPTION makes innovation visible to management. We define dashboard views for idea funnels, portfolio flow, project status, cycle time, resource allocation, partner contribution, KPI performance, and value realization across business units.",
-      "The goal is to make innovation manageable at a glance. Leadership can see what is moving, what is delayed, which ideas are creating value, where bottlenecks exist, and which portfolios need attention.",
-      "Through KPI catalogs, formulas, owners, scorecards, data fields, alerts, and executive views, INCEPTION transforms innovation from scattered activity into a measurable management system.",
+      "We evaluate the existing innovation management system, review documented information, identify compliance gaps, and determine whether processes are implemented consistently across the organization.",
+      "The engagement covers organizational context, leadership, planning, support, operations, performance evaluation, and improvement. We develop the required process architecture, governance model, roles, KPIs, documentation, internal audit routines, and management-review structure.",
+      "The outcome is a prioritized readiness roadmap, supported implementation, and pre-assessment preparation. ",
     ],
   },
 ];
