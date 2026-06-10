@@ -1,1 +1,0 @@
-var e=`/InnoTech-Website/assets/health1-CcJd2Q-X.png`;export{e as t};

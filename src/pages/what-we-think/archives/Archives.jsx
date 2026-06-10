@@ -2,7 +2,7 @@ import {useMemo, useState} from "react";
 
 import ReadMoreLink from "../../../components/ui/ReadMoreLink";
 import {useTheme} from "../../../context/useTheme";
-import HowWeThinkImage from "../../../assets/images/shared/how-we-think.jpg";
+import HowWeThinkImage from "../../../assets/images/shared/how-we-think.webp";
 import {archiveItems, sortOptions} from "./data";
 import {usePointerGlow} from "../../../hooks/usePointerGlow";
 

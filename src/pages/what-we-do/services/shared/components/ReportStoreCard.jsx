@@ -1,4 +1,4 @@
-import careersImage from "../../../../../assets/images/who-we-are/Careers.png";
+import careersImage from "../../../../../assets/images/who-we-are/Careers.webp";
 import marketResearchLogo from "../../../../../assets/icons/MarketResearch.svg";
 import randMLogo from "../../../../../assets/icons/RandM.svg";
 import {useTheme} from "../../../../../context/useTheme";

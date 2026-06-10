@@ -1,1 +1,0 @@
-var e=`/InnoTech-Website/assets/energyandmaterials1-DTH47Obd.png`;export{e as t};

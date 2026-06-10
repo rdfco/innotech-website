@@ -1,1 +1,0 @@
-var e=`/InnoTech-Website/assets/metalsandmining1-C8n0w5aG.png`;export{e as t};

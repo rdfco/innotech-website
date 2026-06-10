@@ -1,7 +1,7 @@
-import highTechHero from "../../../../assets/images/industries/high-tech/hightech.png";
-import techInsightLeft from "../../../../assets/images/industries/high-tech/hightech1.png";
-import techInsightTop from "../../../../assets/images/industries/high-tech/hightech2.png";
-import techInsightBottom from "../../../../assets/images/industries/high-tech/hightech3.png";
+import highTechHero from "../../../../assets/images/industries/high-tech/hightech.webp";
+import techInsightLeft from "../../../../assets/images/industries/high-tech/hightech1.webp";
+import techInsightTop from "../../../../assets/images/industries/high-tech/hightech2.webp";
+import techInsightBottom from "../../../../assets/images/industries/high-tech/hightech3.webp";
 import {ecosystemImages, expertImages} from "../../../../assets/images/shared";
 
 const {brightidea: BrightIdea, idc: IDC} = ecosystemImages;

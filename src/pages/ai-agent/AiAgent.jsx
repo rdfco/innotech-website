@@ -1,8 +1,8 @@
 import {useTheme} from "../../context/useTheme";
 import {usePointerGlow} from "../../hooks/usePointerGlow";
-import AIHumanFace from "../../assets/images/ai-agent/AIHumanFace.png";
-import BlackWhatAreAiAgentImage from "../../assets/images/ai-agent/BlackWhatAreAiAgent.png";
-import WhatAreAiAgentImage from "../../assets/images/ai-agent/WhatAreAiAgent.png";
+import AIHumanFace from "../../assets/images/ai-agent/AIHumanFace.webp";
+import BlackWhatAreAiAgentImage from "../../assets/images/ai-agent/BlackWhatAreAiAgent.webp";
+import WhatAreAiAgentImage from "../../assets/images/ai-agent/WhatAreAiAgent.webp";
 import {aiAgentContent, marketingSteps, workSteps} from "./data";
 
 function Bullet() {

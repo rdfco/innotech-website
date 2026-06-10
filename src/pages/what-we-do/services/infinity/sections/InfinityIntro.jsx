@@ -1,7 +1,7 @@
 import {useTheme} from "../../../../../context/useTheme";
 import infinityIcon from "../../../../../assets/icons/Subtract.svg";
-import infinityExclude from "../../../../../assets/images/excludes/infinity/Exclude.png";
-import infinityExcludeBlack from "../../../../../assets/images/excludes/infinity/ExcludeBlack.png";
+import infinityExclude from "../../../../../assets/images/excludes/infinity/Exclude.webp";
+import infinityExcludeBlack from "../../../../../assets/images/excludes/infinity/ExcludeBlack.webp";
 
 function InfinityIntro() {
   const {isDarkMode} = useTheme();

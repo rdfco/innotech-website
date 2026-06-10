@@ -1,6 +1,6 @@
 import {useTheme} from "../../../../context/useTheme";
 import ReadMoreLink from "../../../../components/ui/ReadMoreLink";
-import LatestNewsImage from "../../../../assets/images/home/LatestNews.jpg";
+import LatestNewsImage from "../../../../assets/images/home/LatestNews.webp";
 import {latestNews} from "./data";
 
 function LatestNewsSection() {

@@ -2,9 +2,9 @@ import {Link} from "react-router-dom";
 
 import {useTheme} from "../../../../context/useTheme";
 import {routes} from "../../../../routes";
-import bgImage from "../../../../assets/images/home/Firstpagepic.jpg";
-import aiAgentExcludeImage from "../../../../assets/images/excludes/home/AIagentExclude.png";
-import aiAgentExcludeWhiteImage from "../../../../assets/images/excludes/home/AIagentExcludeWhite.png";
+import bgImage from "../../../../assets/images/home/Firstpagepic.webp";
+import aiAgentExcludeImage from "../../../../assets/images/excludes/home/AIagentExclude.webp";
+import aiAgentExcludeWhiteImage from "../../../../assets/images/excludes/home/AIagentExcludeWhite.webp";
 import {heroContent} from "./data";
 
 function HeroSection() {

@@ -1,7 +1,7 @@
-import energyHero from "../../../../assets/images/industries/energy-and-materials/energyandmaterials.png";
-import energyInsightLeft from "../../../../assets/images/industries/energy-and-materials/energyandmaterials1.png";
-import energyInsightTop from "../../../../assets/images/industries/energy-and-materials/energyandmaterials2.jpg";
-import energyInsightBottom from "../../../../assets/images/industries/energy-and-materials/energyandmaterials3.jpg";
+import energyHero from "../../../../assets/images/industries/energy-and-materials/energyandmaterials.webp";
+import energyInsightLeft from "../../../../assets/images/industries/energy-and-materials/energyandmaterials1.webp";
+import energyInsightTop from "../../../../assets/images/industries/energy-and-materials/energyandmaterials2.webp";
+import energyInsightBottom from "../../../../assets/images/industries/energy-and-materials/energyandmaterials3.webp";
 import {ecosystemImages, expertImages} from "../../../../assets/images/shared";
 
 const {brightidea: BrightIdea, idc: IDC} = ecosystemImages;

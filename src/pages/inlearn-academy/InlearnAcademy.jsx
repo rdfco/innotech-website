@@ -1,7 +1,7 @@
 import {useTheme} from "../../context/useTheme";
 import inceptionIcon from "../../assets/icons/Subtract3.svg";
-import darkCircle from "../../assets/images/excludes/insight/Exclude.png";
-import lightCircle from "../../assets/images/excludes/insight/BlackExclude.png";
+import darkCircle from "../../assets/images/excludes/insight/Exclude.webp";
+import lightCircle from "../../assets/images/excludes/insight/BlackExclude.webp";
 import {inlearnAcademyContent} from "./data";
 
 function InlearnAcademy() {

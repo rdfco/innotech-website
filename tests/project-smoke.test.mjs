@@ -120,14 +120,13 @@ test("non-critical content images use native lazy loading", () => {
   }
 });
 
-test("Gotham is self-hosted without an external font dependency", () => {
+test("Gotham uses the original CDN stylesheet", () => {
   const css = fs.readFileSync(path.join(srcRoot, "index.css"), "utf8");
   const html = fs.readFileSync(path.join(root, "index.html"), "utf8");
   const localFont = path.join(root, "public", "fonts", "GothamRegular.woff");
 
-  assert.equal(fs.existsSync(localFont), true);
-  assert.match(css, /@font-face/);
-  assert.match(css, /url\("\/fonts\/GothamRegular\.woff"\)/);
-  assert.doesNotMatch(css, /https?:\/\/.*font/i);
-  assert.match(html, /rel="preload"[\s\S]*GothamRegular\.woff/);
+  assert.equal(fs.existsSync(localFont), false);
+  assert.match(css, /@import url\("https:\/\/fonts\.cdnfonts\.com\/css\/gotham"\)/);
+  assert.doesNotMatch(css, /@font-face/);
+  assert.doesNotMatch(html, /GothamRegular\.woff/);
 });

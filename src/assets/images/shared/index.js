@@ -1,18 +1,18 @@
-import brightidea from "./partners/brightidea.png";
+import brightidea from "./partners/brightidea.webp";
 import alleanita from "./partners/alleanita.svg";
 import brightidea2 from "./partners/brightidea-partner.svg";
 import gartner from "./partners/gartner.svg";
-import idc from "./partners/idc.png";
+import idc from "./partners/idc.webp";
 import idc2 from "./partners/idc-partner.svg";
-import itonics from "./partners/itonics.png";
+import itonics from "./partners/itonics.webp";
 import itonics2 from "./partners/itonics-partner.svg";
 import lean from "./partners/lean.svg";
 import lensorg from "./partners/lens-org.svg";
 import sharjah from "./partners/sharjah.svg";
 import startin from "./partners/startin.svg";
-import statista from "./partners/statista.png";
+import statista from "./partners/statista.webp";
 import statista2 from "./partners/statista-partner.svg";
-import trex from "./partners/trex.png";
+import trex from "./partners/trex.webp";
 import trex2 from "./partners/trex-partner.svg";
 
 export const ecosystemImages = {

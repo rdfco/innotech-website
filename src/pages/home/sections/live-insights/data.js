@@ -1,6 +1,6 @@
-import HealthImage from "../../../../assets/images/industries/health/health1.png";
-import EnergyAndMaterialsImage from "../../../../assets/images/industries/energy-and-materials/energyandmaterials1.png";
-import MetalsAndMiningImage from "../../../../assets/images/industries/metals-and-mining/metalsandmining1.png";
+import HealthImage from "../../../../assets/images/industries/health/health1.webp";
+import EnergyAndMaterialsImage from "../../../../assets/images/industries/energy-and-materials/energyandmaterials1.webp";
+import MetalsAndMiningImage from "../../../../assets/images/industries/metals-and-mining/metalsandmining1.webp";
 
 export const liveInsights = {
   title: "LIVE INSIGHTS",

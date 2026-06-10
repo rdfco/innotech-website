@@ -1,7 +1,7 @@
-import metalsHero from "../../../../assets/images/industries/metals-and-mining/metalsandmining.png";
-import metalsInsightLeft from "../../../../assets/images/industries/metals-and-mining/metalsandmining1.png";
-import metalsInsightTop from "../../../../assets/images/industries/metals-and-mining/metalsandmining2.png";
-import metalsInsightBottom from "../../../../assets/images/industries/metals-and-mining/metalsandmining3.png";
+import metalsHero from "../../../../assets/images/industries/metals-and-mining/metalsandmining.webp";
+import metalsInsightLeft from "../../../../assets/images/industries/metals-and-mining/metalsandmining1.webp";
+import metalsInsightTop from "../../../../assets/images/industries/metals-and-mining/metalsandmining2.webp";
+import metalsInsightBottom from "../../../../assets/images/industries/metals-and-mining/metalsandmining3.webp";
 import {ecosystemImages, expertImages} from "../../../../assets/images/shared";
 
 const {brightidea: BrightIdea, idc: IDC} = ecosystemImages;

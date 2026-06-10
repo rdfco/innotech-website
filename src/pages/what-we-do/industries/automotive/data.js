@@ -1,7 +1,7 @@
-import automotiveHero from "../../../../assets/images/industries/automotive/automotive.png";
-import bottomRightInsightImage from "../../../../assets/images/industries/automotive/BottomRight.png";
-import leftInsightImage from "../../../../assets/images/industries/automotive/left.png";
-import topRightInsightImage from "../../../../assets/images/industries/automotive/TopRight.png";
+import automotiveHero from "../../../../assets/images/industries/automotive/automotive.webp";
+import bottomRightInsightImage from "../../../../assets/images/industries/automotive/BottomRight.webp";
+import leftInsightImage from "../../../../assets/images/industries/automotive/left.webp";
+import topRightInsightImage from "../../../../assets/images/industries/automotive/TopRight.webp";
 import {expertImages} from "../../../../assets/images/shared";
 
 const {itonics: itonicsImage, statista: statistaImage, trex: trexImage} =

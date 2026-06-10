@@ -1,13 +1,13 @@
 import {useEffect, useRef, useState} from "react";
 
-import excludeLeft from "../../../../../assets/images/excludes/Excludeleftservices.png";
-import excludeLeftWhite from "../../../../../assets/images/excludes/Excludeleftserviceswhite.png";
-import excludeMiddle from "../../../../../assets/images/excludes/Excludemiddleservices.png";
-import excludeMiddleWhite from "../../../../../assets/images/excludes/Excludemiddleserviceswhite.png";
-import excludeRight from "../../../../../assets/images/excludes/ExcludeRightservices.png";
-import excludeRightWhite from "../../../../../assets/images/excludes/ExcludeRightserviceswhite.png";
-import union from "../../../../../assets/images/excludes/Union.png";
-import unionBlack from "../../../../../assets/images/excludes/UnionBlack.png";
+import excludeLeft from "../../../../../assets/images/excludes/Excludeleftservices.webp";
+import excludeLeftWhite from "../../../../../assets/images/excludes/Excludeleftserviceswhite.webp";
+import excludeMiddle from "../../../../../assets/images/excludes/Excludemiddleservices.webp";
+import excludeMiddleWhite from "../../../../../assets/images/excludes/Excludemiddleserviceswhite.webp";
+import excludeRight from "../../../../../assets/images/excludes/ExcludeRightservices.webp";
+import excludeRightWhite from "../../../../../assets/images/excludes/ExcludeRightserviceswhite.webp";
+import union from "../../../../../assets/images/excludes/Union.webp";
+import unionBlack from "../../../../../assets/images/excludes/UnionBlack.webp";
 import {useTheme} from "../../../../../context/useTheme";
 
 const countDuration = 2000;

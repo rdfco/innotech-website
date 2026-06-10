@@ -1,6 +1,6 @@
 import {useTheme} from "../../../../../context/useTheme";
-import industriesExcludeImage from "../../../../../assets/images/excludes/industries/IndustriesExclude.png";
-import industriesExcludeBlackImage from "../../../../../assets/images/excludes/industries/IndustriesExcludeBlack.png";
+import industriesExcludeImage from "../../../../../assets/images/excludes/industries/IndustriesExclude.webp";
+import industriesExcludeBlackImage from "../../../../../assets/images/excludes/industries/IndustriesExcludeBlack.webp";
 
 function BreadcrumbChevron() {
   return (

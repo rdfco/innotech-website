@@ -1,8 +1,8 @@
 import {useTheme} from "../../../../context/useTheme";
 import InnotechEcopic from "../../../../assets/illustrations/InnotechEcopic.svg";
 import InnotechEcopicLight from "../../../../assets/illustrations/InnotechEcopicLight.svg";
-import ellipseBlack from "../../../../assets/images/home/EllipseBlack.png";
-import ellipseWhite from "../../../../assets/images/home/EllipseWhite.png";
+import ellipseBlack from "../../../../assets/images/home/EllipseBlack.webp";
+import ellipseWhite from "../../../../assets/images/home/EllipseWhite.webp";
 import InnoCard from "./InnoCard";
 import {ecosystemCards} from "./data";
 

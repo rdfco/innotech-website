@@ -1,6 +1,6 @@
 import {useTheme} from "../../../../context/useTheme";
-import MapImage from "../../../../assets/images/home/Map.png";
-import MapLightImage from "../../../../assets/images/home/MapLight.png";
+import MapImage from "../../../../assets/images/home/Map.webp";
+import MapLightImage from "../../../../assets/images/home/MapLight.webp";
 import {globalFootprint} from "./data";
 
 function GlobalFootprintSection() {

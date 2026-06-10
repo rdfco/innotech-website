@@ -1,7 +1,7 @@
 import {useTheme} from "../../../../../context/useTheme";
 import insightIcon from "../../../../../assets/icons/Subtract2.svg";
-import insightDarkExclude from "../../../../../assets/images/excludes/insight/Exclude.png";
-import insightLightExclude from "../../../../../assets/images/excludes/insight/BlackExclude.png";
+import insightDarkExclude from "../../../../../assets/images/excludes/insight/Exclude.webp";
+import insightLightExclude from "../../../../../assets/images/excludes/insight/BlackExclude.webp";
 
 function InsightIntro() {
   const {isDarkMode} = useTheme();

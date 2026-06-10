@@ -1,7 +1,7 @@
-import healthHero from "../../../../assets/images/industries/health/health.png";
-import healthInsightLeft from "../../../../assets/images/industries/health/health1.png";
-import healthInsightTop from "../../../../assets/images/industries/health/health2.png";
-import healthInsightBottom from "../../../../assets/images/industries/health/health3.png";
+import healthHero from "../../../../assets/images/industries/health/health.webp";
+import healthInsightLeft from "../../../../assets/images/industries/health/health1.webp";
+import healthInsightTop from "../../../../assets/images/industries/health/health2.webp";
+import healthInsightBottom from "../../../../assets/images/industries/health/health3.webp";
 import {expertImages} from "../../../../assets/images/shared";
 
 const {itonics: itonicsImage, statista: statistaImage, trex: trexImage} =
