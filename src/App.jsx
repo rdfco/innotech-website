@@ -16,6 +16,7 @@ const InlearnAcademy = lazy(() =>
   import("./pages/inlearn-academy/InlearnAcademy"),
 );
 const Archives = lazy(() => import("./pages/what-we-think/archives/Archives"));
+const ArticlePage = lazy(() => import("./pages/articles/ArticlePage"));
 const WhatWeThink = lazy(() => import("./pages/what-we-think/WhatWeThink"));
 const WhoWeAre = lazy(() => import("./pages/who-we-are/WhoWeAre"));
 const Inception = lazy(() =>
@@ -71,6 +72,7 @@ function App() {
             <Route path={routes.aiAgent} element={<AiAgent />} />
             <Route path={routes.inlearnAcademy} element={<InlearnAcademy />} />
             <Route path={routes.archives} element={<Archives />} />
+            <Route path={routes.article} element={<ArticlePage />} />
             <Route path={routes.whatWeThink} element={<WhatWeThink />} />
             <Route path={routes.whoWeAre} element={<WhoWeAre />} />
             <Route path={routes.inception} element={<Inception />} />

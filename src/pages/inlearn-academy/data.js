@@ -1,4 +1,3 @@
-export const inlearnAcademyContent = {
-  title: "COMING SOON",
-  eyebrow: "INLEARN Academy",
-};
+import {getInlearnAcademyPage} from "../../services/contentApi";
+
+export const inlearnAcademyContent = getInlearnAcademyPage();

@@ -1,7 +1,7 @@
 import {useTheme} from "../../../../../context/useTheme";
 import SectionTitle from "../../../../../components/ui/SectionTitle";
 
-function AccelerationSection({paragraphs}) {
+function AccelerationSection({paragraphs, title = "ACCELERATION"}) {
   const {isDarkMode} = useTheme();
   const textColor = isDarkMode ? "text-white" : "text-black";
 
@@ -12,7 +12,7 @@ function AccelerationSection({paragraphs}) {
       }`}
     >
       <div className="relative mx-auto flex w-full max-w-[1600px] flex-col items-start justify-center gap-4">
-        <SectionTitle textClassName={textColor}>ACCELERATION</SectionTitle>
+        <SectionTitle textClassName={textColor}>{title}</SectionTitle>
 
         <div className="self-stretch px-0 md:px-12">
           <div

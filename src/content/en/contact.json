@@ -1,0 +1,23 @@
+{
+  "title": "Contact Us",
+  "closeLabel": "Close modal",
+  "errors": {
+    "email": "Enter a valid email address.",
+    "region": "Choose a country from the list."
+  },
+  "fields": {
+    "name": "Name",
+    "email": "Email",
+    "title": "Title",
+    "company": "Company",
+    "region": "Select your region",
+    "industry": "Select industry",
+    "message": "Message"
+  },
+  "labels": {
+    "openCountryList": "Open country list",
+    "noMatchingCountry": "No matching country",
+    "otherIndustry": "Other",
+    "submit": "Submit"
+  }
+}

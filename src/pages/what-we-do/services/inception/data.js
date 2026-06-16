@@ -1,98 +1,11 @@
-import {partnerImages} from "../../../../assets/images/shared";
-import inceptionIcon from "../../../../assets/icons/Inception-Icon 1.svg";
+import {getServicePage} from "../../../../services/contentApi";
 
-export const partners = [
-  {name: "ITONICS", image: partnerImages.itonics},
-  {
-    name: "Brightidea",
-    image: partnerImages.brightidea,
-    imageClassName: "max-h-6 max-w-[150px]",
-  },
-];
-
-export const showcase = {
-  title: "INCEPTION SHOWROOM",
-  icon: inceptionIcon,
-  iconClassName: "translate-x-7 -translate-y-2",
-  cards: [
-    {id: "inception-maturity", buttonLabel: "Free Diagnosis", title: "Innovation Maturity Snapshot", subtitle: "Run Assessment"},
-    {id: "inception-pipeline", buttonLabel: "See Flow", title: "Idea Pipeline Simulation", subtitle: "Ideation Best Practice"},
-    {id: "inception-dashboard", buttonLabel: "Access Trial", title: "Dashboard Preview", subtitle: "Organize Innovation Inputs"},
-  ],
-};
-
-export const road = {
-  title: "Inception Road",
-  items: [
-    {title: "Module 1", subtitle: "Maturity Assessment"},
-    {title: "Module 2", subtitle: "Process Design"},
-    {title: "Module 3", subtitle: "Innovation OS Enablement"},
-    {title: "Module 4", subtitle: "Tech Monitoring"},
-    {title: "Module 5", subtitle: "Innovation Management System"},
-  ],
-};
-
-export const stats = [
-  {value: 100, prefix: "+", label: "Innovation Projects Delivered"},
-  {value: 95, prefix: "%", label: "Client\nProcess\nAdoption"},
-  {value: 2, prefix: "+", label: "Software Solutions"},
-  {value: 75, prefix: "+", label: "Active\nPortfolios\nManaged"},
-];
-
-export const capabilities = [
-  {
-    title: "Automotive & Mobility",
-    description:
-      "We support mobility organizations with structured idea management, technology monitoring, product innovation processes, and portfolio governance. INCEPTION helps connect market signals, engineering ideas, supplier opportunities, and transformation priorities into one managed innovation flow.",
-  },
-  {
-    title: "Energy & Materials",
-    description:
-      "We design innovation management systems for oil, gas, energy, petrochemical, and materials companies. INCEPTION structures idea intake, technology roadmaps, process ownership, portfolio prioritization, and measurable innovation KPIs across complex industrial environments.",
-  },
-  {
-    title: "Healthcare & Life Sciences",
-    description:
-      "We assist healthcare, biotech, vaccine, and diagnostics organizations with R&D prioritization, commercialization workflows, innovation governance, and evidence-based project evaluation. INCEPTION helps scientific teams move from scattered opportunities to structured innovation portfolios.",
-  },
-  {
-    title: "High Tech & AI",
-    description:
-      "We help technology, telecom, AI, and digital infrastructure organizations organize innovation around weak signals, emerging technologies, business model options, and product development priorities. INCEPTION turns rapid change into governed strategic execution.",
-  },
-  {
-    title: "Metals & Mining",
-    description:
-      "We enhance steel, mining, alumina, and mineral companies with technology needs identification, innovation process design, technology roadmapping, carbon foresight, and portfolio governance. INCEPTION helps industrial teams prioritize what to build, adopt, or scale.",
-  },
-];
-
-export const actions = [
-  {
-    title: "Professional ",
-    subtitle: "ISO 56000 Training",
-    paragraphs: [
-      "Participants learn the principles, terminology, structures, and tools of the ISO 56000 family and understand how they apply inside real organizations.",
-      "The program covers innovation strategy, leadership, opportunity and idea management, portfolio governance, measurement, collaboration, and continual improvement. Practical exercises connect the standards to actual decisions, processes, and implementation challenges.",
-      "Participating individuals receive documented training and qualification based on the completed program.",
-    ],
-  },
-  {
-    title: "Team ",
-    subtitle: "Applied Innovation Practice",
-    paragraphs: [
-      "We assess current capability, identify knowledge and process gaps, and build a focused learning path around the team’s responsibilities within the innovation management system.",
-      "Workshops use real organizational cases to develop common language, clarify roles, strengthen decision routines, and improve how opportunities, ideas, projects, and portfolios move between functions. Teams practice evaluation, prioritization, governance, measurement, and cross-functional handovers.",
-      "The outcome is a qualified and implementation-ready team with clearer ownership, stronger collaboration, and the practical capability to operate, monitor, and improve the organization’s innovation processes.",
-    ],
-  },
-  {
-    title: "Organization",
-    subtitle: "Global Standardization",
-    paragraphs: [
-      "We evaluate the existing innovation management system, review documented information, identify compliance gaps, and determine whether processes are implemented consistently across the organization.",
-      "The engagement covers organizational context, leadership, planning, support, operations, performance evaluation, and improvement. We develop the required process architecture, governance model, roles, KPIs, documentation, internal audit routines, and management-review structure.",
-      "The outcome is a prioritized readiness roadmap, supported implementation, and pre-assessment preparation. ",
-    ],
-  },
-];
+export const {
+  actions,
+  capabilities,
+  partners,
+  road,
+  sectionLabels,
+  showcase,
+  stats,
+} = getServicePage("inception");

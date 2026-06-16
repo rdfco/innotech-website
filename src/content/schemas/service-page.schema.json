@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ServicePage",
+  "type": "object",
+  "required": ["slug", "partners", "showcase", "road", "stats", "capabilities", "actions"],
+  "properties": {
+    "slug": {"type": "string"},
+    "partners": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "name"],
+        "properties": {
+          "id": {"type": "string"},
+          "name": {"type": "string"}
+        }
+      }
+    },
+    "showcase": {
+      "type": "object",
+      "required": ["title", "cards"],
+      "properties": {
+        "title": {"type": "string"},
+        "cards": {"type": "array"}
+      }
+    },
+    "road": {
+      "type": "object",
+      "required": ["title", "items"],
+      "properties": {
+        "title": {"type": "string"},
+        "items": {"type": "array"}
+      }
+    },
+    "stats": {"type": "array"},
+    "capabilities": {"type": "array"},
+    "actions": {"type": "array"}
+  }
+}

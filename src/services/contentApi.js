@@ -1,0 +1,209 @@
+import aiAgentPage from "../content/en/pages/ai-agent.json";
+import homePage from "../content/en/pages/home/home.json";
+import inlearnAcademyPage from "../content/en/pages/inlearn-academy.json";
+import archivesPage from "../content/en/pages/what-we-think/archives.json";
+import whatWeThinkPage from "../content/en/pages/what-we-think/what-we-think.json";
+import whoWeArePage from "../content/en/pages/who-we-are/who-we-are.json";
+import automotivePage from "../content/en/industries/automotive.json";
+import energyAndMaterialsPage from "../content/en/industries/energy-and-materials.json";
+import healthPage from "../content/en/industries/health.json";
+import highTechPage from "../content/en/industries/high-tech.json";
+import metalsAndMiningPage from "../content/en/industries/metals-and-mining.json";
+import inceptionPage from "../content/en/services/inception.json";
+import infinityPage from "../content/en/services/infinity.json";
+import insightPage from "../content/en/services/insight.json";
+import {homeConfig} from "../config/home.config";
+import {industryConfig} from "../config/industries.config";
+import {serviceConfig} from "../config/services.config";
+import {whatWeThinkConfig} from "../config/whatWeThink.config";
+import {whoWeAreConfig} from "../config/whoWeAre.config";
+
+const contentApiBaseUrl = import.meta.env.VITE_CONTENT_API_BASE_URL;
+
+const industryContent = {
+  automotive: automotivePage,
+  "energy-and-materials": energyAndMaterialsPage,
+  health: healthPage,
+  "high-tech": highTechPage,
+  "metals-and-mining": metalsAndMiningPage,
+};
+
+const serviceContent = {
+  inception: inceptionPage,
+  infinity: infinityPage,
+  insight: insightPage,
+};
+
+const articleModules = import.meta.glob("../content/en/articles/*.json", {
+  eager: true,
+  import: "default",
+});
+
+const articlesBySlug = Object.values(articleModules).reduce((articles, article) => {
+  articles[article.slug] = article;
+  return articles;
+}, {});
+
+function mergeRecord(contentRecord, configRecord) {
+  return {
+    ...contentRecord,
+    ...(configRecord ?? {}),
+  };
+}
+
+function mergeArrayById(contentItems = [], configItemsById = {}) {
+  return contentItems.map((item) => mergeRecord(item, configItemsById[item.id]));
+}
+
+function buildIndustryPage(content, config = {}) {
+  return {
+    ...content,
+    hero: mergeRecord(content.hero, config.hero),
+    liveInsights: {
+      ...content.liveInsights,
+      ...(config.liveInsights ?? {}),
+      cards: mergeArrayById(
+        content.liveInsights?.cards,
+        config.liveInsights?.cards,
+      ),
+    },
+    ecosystemCards: mergeArrayById(content.ecosystemCards, config.ecosystemCards),
+  };
+}
+
+function buildServicePage(content, config = {}) {
+  return {
+    ...content,
+    partners: mergeArrayById(content.partners, config.partners),
+    showcase: {
+      ...content.showcase,
+      ...(config.showcase ?? {}),
+    },
+  };
+}
+
+function buildHomePage(content, config = {}) {
+  return {
+    ...content,
+    liveInsights: {
+      ...content.liveInsights,
+      cards: mergeArrayById(
+        content.liveInsights?.cards,
+        config.liveInsights?.cards,
+      ),
+    },
+  };
+}
+
+function buildWhatWeThinkPage(content, config = {}) {
+  return {
+    ...content,
+    cards: Object.fromEntries(
+      Object.entries(content.cards).map(([key, card]) => [
+        key,
+        mergeRecord(card, config.cards?.[key]),
+      ]),
+    ),
+  };
+}
+
+function buildWhoWeArePage(content, config = {}) {
+  return {
+    ...content,
+    images: config.images,
+    stats: mergeArrayById(content.stats, config.stats),
+  };
+}
+
+function buildArchiveItems(seed) {
+  return Array.from({length: seed.count}, (_, index) => {
+    const month = (index % 12) + 1;
+    const day = (index % 27) + 1;
+    const year = seed.startYear - (index % seed.yearSpan);
+    const readMinutes = seed.baseReadMinutes + (index % seed.readMinuteSpan);
+
+    return {
+      id: index + 1,
+      title: seed.title,
+      description: seed.description,
+      date: `${year}-${String(month).padStart(2, "0")}-${String(day).padStart(
+        2,
+        "0",
+      )}`,
+      popularity: seed.basePopularity - index * seed.popularityStep,
+      readMinutes,
+    };
+  });
+}
+
+async function fetchJsonFromApi(path) {
+  if (!contentApiBaseUrl) return null;
+
+  const response = await fetch(`${contentApiBaseUrl}${path}`);
+  if (!response.ok) {
+    throw new Error(`Content API request failed: ${response.status}`);
+  }
+
+  return response.json();
+}
+
+export function getHomePage() {
+  return buildHomePage(homePage, homeConfig);
+}
+
+export function getAiAgentPage() {
+  return aiAgentPage;
+}
+
+export function getInlearnAcademyPage() {
+  return inlearnAcademyPage;
+}
+
+export function getWhatWeThinkPage() {
+  return buildWhatWeThinkPage(whatWeThinkPage, whatWeThinkConfig);
+}
+
+export function getArchivesPage() {
+  return {
+    ...archivesPage,
+    archiveItems: buildArchiveItems(archivesPage.seed),
+  };
+}
+
+export function getWhoWeArePage() {
+  return buildWhoWeArePage(whoWeArePage, whoWeAreConfig);
+}
+
+export function getIndustryPage(slug) {
+  return buildIndustryPage(industryContent[slug], industryConfig[slug]);
+}
+
+export function getServicePage(slug) {
+  return buildServicePage(serviceContent[slug], serviceConfig[slug]);
+}
+
+export function getArticle(slug) {
+  return articlesBySlug[slug] ?? null;
+}
+
+export function getArticleSlugs() {
+  return Object.keys(articlesBySlug);
+}
+
+export async function fetchIndustryPage(slug) {
+  const apiContent = await fetchJsonFromApi(`/industries/${slug}`);
+  return apiContent
+    ? buildIndustryPage(apiContent, industryConfig[slug])
+    : getIndustryPage(slug);
+}
+
+export async function fetchServicePage(slug) {
+  const apiContent = await fetchJsonFromApi(`/services/${slug}`);
+  return apiContent
+    ? buildServicePage(apiContent, serviceConfig[slug])
+    : getServicePage(slug);
+}
+
+export async function fetchArticle(slug) {
+  return (await fetchJsonFromApi(`/articles/${slug}`)) ?? getArticle(slug);
+}

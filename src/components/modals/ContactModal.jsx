@@ -1,4 +1,5 @@
 import {useCallback, useEffect, useMemo, useRef, useState} from "react";
+import contactContent from "../../content/en/contact.json";
 import {useTheme} from "../../context/useTheme";
 import {countries} from "../../data/countries";
 import ContactFormFields from "./contact/ContactFormFields";
@@ -58,7 +59,7 @@ function ContactModal({isOpen, onClose}) {
 
     if (!field || field === "email") {
       if (!emailPattern.test(values.email.trim())) {
-        nextErrors.email = "Enter a valid email address.";
+        nextErrors.email = contactContent.errors.email;
       } else {
         delete nextErrors.email;
       }
@@ -68,7 +69,7 @@ function ContactModal({isOpen, onClose}) {
       const matchedRegion = getRegionMatch(values.region);
 
       if (!matchedRegion) {
-        nextErrors.region = "Choose a country from the list.";
+        nextErrors.region = contactContent.errors.region;
       } else {
         delete nextErrors.region;
         if (matchedRegion !== values.region) {
@@ -180,7 +181,7 @@ function ContactModal({isOpen, onClose}) {
               <div
                 className={`w-[725px] justify-start ${textColor} text-2xl font-normal font-['Gotham']`}
               >
-                Contact Us
+                {contactContent.title}
               </div>
             </div>
 
@@ -188,7 +189,7 @@ function ContactModal({isOpen, onClose}) {
             <button
               type="button"
               onClick={handleClose}
-              aria-label="Close modal"
+              aria-label={contactContent.closeLabel}
               className="size-6 relative overflow-hidden flex items-center justify-center"
             >
               <svg
@@ -223,6 +224,7 @@ function ContactModal({isOpen, onClose}) {
             updateValue={updateValue}
             validate={validate}
             values={values}
+            content={contactContent}
           />
         </form>
       </div>

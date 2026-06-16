@@ -1,5 +1,5 @@
 import {useTheme} from "../../context/useTheme";
-import {experts, stats, whoWeAreImages} from "./data";
+import {experts, stats, whoWeAreContent, whoWeAreImages} from "./data";
 import CareersSection from "./sections/CareersSection";
 import ExpertsSection from "./sections/ExpertsSection";
 import HeroSection from "./sections/HeroSection";
@@ -25,11 +25,20 @@ function WhoWeAre() {
     >
       <WhoWeAreBackground images={whoWeAreImages} isDarkMode={isDarkMode} />
       <div className="relative z-10 pt-25">
-        <HeroSection textColor={textColor} />
-        <IntroSection image={whoWeAreImages.intro} textColor={textColor} />
-        <HistorySection image={historyImage} textColor={textColor} />
+        <HeroSection content={whoWeAreContent.hero} textColor={textColor} />
+        <IntroSection
+          content={whoWeAreContent.intro}
+          image={whoWeAreImages.intro}
+          textColor={textColor}
+        />
+        <HistorySection
+          content={whoWeAreContent.history}
+          image={historyImage}
+          textColor={textColor}
+        />
         <StatsSection stats={stats} isDarkMode={isDarkMode} />
         <VideoSection
+          ariaLabel={whoWeAreContent.video.playLabel}
           icon={whoWeAreImages.circlePlay}
           isDarkMode={isDarkMode}
         />
@@ -38,8 +47,10 @@ function WhoWeAre() {
           image={whoWeAreImages.expert}
           isDarkMode={isDarkMode}
           textColor={textColor}
+          title={whoWeAreContent.expertsTitle}
         />
         <CareersSection
+          content={whoWeAreContent.careers}
           image={whoWeAreImages.careers}
           invertedTextColor={invertedTextColor}
           inverseCardBackground={inverseCardBackground}

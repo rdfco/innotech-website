@@ -33,13 +33,17 @@ function ContactFormFields({
   updateValue,
   validate,
   values,
+  content,
 }) {
   const inputTextClassName = `${textColor} ${
     isDarkMode ? "placeholder:text-white" : "placeholder:text-black/50"
   }`;
   const [isIndustryOpen, setIsIndustryOpen] = useState(false);
   const industryRef = useRef(null);
-  const industryOptions = [...industryMenuItems.map((item) => item.label), "Other"];
+  const industryOptions = [
+    ...industryMenuItems.map((item) => item.label),
+    content.labels.otherIndustry,
+  ];
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -61,7 +65,7 @@ function ContactFormFields({
         className={`self-stretch ${fieldFrameClassName} ${inputOutline} ${inputTextClassName}`}
         value={values.name}
         onChange={(event) => updateValue("name", event.target.value)}
-        placeholder="Name"
+        placeholder={content.fields.name}
       />
 
       <div className="relative self-stretch">
@@ -74,7 +78,7 @@ function ContactFormFields({
             onChange={(event) => updateValue("email", event.target.value)}
             onBlur={() => validate("email")}
             className="flex-1 bg-transparent font-['Gotham'] text-sm outline-none"
-            placeholder="Email"
+            placeholder={content.fields.email}
             aria-invalid={Boolean(errors.email)}
           />
         </div>
@@ -92,13 +96,13 @@ function ContactFormFields({
           className={`flex-1 rounded-[50px] px-4 py-3 outline outline-1 outline-offset-[-1px] ${inputBg} ${inputOutline} ${inputTextClassName}`}
           value={values.title}
           onChange={(event) => updateValue("title", event.target.value)}
-          placeholder="Title"
+          placeholder={content.fields.title}
         />
         <TextField
           className={`flex-1 rounded-[50px] px-4 py-3 outline outline-1 outline-offset-[-1px] ${inputBg} ${inputOutline} ${inputTextClassName}`}
           value={values.company}
           onChange={(event) => updateValue("company", event.target.value)}
-          placeholder="Company"
+          placeholder={content.fields.company}
         />
       </div>
 
@@ -118,7 +122,7 @@ function ContactFormFields({
               if (values.region.trim()) validate("region");
             }}
             className="flex-1 bg-transparent font-['Gotham'] text-sm outline-none"
-            placeholder="Select your region"
+            placeholder={content.fields.region}
             autoComplete="off"
             role="combobox"
             aria-autocomplete="list"
@@ -130,7 +134,7 @@ function ContactFormFields({
             type="button"
             onClick={() => setIsRegionOpen((current) => !current)}
             className="shrink-0"
-            aria-label="Open country list"
+            aria-label={content.labels.openCountryList}
           >
             <svg
               viewBox="0 0 24 24"
@@ -178,7 +182,7 @@ function ContactFormFields({
               ))
             ) : (
               <p className="px-4 py-3 font-['Gotham'] text-sm opacity-70">
-                No matching country
+                {content.labels.noMatchingCountry}
               </p>
             )}
           </div>
@@ -211,7 +215,7 @@ function ContactFormFields({
                   : "text-black/50"
             }`}
           >
-            {values.industry || "Select industry"}
+            {values.industry || content.fields.industry}
           </span>
           <svg
             viewBox="0 0 24 24"
@@ -269,7 +273,7 @@ function ContactFormFields({
           value={values.message}
           onChange={(event) => updateValue("message", event.target.value)}
           className="h-full flex-1 resize-none bg-transparent font-['Gotham'] text-sm outline-none"
-          placeholder="Message"
+          placeholder={content.fields.message}
         />
       </div>
 
@@ -278,7 +282,7 @@ function ContactFormFields({
         className="self-end rounded-[50px] bg-[#37B478] px-8 py-3 transition-all duration-200 hover:bg-[#22C55E] active:scale-95"
       >
         <span className="font-['Gotham'] text-2xl font-normal text-white">
-          Submit
+          {content.labels.submit}
         </span>
       </button>
     </>

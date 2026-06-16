@@ -10,14 +10,22 @@ function IndustryPage({
   ecosystemCards,
   hero,
   liveInsights,
+  sectionLabels = {},
 }) {
   return (
     <>
       <IndustryHero {...hero} />
-      <AccelerationSection paragraphs={accelerationParagraphs} />
+      <AccelerationSection
+        paragraphs={accelerationParagraphs}
+        title={sectionLabels.acceleration}
+      />
       <CapabilitiesSection services={capabilities} />
       <LiveInsightsSection {...liveInsights} />
-      <EcosystemCardsSection cards={ecosystemCards} />
+      <EcosystemCardsSection
+        actionLabel={sectionLabels.ecosystemAction}
+        cards={ecosystemCards}
+        title={sectionLabels.ecosystem}
+      />
     </>
   );
 }

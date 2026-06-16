@@ -47,7 +47,7 @@ const historyRangeStyles = `
   }
 `;
 
-function HistorySection({image, textColor}) {
+function HistorySection({content, image, textColor}) {
   const historyScrollRef = useRef(null);
   const historyDragRef = useRef({active: false, startX: 0, scrollLeft: 0});
   const [historyScrollProgress, setHistoryScrollProgress] = useState(0);
@@ -121,7 +121,7 @@ function HistorySection({image, textColor}) {
       <div className="flex w-full flex-col items-center gap-2 px-28">
         <div className="size-6 rounded-full bg-[#37B478]" />
         <h2 className={`font-['Gotham'] text-4xl font-bold ${textColor}`}>
-          History
+          {content.title}
         </h2>
       </div>
 
@@ -148,7 +148,7 @@ function HistorySection({image, textColor}) {
 
       <div className="flex w-full justify-center px-28">
         <input
-          aria-label="Scroll history timeline"
+          aria-label={content.rangeLabel}
           type="range"
           min="0"
           max="100"

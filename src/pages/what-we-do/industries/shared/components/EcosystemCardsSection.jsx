@@ -10,6 +10,7 @@ function EcosystemCard({
   title,
   subtitle,
   isDarkMode,
+  actionLabel = "Exclusive content",
   titleClassName = "",
   imageClassName = "",
   imageLightClassName,
@@ -65,7 +66,7 @@ function EcosystemCard({
             className="shrink-0 rounded-bl-[30px] rounded-br-[20px] rounded-tr-[20px] bg-[#22C55E] px-3 py-2 font-['Gotham'] text-sm font-bold leading-none text-black shadow-lg transition-all duration-200 hover:scale-[1.03] hover:bg-[#16A34A] hover:shadow-xl active:scale-95"
             type="button"
           >
-            Exclusive content
+            {actionLabel}
           </button>
         </div>
 
@@ -88,7 +89,12 @@ function EcosystemCard({
   );
 }
 
-function EcosystemCardsSection({cards, titleClassName}) {
+function EcosystemCardsSection({
+  actionLabel = "Exclusive content",
+  cards,
+  title = "LATEST IN OUR ECOSYSTEM OF CHANGE",
+  titleClassName,
+}) {
   const {isDarkMode} = useTheme();
 
   return (
@@ -99,7 +105,7 @@ function EcosystemCardsSection({cards, titleClassName}) {
     >
       <div className="flex w-full flex-col items-start gap-8">
         <SectionTitle textClassName={isDarkMode ? "text-white" : "text-black"}>
-          LATEST IN OUR ECOSYSTEM OF CHANGE
+          {title}
         </SectionTitle>
 
         <div className="grid w-full grid-cols-1 items-stretch gap-8 overflow-visible lg:grid-cols-3">
@@ -107,6 +113,7 @@ function EcosystemCardsSection({cards, titleClassName}) {
             <EcosystemCard
               key={card.id}
               {...card}
+              actionLabel={actionLabel}
               isDarkMode={isDarkMode}
               titleClassName={titleClassName}
             />

@@ -1,0 +1,82 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "IndustryPage",
+  "type": "object",
+  "required": [
+    "slug",
+    "hero",
+    "accelerationParagraphs",
+    "capabilities",
+    "liveInsights",
+    "ecosystemCards"
+  ],
+  "properties": {
+    "slug": {"type": "string"},
+    "seo": {"type": "object"},
+    "hero": {"$ref": "#/$defs/hero"},
+    "sectionLabels": {"type": "object"},
+    "accelerationParagraphs": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "capabilities": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/textCard"}
+    },
+    "liveInsights": {
+      "type": "object",
+      "required": ["title", "cards"],
+      "properties": {
+        "title": {"type": "string"},
+        "alt": {"type": "string"},
+        "cards": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/insightCard"}
+        }
+      }
+    },
+    "ecosystemCards": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/ecosystemCard"}
+    }
+  },
+  "$defs": {
+    "hero": {
+      "type": "object",
+      "required": ["breadcrumbLabel", "title", "description"],
+      "properties": {
+        "breadcrumbLabel": {"type": "string"},
+        "title": {"type": "string"},
+        "description": {"type": "string"}
+      }
+    },
+    "textCard": {
+      "type": "object",
+      "required": ["title", "description"],
+      "properties": {
+        "title": {"type": "string"},
+        "description": {"type": "string"}
+      }
+    },
+    "insightCard": {
+      "type": "object",
+      "required": ["id", "title", "date", "readTime", "description"],
+      "properties": {
+        "id": {"type": "string"},
+        "title": {"type": "string"},
+        "date": {"type": "string"},
+        "readTime": {"type": "string"},
+        "description": {"type": "string"}
+      }
+    },
+    "ecosystemCard": {
+      "type": "object",
+      "required": ["id", "title", "subtitle"],
+      "properties": {
+        "id": {"type": "string"},
+        "title": {"type": "string"},
+        "subtitle": {"type": "string"}
+      }
+    }
+  }
+}

@@ -1,4 +1,4 @@
-function IntroSection({image, textColor}) {
+function IntroSection({content, image, textColor}) {
   return (
     <section className="mb-20 px-6 py-[30px] md:px-16 xl:px-[120px]">
       <div className="mx-auto flex w-full max-w-[1600px] items-center justify-center">
@@ -7,28 +7,20 @@ function IntroSection({image, textColor}) {
           <h2
             className={`w-full font-['Gotham'] text-4xl font-bold ${textColor}`}
           >
-            INNOTECH IS IN
+            {content.title}
           </h2>
           <div className="flex w-full items-center justify-center px-6 py-1">
             <p
               className={`min-w-px flex-1 whitespace-pre-wrap font-['Gotham'] text-lg font-light leading-normal ${textColor}`}
             >
-              “Innotech Is In” captures both our product architecture and our
-              operating <br /> mindset. It represents four connected
-              capabilities—innovation management, intelligence analytics,
-              digital transformation, and structured implementation
-              <br />
-              —brought together as one system. <br /> <br />
-              It also means full commitment to execution. We stay involved from
-              <br />
-              diagnosis and design through deployment, adoption, and measurable
-              results.
+              {content.body}
             </p>
           </div>
         </div>
 
         <div className="relative size-96 shrink-0 overflow-hidden rounded-[50px]">
-          <img loading="lazy"
+          <img
+            loading="lazy"
             src={image}
             alt=""
             aria-hidden
@@ -41,5 +33,3 @@ function IntroSection({image, textColor}) {
 }
 
 export default IntroSection;
-
-

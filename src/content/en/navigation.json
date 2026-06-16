@@ -1,0 +1,41 @@
+{
+  "searchItems": [
+    {"title": "Who we are", "type": "Page"},
+    {"title": "What we do", "type": "Page"},
+    {"title": "What we think", "type": "Page"},
+    {"title": "INLEARN Academy", "type": "Page"},
+    {"title": "INSIGHT Store", "type": "Page"},
+    {"title": "Innovation and Technology Management", "type": "Article"},
+    {"title": "Digital Transformation Report", "type": "Report"},
+    {"title": "Market Analytics Report", "type": "Report"}
+  ],
+  "languageOptions": [
+    {"label": "En", "name": "English"},
+    {"label": "Tr", "name": "TÃ¼rkÃ§e"},
+    {"label": "Ar", "name": "العربية"}
+  ],
+  "serviceMenuItems": [
+    {
+      "id": "inception",
+      "label": "INCEPTION",
+      "description": "Innovation and Technology Management"
+    },
+    {
+      "id": "insight",
+      "label": "INSIGHT",
+      "description": "Science, Technology, Innovation and Market Analytics & Reports"
+    },
+    {
+      "id": "infinity",
+      "label": "INFINITY",
+      "description": "Digital Transformation and Industry 4.0"
+    }
+  ],
+  "industryMenuItems": [
+    {"id": "automotive", "label": "Automotive"},
+    {"id": "energyAndMaterials", "label": "Energy & Materials"},
+    {"id": "health", "label": "Health"},
+    {"id": "highTech", "label": "High Tech"},
+    {"id": "metalsAndMining", "label": "Metals & Mining"}
+  ]
+}

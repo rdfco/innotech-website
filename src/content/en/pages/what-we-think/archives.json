@@ -1,0 +1,31 @@
+{
+  "sortOptions": [
+    {
+      "label": "Most popular",
+      "value": "popular"
+    },
+    {
+      "label": "Newest",
+      "value": "newest"
+    },
+    {
+      "label": "Oldest",
+      "value": "oldest"
+    },
+    {
+      "label": "Longest read",
+      "value": "longest"
+    }
+  ],
+  "seed": {
+    "count": 40,
+    "title": "InnotechCo launches INCEPTION - an AI-powered innovation management system",
+    "description": "A compact look at innovation workflows, AI agents, market intelligence, and digital transformation for industrial teams.",
+    "startYear": 2026,
+    "yearSpan": 4,
+    "basePopularity": 1000,
+    "popularityStep": 17,
+    "baseReadMinutes": 2,
+    "readMinuteSpan": 9
+  }
+}

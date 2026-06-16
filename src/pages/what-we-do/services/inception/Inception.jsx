@@ -5,7 +5,15 @@ import ServiceRoad from "../shared/components/ServiceRoad";
 import ServiceStats from "../shared/components/ServiceStats";
 import ServicePartners from "../shared/components/ServicePartners";
 import ServiceShowcase from "../shared/components/ServiceShowcase";
-import {actions, capabilities, partners, road, showcase, stats} from "./data";
+import {
+  actions,
+  capabilities,
+  partners,
+  road,
+  sectionLabels,
+  showcase,
+  stats,
+} from "./data";
 
 function Inception() {
   return (
@@ -13,12 +21,15 @@ function Inception() {
       <InceptionIntro />
       <ServiceRoad {...road} />
       <ServiceCapabilities
-        title="WHERE INCEPTION BUILDS"
+        title={sectionLabels.capabilities}
         items={capabilities}
       />
       <ServiceStats stats={stats} />
-      <ServiceActionSection title="QUALIFICATION AT EVERY LEVEL" items={actions} />
-      <ServicePartners service="Inception" partners={partners} />
+      <ServiceActionSection title={sectionLabels.actions} items={actions} />
+      <ServicePartners
+        service={sectionLabels.partnersServiceName}
+        partners={partners}
+      />
       <ServiceShowcase {...showcase} />
     </>
   );

@@ -5,6 +5,8 @@ export const routes = {
   archives: "/archives",
   whatWeThink: "/what-we-think",
   whoWeAre: "/who-we-are",
+  article: "/articles/:slug",
+  articles: "/articles",
   inception: "/what-we-do/inception",
   insight: "/what-we-do/insight",
   infinity: "/what-we-do/infinity",

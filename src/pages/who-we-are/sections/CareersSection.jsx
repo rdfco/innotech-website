@@ -1,6 +1,11 @@
 import SectionTitle from "../../../components/ui/SectionTitle";
 
-function CareersSection({image, invertedTextColor, inverseCardBackground}) {
+function CareersSection({
+  content,
+  image,
+  invertedTextColor,
+  inverseCardBackground,
+}) {
   return (
     <section className="flex h-[640px] flex-col items-start gap-2.5 overflow-hidden px-6 py-14 md:px-16 xl:px-[120px]">
       <div
@@ -8,7 +13,7 @@ function CareersSection({image, invertedTextColor, inverseCardBackground}) {
       >
         <div className="flex flex-1 flex-col items-start justify-start gap-8 self-stretch p-16">
           <SectionTitle textColor={invertedTextColor} weight="font-bold">
-            Join Our Team
+            {content.title}
           </SectionTitle>
           <div className="flex w-full flex-col items-start gap-4">
             <div className="flex w-full items-start gap-3">
@@ -16,9 +21,7 @@ function CareersSection({image, invertedTextColor, inverseCardBackground}) {
               <h3
                 className={`w-full font-['Gotham'] text-2xl font-light leading-[1.5] ${invertedTextColor}`}
               >
-                We are looking for talented professionals ready to contribute to
-                large-scale projects, implement structured innovation systems,
-                and drive measurable impact across industries.
+                {content.description}
               </h3>
             </div>
           </div>
@@ -26,7 +29,7 @@ function CareersSection({image, invertedTextColor, inverseCardBackground}) {
             type="button"
             className="inline-flex items-center justify-center rounded-[50px] bg-[#22C55E] px-4 py-2 font-['Gotham'] text-2xl font-bold text-white shadow-lg transition-all duration-200 hover:bg-[#16A34A] hover:shadow-xl active:scale-95"
           >
-            Explore Careers
+            {content.buttonLabel}
           </button>
         </div>
         <div className="flex w-[496px] items-end justify-end self-stretch overflow-hidden">
