@@ -7,6 +7,8 @@ export const routes = {
   whoWeAre: "/who-we-are",
   article: "/articles/:slug",
   articles: "/articles",
+  partner: "/partners/:slug",
+  partners: "/partners",
   inception: "/what-we-do/inception",
   insight: "/what-we-do/insight",
   infinity: "/what-we-do/infinity",

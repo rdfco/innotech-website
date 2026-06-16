@@ -1,3 +1,5 @@
+import {Link} from "react-router-dom";
+
 import {useTheme} from "../../../../../context/useTheme";
 
 function ChevronRight() {
@@ -24,7 +26,8 @@ function PartnerCard({partner, isDarkMode}) {
   const imageClassName = partner.imageClassName ?? "max-h-14 max-w-[137px]";
 
   return (
-    <div
+    <Link
+      to={`/partners/${partner.id}`}
       className={`group relative h-[68px] w-[172px] overflow-hidden rounded-2xl bg-white ${
         isDarkMode ? "" : "border border-black"
       }`}
@@ -41,7 +44,7 @@ function PartnerCard({partner, isDarkMode}) {
       <div className="absolute inset-y-0 -right-11 flex w-11 items-center justify-center bg-[#37B478] text-black transition-transform duration-300 ease-out group-hover:-translate-x-11">
         <ChevronRight />
       </div>
-    </div>
+    </Link>
   );
 }
 

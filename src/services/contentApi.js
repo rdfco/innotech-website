@@ -4,6 +4,17 @@ import inlearnAcademyPage from "../content/en/pages/inlearn-academy.json";
 import archivesPage from "../content/en/pages/what-we-think/archives.json";
 import whatWeThinkPage from "../content/en/pages/what-we-think/what-we-think.json";
 import whoWeArePage from "../content/en/pages/who-we-are/who-we-are.json";
+import alleanitaPartnerPage from "../content/en/partners/alleanita/alleanita.json";
+import brightideaPartnerPage from "../content/en/partners/brightidea/brightidea.json";
+import gartnerPartnerPage from "../content/en/partners/gartner/gartner.json";
+import idcPartnerPage from "../content/en/partners/idc/idc.json";
+import itonicsPartnerPage from "../content/en/partners/itonics/itonics.json";
+import leanPartnerPage from "../content/en/partners/lean/lean.json";
+import lensorgPartnerPage from "../content/en/partners/lensorg/lensorg.json";
+import sharjahPartnerPage from "../content/en/partners/sharjah/sharjah.json";
+import startinPartnerPage from "../content/en/partners/startin/startin.json";
+import statistaPartnerPage from "../content/en/partners/statista/statista.json";
+import trexPartnerPage from "../content/en/partners/trex/trex.json";
 import automotivePage from "../content/en/industries/automotive.json";
 import energyAndMaterialsPage from "../content/en/industries/energy-and-materials.json";
 import healthPage from "../content/en/industries/health.json";
@@ -14,6 +25,7 @@ import infinityPage from "../content/en/services/infinity.json";
 import insightPage from "../content/en/services/insight.json";
 import {homeConfig} from "../config/home.config";
 import {industryConfig} from "../config/industries.config";
+import {partnerConfig} from "../config/partners.config";
 import {serviceConfig} from "../config/services.config";
 import {whatWeThinkConfig} from "../config/whatWeThink.config";
 import {whoWeAreConfig} from "../config/whoWeAre.config";
@@ -32,6 +44,20 @@ const serviceContent = {
   inception: inceptionPage,
   infinity: infinityPage,
   insight: insightPage,
+};
+
+const partnerContent = {
+  alleanita: alleanitaPartnerPage,
+  brightidea: brightideaPartnerPage,
+  gartner: gartnerPartnerPage,
+  idc: idcPartnerPage,
+  itonics: itonicsPartnerPage,
+  lean: leanPartnerPage,
+  lensorg: lensorgPartnerPage,
+  sharjah: sharjahPartnerPage,
+  startin: startinPartnerPage,
+  statista: statistaPartnerPage,
+  trex: trexPartnerPage,
 };
 
 const articleModules = import.meta.glob("../content/en/articles/*.json", {
@@ -79,6 +105,16 @@ function buildServicePage(content, config = {}) {
       ...content.showcase,
       ...(config.showcase ?? {}),
     },
+  };
+}
+
+function buildPartnerPage(content, config = {}) {
+  if (!content) return null;
+
+  return {
+    ...content,
+    assets: config.assets,
+    theme: config.theme,
   };
 }
 
@@ -182,6 +218,10 @@ export function getServicePage(slug) {
   return buildServicePage(serviceContent[slug], serviceConfig[slug]);
 }
 
+export function getPartnerPage(slug) {
+  return buildPartnerPage(partnerContent[slug], partnerConfig[slug]);
+}
+
 export function getArticle(slug) {
   return articlesBySlug[slug] ?? null;
 }
@@ -202,6 +242,13 @@ export async function fetchServicePage(slug) {
   return apiContent
     ? buildServicePage(apiContent, serviceConfig[slug])
     : getServicePage(slug);
+}
+
+export async function fetchPartnerPage(slug) {
+  const apiContent = await fetchJsonFromApi(`/partners/${slug}`);
+  return apiContent
+    ? buildPartnerPage(apiContent, partnerConfig[slug])
+    : getPartnerPage(slug);
 }
 
 export async function fetchArticle(slug) {
