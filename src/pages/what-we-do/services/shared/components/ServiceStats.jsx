@@ -33,7 +33,7 @@ function useCountUp(target, isActive) {
     return () => cancelAnimationFrame(frameId);
   }, [isActive, target]);
 
-  return count;
+  return isActive ? count : 0;
 }
 
 function Stat({item, isVisible, textColor, delay}) {
@@ -83,10 +83,7 @@ function ServiceStats({stats}) {
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.disconnect();
-        }
+        setIsVisible(entry.isIntersecting);
       },
       {threshold: 0.35},
     );
@@ -129,7 +126,7 @@ function ServiceStats({stats}) {
       <div className="absolute left-1/2 top-[184px] z-30 flex w-full max-w-[1440px] -translate-x-1/2 items-start justify-between gap-80 px-6 md:px-16 xl:px-[120px]">
         {stats.map((item, index) => (
           <Stat
-            key={item.label}
+            key={`${item.label}-${isVisible ? "visible" : "hidden"}`}
             item={item}
             isVisible={isVisible}
             textColor={textColor}

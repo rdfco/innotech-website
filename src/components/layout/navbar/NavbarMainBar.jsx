@@ -58,8 +58,18 @@ function NavbarMainBar({
             type="button"
             onClick={handleDropdownToggle}
             className={`flex items-center gap-1 font-['Gotham'] text-base transition-colors hover:text-emerald-400 ${textColor}`}
+            aria-expanded={isDropdownOpen}
           >
-            <span>What we do</span>
+            <span className="relative inline-flex pb-1">
+              What we do
+              <span
+                className={`absolute bottom-0 left-0 h-px w-full rounded-full bg-[#37B478] transition-transform duration-300 ease-out ${
+                  isDropdownOpen
+                    ? "origin-left scale-x-100"
+                    : "origin-right scale-x-0"
+                }`}
+              />
+            </span>
             <img
               src={Vector}
               alt=""

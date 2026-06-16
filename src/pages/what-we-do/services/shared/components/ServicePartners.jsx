@@ -21,6 +21,8 @@ function ChevronRight() {
 }
 
 function PartnerCard({partner, isDarkMode}) {
+  const imageClassName = partner.imageClassName ?? "max-h-14 max-w-[137px]";
+
   return (
     <div
       className={`group relative h-[68px] w-[172px] overflow-hidden rounded-2xl bg-white ${
@@ -32,7 +34,7 @@ function PartnerCard({partner, isDarkMode}) {
         <img loading="lazy"
           src={partner.image}
           alt={partner.name}
-          className="max-h-14 max-w-[137px] object-contain"
+          className={`object-contain ${imageClassName}`}
         />
       </div>
 

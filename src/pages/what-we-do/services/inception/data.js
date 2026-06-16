@@ -3,7 +3,11 @@ import inceptionIcon from "../../../../assets/icons/Inception-Icon 1.svg";
 
 export const partners = [
   {name: "ITONICS", image: partnerImages.itonics},
-  {name: "Brightidea", image: partnerImages.brightidea},
+  {
+    name: "Brightidea",
+    image: partnerImages.brightidea,
+    imageClassName: "max-h-6 max-w-[150px]",
+  },
 ];
 
 export const showcase = {

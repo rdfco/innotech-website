@@ -20,9 +20,11 @@ const RESET_HOLD_DURATION = 1200;
 function ServiceRoad({title, items}) {
   const {isDarkMode} = useTheme();
   const sectionRef = useRef(null);
-  const [hasStarted, setHasStarted] = useState(false);
+  const [isInView, setIsInView] = useState(false);
   const [lineVisible, setLineVisible] = useState(false);
   const [animationPhase, setAnimationPhase] = useState(-1);
+  const activeLineVisible = isInView && lineVisible;
+  const activeAnimationPhase = isInView ? animationPhase : -1;
 
   const pageBg = isDarkMode ? "bg-black" : "bg-white";
   const textColor = isDarkMode ? "text-white" : "text-black";
@@ -30,19 +32,24 @@ function ServiceRoad({title, items}) {
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting && !hasStarted) {
-          setHasStarted(true);
+        if (entry.isIntersecting) {
+          setIsInView(true);
+          return;
         }
+
+        setIsInView(false);
+        setLineVisible(false);
+        setAnimationPhase(-1);
       },
       {threshold: 0.35},
     );
 
     if (sectionRef.current) observer.observe(sectionRef.current);
     return () => observer.disconnect();
-  }, [hasStarted]);
+  }, []);
 
   useEffect(() => {
-    if (!hasStarted) return undefined;
+    if (!isInView) return undefined;
 
     const timers = [];
     const addTimer = (callback, delay) => {
@@ -70,7 +77,7 @@ function ServiceRoad({title, items}) {
     addTimer(runCircleSequence, LINE_REVEAL_DELAY + LINE_REVEAL_DURATION + 150);
 
     return () => timers.forEach(clearTimeout);
-  }, [hasStarted, items]);
+  }, [isInView, items]);
 
   return (
     <section
@@ -95,7 +102,7 @@ function ServiceRoad({title, items}) {
         <div className="relative h-[360px] w-[1166px] shrink-0">
             <div
               className={`absolute left-[1px] top-[4px] overflow-hidden transition-all duration-[1800ms] ease-out ${
-                lineVisible ? "w-[1164px]" : "w-0"
+                activeLineVisible ? "w-[1164px]" : "w-0"
               }`}
             >
               <img loading="lazy"
@@ -107,14 +114,18 @@ function ServiceRoad({title, items}) {
             </div>
 
           {items.map((item, index) => {
-            const isCompletedPhase = animationPhase === items.length;
-            const isBlankLoopPhase = animationPhase === items.length + 1;
-            const isVisible = isCompletedPhase || animationPhase >= index;
+            const isCompletedPhase = activeAnimationPhase === items.length;
+            const isBlankLoopPhase = activeAnimationPhase === items.length + 1;
+            const isVisible = isCompletedPhase || activeAnimationPhase >= index;
             const isFilled =
-              isCompletedPhase || (!isBlankLoopPhase && animationPhase >= index);
+              isCompletedPhase ||
+              (!isBlankLoopPhase && activeAnimationPhase >= index);
             const isActive =
-              !isCompletedPhase && !isBlankLoopPhase && animationPhase === index;
-            const isTextVisible = !isBlankLoopPhase && animationPhase >= index;
+              !isCompletedPhase &&
+              !isBlankLoopPhase &&
+              activeAnimationPhase === index;
+            const isTextVisible =
+              !isBlankLoopPhase && activeAnimationPhase >= index;
             const position = positions[index];
 
             return (

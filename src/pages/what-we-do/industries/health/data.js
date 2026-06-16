@@ -4,8 +4,12 @@ import healthInsightTop from "../../../../assets/images/industries/health/health
 import healthInsightBottom from "../../../../assets/images/industries/health/health3.webp";
 import {expertImages} from "../../../../assets/images/shared";
 
-const {itonics: itonicsImage, statista: statistaImage, trex: trexImage} =
-  expertImages;
+const {
+  itonics: itonicsImage,
+  statista: statistaImage,
+  statistaLight: statistaLightImage,
+  trex: trexImage,
+} = expertImages;
 
 export const hero = {
   image: healthHero,
@@ -87,6 +91,7 @@ export const ecosystemCards = [
   {
     id: "statista",
     image: statistaImage,
+    imageLight: statistaLightImage,
     imageClassName: "scale-[1] translate-y-[20px]",
     title: "Cord Blood Technology",
     subtitle: "Copyrighted collaborative data ",

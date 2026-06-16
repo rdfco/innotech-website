@@ -6,6 +6,7 @@ import {usePointerGlow} from "../../../../../hooks/usePointerGlow";
 
 function EcosystemCard({
   image,
+  imageLight,
   title,
   subtitle,
   isDarkMode,
@@ -36,7 +37,7 @@ function EcosystemCard({
       />
 
       <article
-        className={`relative z-10 flex h-[250px] min-w-0 flex-col overflow-hidden rounded-[25px] border border-[#37B478] p-6 sm:p-9 ${
+        className={`relative z-10 flex h-[250px] min-w-0 flex-col overflow-hidden rounded-[25px] border border-[#37B478] p-6 ${
           isDarkMode ? "bg-[#050505]" : "bg-white"
         }`}
       >
@@ -46,17 +47,17 @@ function EcosystemCard({
           alt=""
           aria-hidden="true"
         />
-        <div className="relative z-10 flex w-full items-end justify-between gap-4">
+        <div className="relative z-10 flex w-full items-end justify-between gap-3">
           <div className="relative size-[80px] top-[-27px] shrink-0 overflow-hidden rounded-bl-[25px] rounded-br-[100px] rounded-tl-[25px] rounded-tr-[100px]">
             <img loading="lazy"
               className={`block size-full object-contain ${imageClassName}`}
-              src={image}
+              src={!isDarkMode && imageLight ? imageLight : image}
               alt=""
             />
           </div>
 
           <button
-            className="shrink-0 rounded-bl-[30px] rounded-br-[20px] rounded-tr-[20px] bg-[#22C55E] px-4 py-2 font-['Gotham'] text-base font-bold leading-none text-black shadow-lg transition-all duration-200 hover:scale-[1.03] hover:bg-[#16A34A] hover:shadow-xl active:scale-95"
+            className="shrink-0 rounded-bl-[30px] rounded-br-[20px] rounded-tr-[20px] bg-[#22C55E] px-3 py-2 font-['Gotham'] text-sm font-bold leading-none text-black shadow-lg transition-all duration-200 hover:scale-[1.03] hover:bg-[#16A34A] hover:shadow-xl active:scale-95"
             type="button"
           >
             Exclusive content

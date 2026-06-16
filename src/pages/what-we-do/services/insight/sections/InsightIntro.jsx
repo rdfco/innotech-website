@@ -1,4 +1,5 @@
 import {useTheme} from "../../../../../context/useTheme";
+import IntroRevealText from "../../../../../components/ui/IntroRevealText";
 import insightIcon from "../../../../../assets/icons/Subtract2.svg";
 import insightDarkExclude from "../../../../../assets/images/excludes/insight/Exclude.webp";
 import insightLightExclude from "../../../../../assets/images/excludes/insight/BlackExclude.webp";
@@ -29,20 +30,23 @@ function InsightIntro() {
           className="size-9 object-contain [filter:brightness(0)_saturate(100%)_invert(65%)_sepia(33%)_saturate(1153%)_hue-rotate(93deg)_brightness(86%)_contrast(88%)]"
         />
 
-        <h1
+        <IntroRevealText
+          as="h1"
+          variant="heading"
           className={`font-['Gotham'] text-5xl font-normal leading-none md:text-7xl ${textColor}`}
         >
           INSIGHT
-        </h1>
+        </IntroRevealText>
 
-        <p
+        <IntroRevealText
+          variant="copy"
           className={`font-['Gotham'] text-base font-normal leading-tight md:text-xl ${textColor}`}
         >
           Turning intelligence into action. INSIGHT combines AI-driven analysis,
           patent monitoring, market research, and science analytics to empower
           R&D and strategy teams. Shape product roadmaps, prioritize
           investments, and unlock measurable innovation value across industries.
-        </p>
+        </IntroRevealText>
       </section>
     </main>
   );

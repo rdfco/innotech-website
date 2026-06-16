@@ -6,9 +6,7 @@ function useCountUp(target, isActive) {
   const [count, setCount] = useState(0);
 
   useEffect(() => {
-    if (!isActive) {
-      return undefined;
-    }
+    if (!isActive) return undefined;
 
     let frameId;
     const startTime = performance.now();

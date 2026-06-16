@@ -2,7 +2,11 @@ import {partnerImages} from "../../../../assets/images/shared";
 import insightIcon from "../../../../assets/icons/Subtract2.svg";
 
 export const partners = [
-  {name: "Sharjah", image: partnerImages.sharjah},
+  {
+    name: "Sharjah",
+    image: partnerImages.sharjah,
+    imageClassName: "max-h-11 max-w-[137px]",
+  },
   {name: "ITONICS", image: partnerImages.itonics},
   {name: "Statista", image: partnerImages.statista},
   {name: "Gartner", image: partnerImages.gartner},

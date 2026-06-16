@@ -2,11 +2,23 @@ import {partnerImages} from "../../../../assets/images/shared";
 import infinityIcon from "../../../../assets/icons/Subtract.svg";
 
 export const partners = [
-  {name: "TREX", image: partnerImages.trex},
+  {
+    name: "TREX",
+    image: partnerImages.trex,
+    imageClassName: "max-h-12 max-w-[132px]",
+  },
   {name: "Lean", image: partnerImages.lean},
-  {name: "IDC", image: partnerImages.idc},
+  {
+    name: "IDC",
+    image: partnerImages.idc,
+    imageClassName: "max-h-12 max-w-[118px]",
+  },
   {name: "Alleanita", image: partnerImages.alleanita},
-  {name: "Startin", image: partnerImages.startin},
+  {
+    name: "Startin",
+    image: partnerImages.startin,
+    imageClassName: "max-h-12 max-w-[100px]",
+  },
 ];
 
 export const showcase = {

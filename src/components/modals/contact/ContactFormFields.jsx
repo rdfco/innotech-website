@@ -1,3 +1,7 @@
+import {useEffect, useRef, useState} from "react";
+
+import {industryMenuItems} from "../../layout/navData";
+
 function TextField({className, onChange, placeholder, type = "text", value}) {
   return (
     <div className={className}>
@@ -33,6 +37,23 @@ function ContactFormFields({
   const inputTextClassName = `${textColor} ${
     isDarkMode ? "placeholder:text-white" : "placeholder:text-black/50"
   }`;
+  const [isIndustryOpen, setIsIndustryOpen] = useState(false);
+  const industryRef = useRef(null);
+  const industryOptions = [...industryMenuItems.map((item) => item.label), "Other"];
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (industryRef.current && !industryRef.current.contains(event.target)) {
+        setIsIndustryOpen(false);
+      }
+    };
+
+    if (isIndustryOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [isIndustryOpen]);
 
   return (
     <>
@@ -171,27 +192,74 @@ function ContactFormFields({
         ) : null}
       </div>
 
-      <div
-        className={`inline-flex items-center justify-between self-stretch rounded-[50px] px-4 py-3 outline outline-1 outline-offset-[-1px] ${inputBg} ${inputOutline}`}
-      >
-        <div
-          className={`flex-1 font-['Gotham'] text-sm ${
-            isDarkMode ? "text-white" : "text-black/50"
-          }`}
+      <div className="relative self-stretch" ref={industryRef}>
+        <button
+          type="button"
+          onClick={() => setIsIndustryOpen((current) => !current)}
+          className={`inline-flex w-full items-center justify-between rounded-[50px] px-4 py-3 text-left outline outline-1 outline-offset-[-1px] ${inputBg} ${inputOutline}`}
+          aria-expanded={isIndustryOpen}
+          aria-haspopup="listbox"
         >
-          Select industry
-        </div>
-        <svg
-          viewBox="0 0 24 24"
-          className={`size-4 shrink-0 ${closeIconColor}`}
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2.2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        >
-          <path d="M6 9l6 6 6-6" />
-        </svg>
+          <span
+            className={`flex-1 font-['Gotham'] text-sm ${
+              values.industry
+                ? isDarkMode
+                  ? "text-white"
+                  : "text-black"
+                : isDarkMode
+                  ? "text-white"
+                  : "text-black/50"
+            }`}
+          >
+            {values.industry || "Select industry"}
+          </span>
+          <svg
+            viewBox="0 0 24 24"
+            className={`size-4 shrink-0 ${closeIconColor} transition-transform duration-200 ${
+              isIndustryOpen ? "rotate-180" : "rotate-0"
+            }`}
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2.2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <path d="M6 9l6 6 6-6" />
+          </svg>
+        </button>
+
+        {isIndustryOpen ? (
+          <div
+            role="listbox"
+            className={`absolute left-0 right-0 top-[calc(100%+8px)] z-[120] rounded-3xl border p-2 shadow-2xl ${
+              isDarkMode
+                ? "border-white/15 bg-zinc-950 text-white"
+                : "border-black/15 bg-white text-black"
+            }`}
+          >
+            {industryOptions.map((industry) => (
+              <button
+                key={industry}
+                type="button"
+                role="option"
+                aria-selected={values.industry === industry}
+                onClick={() => {
+                  updateValue("industry", industry);
+                  setIsIndustryOpen(false);
+                }}
+                className={`block w-full rounded-2xl px-4 py-2 text-left font-['Gotham'] text-sm transition-colors ${
+                  values.industry === industry
+                    ? "bg-[#37B478] text-white"
+                    : isDarkMode
+                      ? "hover:bg-white/10"
+                      : "hover:bg-black/5"
+                }`}
+              >
+                {industry}
+              </button>
+            ))}
+          </div>
+        ) : null}
       </div>
 
       <div

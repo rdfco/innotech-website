@@ -1,10 +1,10 @@
-import brightidea from "./partners/brightidea.webp";
+import brightidea from "./partners/brightidea-partner.svg";
 import alleanita from "./partners/alleanita.svg";
 import brightidea2 from "./partners/brightidea-partner.svg";
 import gartner from "./partners/gartner.svg";
-import idc from "./partners/idc.webp";
+import idc from "./partners/idc-partner.svg";
 import idc2 from "./partners/idc-partner.svg";
-import itonics from "./partners/itonics.webp";
+import itonics from "./partners/Itonics.svg";
 import itonics2 from "./partners/itonics-partner.svg";
 import lean from "./partners/lean.svg";
 import lensorg from "./partners/lens-org.svg";
@@ -12,7 +12,7 @@ import sharjah from "./partners/sharjah.svg";
 import startin from "./partners/startin.svg";
 import statista from "./partners/statista.webp";
 import statista2 from "./partners/statista-partner.svg";
-import trex from "./partners/trex.webp";
+import trex from "./partners/trex-partner.svg";
 import trex2 from "./partners/trex-partner.svg";
 
 export const ecosystemImages = {
@@ -23,6 +23,7 @@ export const ecosystemImages = {
 export const expertImages = {
   itonics,
   statista,
+  statistaLight: statista2,
   trex,
 };
 

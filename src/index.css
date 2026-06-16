@@ -33,6 +33,45 @@ body {
   color: white;
 }
 
+.intro-reveal {
+  will-change: opacity, transform;
+}
+
+.intro-reveal--heading {
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity 0.7s ease-out,
+    transform 0.7s ease-out;
+}
+
+.intro-reveal--copy {
+  opacity: 0;
+  transition: opacity 0.55s ease-out;
+}
+
+.intro-reveal--visible,
+.intro-reveal--done {
+  opacity: 1;
+}
+
+.intro-reveal--heading.intro-reveal--visible,
+.intro-reveal--heading.intro-reveal--done {
+  transform: translateY(0);
+}
+
+.intro-reveal--done {
+  transition: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .intro-reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
 .what-we-think-page {
   position: relative;
   min-height: 100vh;

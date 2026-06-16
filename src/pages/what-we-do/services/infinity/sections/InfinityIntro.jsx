@@ -1,4 +1,5 @@
 import {useTheme} from "../../../../../context/useTheme";
+import IntroRevealText from "../../../../../components/ui/IntroRevealText";
 import infinityIcon from "../../../../../assets/icons/Subtract.svg";
 import infinityExclude from "../../../../../assets/images/excludes/infinity/Exclude.webp";
 import infinityExcludeBlack from "../../../../../assets/images/excludes/infinity/ExcludeBlack.webp";
@@ -29,20 +30,23 @@ function InfinityIntro() {
           className="size-9 object-contain [filter:brightness(0)_saturate(100%)_invert(65%)_sepia(33%)_saturate(1153%)_hue-rotate(93deg)_brightness(86%)_contrast(88%)]"
         />
 
-        <h1
+        <IntroRevealText
+          as="h1"
+          variant="heading"
           className={`font-['Gotham'] text-5xl font-normal leading-none md:text-7xl ${textColor}`}
         >
           INFINITY
-        </h1>
+        </IntroRevealText>
 
-        <p
+        <IntroRevealText
+          variant="copy"
           className={`font-['Gotham'] text-base font-normal leading-tight md:text-xl ${textColor}`}
         >
           Digital transformation is not software installation. It is the
           redesign of how organizations sense problems, connect processes,
           automate decisions, and scale intelligent operations across teams,
           assets, and business units.
-        </p>
+        </IntroRevealText>
       </section>
     </main>
   );

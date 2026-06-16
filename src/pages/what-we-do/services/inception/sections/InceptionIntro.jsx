@@ -1,4 +1,5 @@
 import {useTheme} from "../../../../../context/useTheme";
+import IntroRevealText from "../../../../../components/ui/IntroRevealText";
 import inceptionIcon from "../../../../../assets/icons/Inception-Icon 1.svg";
 import inceptionLeftExclude from "../../../../../assets/images/excludes/inception/LeftExclude.webp";
 import inceptionLeftExcludeBlack from "../../../../../assets/images/excludes/inception/LeftExcludeBlack.webp";
@@ -40,19 +41,22 @@ function Inception() {
           aria-hidden
           className="size-9 object-contain [filter:brightness(0)_saturate(100%)_invert(65%)_sepia(33%)_saturate(1153%)_hue-rotate(93deg)_brightness(86%)_contrast(88%)]"
         />
-        <h1
+        <IntroRevealText
+          as="h1"
+          variant="heading"
           className={`font-['Gotham'] text-5xl font-normal leading-none md:text-7xl ${textColor}`}
         >
           INCEPTION
-        </h1>
-        <p
+        </IntroRevealText>
+        <IntroRevealText
+          variant="copy"
           className={`font-['Gotham'] text-base font-normal leading-tight md:text-xl ${textColor}`}
         >
           Innovation does not fail because companies lack ideas. It fails when
           ideas move through unclear roles, scattered channels, weak governance,
           and invisible value. INCEPTION turns innovation into a measurable
           management system.
-        </p>
+        </IntroRevealText>
       </section>
     </main>
   );

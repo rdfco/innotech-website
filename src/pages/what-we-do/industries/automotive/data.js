@@ -4,8 +4,12 @@ import leftInsightImage from "../../../../assets/images/industries/automotive/le
 import topRightInsightImage from "../../../../assets/images/industries/automotive/TopRight.webp";
 import {expertImages} from "../../../../assets/images/shared";
 
-const {itonics: itonicsImage, statista: statistaImage, trex: trexImage} =
-  expertImages;
+const {
+  itonics: itonicsImage,
+  statista: statistaImage,
+  statistaLight: statistaLightImage,
+  trex: trexImage,
+} = expertImages;
 
 export const hero = {
   image: automotiveHero,
@@ -98,6 +102,7 @@ export const ecosystemCards = [
   {
     id: "statista",
     image: statistaImage,
+    imageLight: statistaLightImage,
     imageClassName: "scale-[1] translate-y-[10px] ",
     title: "Global Transportation ",
     subtitle: "Copyrighted collaborative data ",
