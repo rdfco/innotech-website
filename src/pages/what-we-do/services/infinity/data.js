@@ -5,19 +5,22 @@ export const partners = [
   {
     name: "TREX",
     image: partnerImages.trex,
-    imageClassName: "max-h-12 max-w-[132px]",
+    imageClassName: "max-h-15 max-w-[120px]",
   },
-  {name: "Lean", image: partnerImages.lean},
+  {name: "Lean", image: partnerImages.lean, imageClassName: "max-h-12 max-w-[120px]"},
   {
     name: "IDC",
     image: partnerImages.idc,
-    imageClassName: "max-h-12 max-w-[118px]",
+    imageClassName: "max-h-18 ma-w-[130px] pb-1",
   },
-  {name: "Alleanita", image: partnerImages.alleanita},
+  {
+    name: "Alleanita", image: partnerImages.alleanita 
+    , imageClassName: "max-h-12 max-w-[120px]",
+  },
   {
     name: "Startin",
     image: partnerImages.startin,
-    imageClassName: "max-h-12 max-w-[100px]",
+    imageClassName: "max-h-12 max-w-[120px]",
   },
 ];
 
