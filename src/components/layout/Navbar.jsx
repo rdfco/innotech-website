@@ -3,7 +3,11 @@ import {useEffect, useMemo, useRef, useState} from "react";
 import {useTheme} from "../../context/useTheme";
 import {searchItems} from "./navData";
 import NavbarMainBar from "./navbar/NavbarMainBar";
-import {SearchPanel, WhatWeDoPanel} from "./navbar/NavbarPanels";
+import {
+  MobileMenuPanel,
+  SearchPanel,
+  WhatWeDoPanel,
+} from "./navbar/NavbarPanels";
 
 function Navbar() {
   const {isDarkMode, toggleTheme} = useTheme();
@@ -11,6 +15,7 @@ function Navbar() {
   const [isLanguageOpen, setIsLanguageOpen] = useState(false);
   const [selectedLanguage, setSelectedLanguage] = useState("En");
   const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const navRef = useRef(null);
   const inputRef = useRef(null);
@@ -25,6 +30,7 @@ function Navbar() {
     setIsDropdownOpen(false);
     setIsLanguageOpen(false);
     setIsSearchOpen(false);
+    setIsMobileMenuOpen(false);
   };
 
   useEffect(() => {
@@ -46,13 +52,22 @@ function Navbar() {
     setIsDropdownOpen((current) => panel === "dropdown" && !current);
     setIsLanguageOpen((current) => panel === "language" && !current);
     setIsSearchOpen((current) => panel === "search" && !current);
+    setIsMobileMenuOpen(false);
   };
 
-  const isAnyPanelOpen = isDropdownOpen || isLanguageOpen || isSearchOpen;
+  const toggleMobileMenu = () => {
+    setIsDropdownOpen(false);
+    setIsLanguageOpen(false);
+    setIsSearchOpen(false);
+    setIsMobileMenuOpen((current) => !current);
+  };
+
+  const isAnyPanelOpen =
+    isDropdownOpen || isLanguageOpen || isSearchOpen || isMobileMenuOpen;
 
   return (
-    <nav ref={navRef} className="fixed inset-x-0 top-0 z-50 pt-6">
-      <div className="mx-auto w-[min(1265px,calc(100%-32px))]">
+    <nav ref={navRef} className="fixed inset-x-0 top-0 z-50 pt-3 lg:pt-6">
+      <div className="mx-auto w-[min(1265px,calc(100%-24px))] lg:w-[min(1265px,calc(100%-32px))]">
         <div
           className={`border shadow-2xl transition-all duration-500 ease-in-out ${
             isLanguageOpen ? "overflow-visible" : "overflow-hidden"
@@ -63,9 +78,9 @@ function Navbar() {
           } ${
             isAnyPanelOpen
               ? isDarkMode
-                ? "rounded-[34px] bg-zinc-950/80"
-                : "rounded-[34px] bg-white/85"
-              : "rounded-[50px]"
+                ? "rounded-[24px] bg-zinc-950/80 lg:rounded-[34px]"
+                : "rounded-[24px] bg-white/85 lg:rounded-[34px]"
+              : "rounded-[28px] lg:rounded-[50px]"
           }`}
         >
           <NavbarMainBar
@@ -76,10 +91,12 @@ function Navbar() {
               setIsLanguageOpen(false);
             }}
             handleLanguageToggle={() => togglePanel("language")}
+            handleMobileMenuToggle={toggleMobileMenu}
             handleSearchToggle={() => togglePanel("search")}
             isDarkMode={isDarkMode}
             isDropdownOpen={isDropdownOpen}
             isLanguageOpen={isLanguageOpen}
+            isMobileMenuOpen={isMobileMenuOpen}
             selectedLanguage={selectedLanguage}
             toggleTheme={toggleTheme}
           />
@@ -95,6 +112,11 @@ function Navbar() {
             searchQuery={searchQuery}
             searchResults={searchResults}
             setSearchQuery={setSearchQuery}
+          />
+          <MobileMenuPanel
+            closePanels={closePanels}
+            isDarkMode={isDarkMode}
+            isOpen={isMobileMenuOpen}
           />
         </div>
       </div>

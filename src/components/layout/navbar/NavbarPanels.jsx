@@ -1,13 +1,61 @@
+import {useState} from "react";
 import {Link} from "react-router-dom";
 
 import {industryMenuItems, serviceMenuItems} from "../navData";
+import Vector from "../../../assets/icons/Vector.svg";
+import {routes} from "../../../routes";
+
+function PanelArrow({isDarkMode, isOpen}) {
+  return (
+    <img
+      src={Vector}
+      alt=""
+      className={`h-3 w-3 object-contain transition-transform duration-300 ${
+        isOpen ? "rotate-180" : "rotate-0"
+      } ${isDarkMode ? "" : "brightness-0"}`}
+    />
+  );
+}
+
+function MobileAccordionGroup({children, isDarkMode, isOpen, onToggle, title}) {
+  return (
+    <div
+      className={`rounded-[18px] border ${
+        isDarkMode
+          ? "border-white/10 bg-white/[0.03]"
+          : "border-black/10 bg-black/[0.03]"
+      }`}
+    >
+      <button
+        type="button"
+        onClick={onToggle}
+        aria-expanded={isOpen}
+        className={`flex w-full items-center justify-between px-4 py-3 font-['Gotham'] text-sm font-bold ${
+          isDarkMode ? "text-white" : "text-black"
+        }`}
+      >
+        <span>{title}</span>
+        <PanelArrow isDarkMode={isDarkMode} isOpen={isOpen} />
+      </button>
+      <div
+        className={`grid transition-all duration-300 ease-in-out ${
+          isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
+        }`}
+      >
+        <div className="overflow-hidden">
+          <div className="flex flex-col gap-3 px-4 pb-4">{children}</div>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 function WhatWeDoPanel({closePanels, isDarkMode, isOpen}) {
   const textColor = isDarkMode ? "text-white" : "text-black";
 
   return (
     <div
-      className={`overflow-hidden transition-all duration-500 ease-in-out ${
+      className={`hidden overflow-hidden transition-all duration-500 ease-in-out lg:block ${
         isOpen
           ? "max-h-[400px] translate-y-0 pb-10 pt-2 opacity-100"
           : "max-h-0 -translate-y-2 pb-0 pt-0 opacity-0"
@@ -60,6 +108,104 @@ function WhatWeDoPanel({closePanels, isDarkMode, isOpen}) {
             ))}
           </div>
         </div>
+      </div>
+    </div>
+  );
+}
+
+function MobileMenuPanel({closePanels, isDarkMode, isOpen}) {
+  const [isWhatWeDoOpen, setIsWhatWeDoOpen] = useState(false);
+  const [isServicesOpen, setIsServicesOpen] = useState(false);
+  const [isIndustriesOpen, setIsIndustriesOpen] = useState(false);
+  const textColor = isDarkMode ? "text-white" : "text-black";
+  const mutedTextColor = isDarkMode ? "text-white/70" : "text-black/60";
+
+  return (
+    <div
+      className={`overflow-hidden transition-all duration-500 ease-in-out lg:hidden ${
+        isOpen
+          ? "max-h-[calc(100vh-96px)] translate-y-0 pb-4 opacity-100"
+          : "max-h-0 -translate-y-2 pb-0 opacity-0"
+      }`}
+    >
+      <div className="flex max-h-[calc(100vh-120px)] flex-col gap-2 overflow-y-auto px-3 pt-2">
+        <Link
+          to={routes.whoWeAre}
+          onClick={closePanels}
+          className={`rounded-[18px] px-4 py-3 font-['Gotham'] text-sm font-bold ${textColor}`}
+        >
+          Who we are
+        </Link>
+
+        <MobileAccordionGroup
+          isDarkMode={isDarkMode}
+          isOpen={isWhatWeDoOpen}
+          onToggle={() => setIsWhatWeDoOpen((current) => !current)}
+          title="What we do"
+        >
+          <MobileAccordionGroup
+            isDarkMode={isDarkMode}
+            isOpen={isServicesOpen}
+            onToggle={() => setIsServicesOpen((current) => !current)}
+            title="Services"
+          >
+            {serviceMenuItems.map((service) => (
+              <Link
+                key={service.label}
+                to={service.to}
+                onClick={closePanels}
+                className="flex flex-col gap-1"
+              >
+                <span
+                  className={`font-['Gotham'] text-sm font-bold ${textColor}`}
+                >
+                  {service.label}
+                </span>
+                <span className={`font-['Gotham'] text-xs ${mutedTextColor}`}>
+                  {service.description}
+                </span>
+              </Link>
+            ))}
+          </MobileAccordionGroup>
+
+          <MobileAccordionGroup
+            isDarkMode={isDarkMode}
+            isOpen={isIndustriesOpen}
+            onToggle={() => setIsIndustriesOpen((current) => !current)}
+            title="Industries"
+          >
+            {industryMenuItems.map((item) => (
+              <Link
+                key={item.label}
+                to={item.to}
+                onClick={closePanels}
+                className={`font-['Gotham'] text-sm font-bold ${textColor}`}
+              >
+                {item.label}
+              </Link>
+            ))}
+          </MobileAccordionGroup>
+        </MobileAccordionGroup>
+
+        <Link
+          to={routes.whatWeThink}
+          onClick={closePanels}
+          className={`rounded-[18px] px-4 py-3 font-['Gotham'] text-sm font-bold ${textColor}`}
+        >
+          What we think
+        </Link>
+        <Link
+          to={routes.inlearnAcademy}
+          onClick={closePanels}
+          className={`rounded-[18px] px-4 py-3 font-['Gotham'] text-sm font-bold ${textColor}`}
+        >
+          INLEARN Academy
+        </Link>
+        <span
+          className={`rounded-[18px] px-4 py-3 font-['Gotham'] text-sm font-bold opacity-70 ${textColor}`}
+        >
+          INSIGHT Store
+        </span>
       </div>
     </div>
   );
@@ -186,4 +332,4 @@ function SearchPanel({
   );
 }
 
-export {SearchPanel, WhatWeDoPanel};
+export {MobileMenuPanel, SearchPanel, WhatWeDoPanel};

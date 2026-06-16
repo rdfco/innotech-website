@@ -23,29 +23,31 @@ function NavbarMainBar({
   handleDropdownToggle,
   handleLanguageSelect,
   handleLanguageToggle,
+  handleMobileMenuToggle,
   handleSearchToggle,
   isDarkMode,
   isDropdownOpen,
   isLanguageOpen,
+  isMobileMenuOpen,
   selectedLanguage,
   toggleTheme,
 }) {
   const textColor = isDarkMode ? "text-white" : "text-black";
 
   return (
-    <div className="flex h-[73px] items-center px-8">
+    <div className="flex h-14 items-center px-4 lg:h-[73px] lg:px-8">
       <div className="flex shrink-0 items-center">
         <Link to={routes.home}>
           <img
             src={Logo}
             alt="InnoTech Logo"
-            className={`h-9 w-auto ${isDarkMode ? "" : "brightness-0"}`}
+            className={`h-8 w-auto lg:h-9 ${isDarkMode ? "" : "brightness-0"}`}
           />
         </Link>
       </div>
 
       <div className="flex flex-1 justify-center">
-        <div className="hidden items-center gap-10 md:flex">
+        <div className="hidden items-center gap-10 lg:flex">
           <Link
             to={routes.whoWeAre}
             onClick={closePanels}
@@ -101,8 +103,8 @@ function NavbarMainBar({
         </div>
       </div>
 
-      <div className="flex items-center gap-5">
-        <div className="relative">
+      <div className="flex items-center gap-2 sm:gap-3 lg:gap-5">
+        <div className="relative hidden sm:block">
           <button
             type="button"
             onClick={handleLanguageToggle}
@@ -148,24 +150,28 @@ function NavbarMainBar({
           </div>
         </div>
 
-        <Divider isDarkMode={isDarkMode} />
+        <div className="hidden sm:block">
+          <Divider isDarkMode={isDarkMode} />
+        </div>
 
         <button
           type="button"
           onClick={toggleTheme}
           aria-label={isDarkMode ? "Switch to light mode" : "Switch to dark mode"}
-          className="group flex h-[30px] w-[30px] items-center justify-center transition-all duration-300 hover:scale-110 active:scale-95"
+          className="group flex h-7 w-7 items-center justify-center transition-all duration-300 hover:scale-110 active:scale-95 lg:h-[30px] lg:w-[30px]"
         >
           <img
             src={isDarkMode ? SunMedium : Moon}
             alt=""
-            className={`h-[30px] w-[30px] object-contain transition-all duration-500 ease-in-out hover:rotate-12 ${
+            className={`h-7 w-7 object-contain transition-all duration-500 ease-in-out hover:rotate-12 lg:h-[30px] lg:w-[30px] ${
               isDarkMode ? "" : "brightness-0"
             }`}
           />
         </button>
 
-        <Divider isDarkMode={isDarkMode} />
+        <div className="hidden sm:block">
+          <Divider isDarkMode={isDarkMode} />
+        </div>
 
         <button
           type="button"
@@ -180,6 +186,37 @@ function NavbarMainBar({
               isDarkMode ? "" : "brightness-0"
             }`}
           />
+        </button>
+
+        <button
+          type="button"
+          onClick={handleMobileMenuToggle}
+          aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
+          aria-expanded={isMobileMenuOpen}
+          className={`flex h-9 items-center gap-2 rounded-full border px-3 font-['Gotham'] text-sm transition-colors lg:hidden ${
+            isDarkMode
+              ? "border-white/15 text-white hover:bg-white/10"
+              : "border-black/15 text-black hover:bg-black/5"
+          }`}
+        >
+          <span>Menu</span>
+          <span className="relative h-4 w-4">
+            <span
+              className={`absolute left-0 top-[3px] h-0.5 w-4 rounded-full bg-current transition-transform ${
+                isMobileMenuOpen ? "translate-y-[5px] rotate-45" : ""
+              }`}
+            />
+            <span
+              className={`absolute left-0 top-[8px] h-0.5 w-4 rounded-full bg-current transition-opacity ${
+                isMobileMenuOpen ? "opacity-0" : "opacity-100"
+              }`}
+            />
+            <span
+              className={`absolute left-0 top-[13px] h-0.5 w-4 rounded-full bg-current transition-transform ${
+                isMobileMenuOpen ? "-translate-y-[5px] -rotate-45" : ""
+              }`}
+            />
+          </span>
         </button>
       </div>
     </div>
