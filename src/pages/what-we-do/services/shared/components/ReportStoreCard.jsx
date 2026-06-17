@@ -7,6 +7,7 @@ function ReportStoreCard() {
   const {isDarkMode} = useTheme();
   const cardBackground = isDarkMode ? "bg-white" : "bg-black";
   const cardText = isDarkMode ? "text-black" : "text-white";
+  const greenButtonTextColor = isDarkMode ? "text-black" : "text-white";
 
   return (
     <section
@@ -32,7 +33,7 @@ function ReportStoreCard() {
           </div>
           <button
             type="button"
-            className="inline-flex items-center justify-center rounded-[50px] bg-[#22C55E] px-6 py-3.5 font-['Gotham'] text-2xl font-bold text-white shadow-lg transition-all duration-200 hover:bg-[#16A34A] hover:shadow-xl active:scale-95"
+            className={`inline-flex items-center justify-center rounded-[50px] bg-[#22C55E] px-6 py-3.5 font-['Gotham'] text-2xl font-bold ${greenButtonTextColor} shadow-lg transition-all duration-200 hover:bg-[#16A34A] hover:shadow-xl active:scale-95`}
           >
             Go to store
           </button>

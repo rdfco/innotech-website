@@ -6,6 +6,8 @@ import circleIcon from "../assets/images/partners/shared/circles/circles.webp";
 import gartnerLogo from "../assets/images/shared/partners/gartner.svg";
 import globeIcon from "../assets/images/partners/shared/cards/globe.svg";
 import idcLogo from "../assets/images/shared/partners/idc-partner.svg";
+import itonicsExclude from "../assets/images/partners/itonics/Exclude.png";
+import itonicsExcludeBlack from "../assets/images/partners/itonics/ExcludeBlack.png";
 import itonicsHeroImage from "../assets/images/partners/itonics/image-41.webp";
 import itonicsLogo from "../assets/images/shared/partners/Itonics.svg";
 import leanLogo from "../assets/images/shared/partners/lean.svg";
@@ -52,6 +54,8 @@ export const partnerConfig = {
   },
   itonics: {
     assets: partnerAssets(itonicsLogo, itonicsHeroImage, {
+      excludeDark: itonicsExclude,
+      excludeLight: itonicsExcludeBlack,
       logoClassName: "max-h-[212px] max-w-[406px]",
     }),
   },

@@ -38,6 +38,7 @@ function ContactFormFields({
   const inputTextClassName = `${textColor} ${
     isDarkMode ? "placeholder:text-white" : "placeholder:text-black/50"
   }`;
+  const greenButtonTextColor = isDarkMode ? "text-black" : "text-white";
   const [isIndustryOpen, setIsIndustryOpen] = useState(false);
   const industryRef = useRef(null);
   const industryOptions = [
@@ -253,7 +254,7 @@ function ContactFormFields({
                 }}
                 className={`block w-full rounded-2xl px-4 py-2 text-left font-['Gotham'] text-sm transition-colors ${
                   values.industry === industry
-                    ? "bg-[#37B478] text-white"
+                    ? `bg-[#37B478] ${greenButtonTextColor}`
                     : isDarkMode
                       ? "hover:bg-white/10"
                       : "hover:bg-black/5"
@@ -281,7 +282,7 @@ function ContactFormFields({
         type="submit"
         className="self-end rounded-[50px] bg-[#37B478] px-8 py-3 transition-all duration-200 hover:bg-[#22C55E] active:scale-95"
       >
-        <span className="font-['Gotham'] text-2xl font-normal text-white">
+        <span className={`font-['Gotham'] text-2xl font-normal ${greenButtonTextColor}`}>
           {content.labels.submit}
         </span>
       </button>

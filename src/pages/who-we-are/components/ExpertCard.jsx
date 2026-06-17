@@ -10,6 +10,7 @@ function ExpertCard({
   isDarkMode,
 }) {
   const {position, handlers} = usePointerGlow();
+  const greenButtonTextColor = isDarkMode ? "text-black" : "text-white";
 
   return (
     <div
@@ -50,7 +51,7 @@ function ExpertCard({
           </div>
 
           <button
-            className="shrink-0 rounded-bl-[30px] rounded-br-[20px] rounded-tr-[20px] bg-[#22C55E] px-4 py-2 font-['Gotham'] text-base font-bold leading-none text-black shadow-lg transition-all duration-200 hover:scale-[1.03] hover:bg-[#16A34A] hover:shadow-xl active:scale-95"
+            className={`shrink-0 rounded-bl-[30px] rounded-br-[20px] rounded-tr-[20px] bg-[#22C55E] px-4 py-2 font-['Gotham'] text-base font-bold leading-none ${greenButtonTextColor} shadow-lg transition-all duration-200 hover:scale-[1.03] hover:bg-[#16A34A] hover:shadow-xl active:scale-95`}
             type="button"
           >
             View Project

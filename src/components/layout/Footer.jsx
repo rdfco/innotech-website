@@ -17,6 +17,7 @@ const Footer = ({
   const {isDarkMode} = useTheme();
 
   const isLightMode = !isDarkMode;
+  const greenButtonTextColor = isDarkMode ? "text-black" : "text-white";
 
   return (
     <section
@@ -43,14 +44,14 @@ const Footer = ({
 
           <button
             onClick={onContactClick}
-            className="px-4 py-2 
+            className={`px-4 py-2 
              bg-[#22C55E] hover:bg-[#16A34A] 
-             text-white text-2xl 
+             ${greenButtonTextColor} text-2xl 
              font-['Gotham'] 
              rounded-[50px] 
              inline-flex items-center justify-center
              shadow-lg hover:shadow-xl
-             transition-all duration-200 active:scale-95"
+             transition-all duration-200 active:scale-95`}
           >
             contact us
           </button>

@@ -16,6 +16,7 @@ function EcosystemCard({
   imageLightClassName,
 }) {
   const {position: glowPosition, handlers} = usePointerGlow();
+  const greenButtonTextColor = isDarkMode ? "text-black" : "text-white";
   const activeImageClassName =
     !isDarkMode && imageLight
       ? imageLightClassName ?? imageClassName
@@ -63,7 +64,7 @@ function EcosystemCard({
           </div>
 
           <button
-            className="shrink-0 rounded-bl-[30px] rounded-br-[20px] rounded-tr-[20px] bg-[#22C55E] px-3 py-2 font-['Gotham'] text-sm font-bold leading-none text-black shadow-lg transition-all duration-200 hover:scale-[1.03] hover:bg-[#16A34A] hover:shadow-xl active:scale-95"
+            className={`shrink-0 rounded-bl-[30px] rounded-br-[20px] rounded-tr-[20px] bg-[#22C55E] px-3 py-2 font-['Gotham'] text-sm font-bold leading-none ${greenButtonTextColor} shadow-lg transition-all duration-200 hover:scale-[1.03] hover:bg-[#16A34A] hover:shadow-xl active:scale-95`}
             type="button"
           >
             {actionLabel}

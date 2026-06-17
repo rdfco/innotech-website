@@ -24,6 +24,7 @@ function ChevronRight() {
 
 function PartnerCard({partner, isDarkMode}) {
   const imageClassName = partner.imageClassName ?? "max-h-14 max-w-[137px]";
+  const greenButtonTextColor = isDarkMode ? "text-black" : "text-white";
 
   return (
     <Link
@@ -41,7 +42,7 @@ function PartnerCard({partner, isDarkMode}) {
         />
       </div>
 
-      <div className="absolute inset-y-0 -right-11 flex w-11 items-center justify-center bg-[#37B478] text-black transition-transform duration-300 ease-out group-hover:-translate-x-11">
+      <div className={`absolute inset-y-0 -right-11 flex w-11 items-center justify-center bg-[#37B478] ${greenButtonTextColor} transition-transform duration-300 ease-out group-hover:-translate-x-11`}>
         <ChevronRight />
       </div>
     </Link>

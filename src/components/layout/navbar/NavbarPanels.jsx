@@ -220,6 +220,7 @@ function SearchPanel({
   setSearchQuery,
 }) {
   const handleSubmit = (event) => event.preventDefault();
+  const greenButtonTextColor = isDarkMode ? "text-black" : "text-white";
 
   return (
     <div
@@ -271,7 +272,7 @@ function SearchPanel({
 
           <button
             type="submit"
-            className="inline-flex items-center justify-center gap-2.5 rounded-[50px] bg-[#37B478] px-4 py-2 font-['Gotham'] text-lg text-white transition-all duration-200 hover:scale-[1.03] hover:bg-[#22C55E] active:scale-95 active:bg-[#16A34A]"
+            className={`inline-flex items-center justify-center gap-2.5 rounded-[50px] bg-[#37B478] px-4 py-2 font-['Gotham'] text-lg ${greenButtonTextColor} transition-all duration-200 hover:scale-[1.03] hover:bg-[#22C55E] active:scale-95 active:bg-[#16A34A]`}
           >
             Search
           </button>
