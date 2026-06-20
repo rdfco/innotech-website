@@ -131,13 +131,14 @@ test("Gotham uses the original CDN stylesheet", () => {
   assert.doesNotMatch(html, /GothamRegular\.woff/);
 });
 
-test("GitHub Pages deployment uses a custom-domain-safe base path", () => {
+test("GitHub Pages deployment supports the default URL and custom domains", () => {
   const workflow = fs.readFileSync(
     path.join(root, ".github", "workflows", "deploy-pages.yml"),
     "utf8",
   );
 
-  assert.match(workflow, /VITE_BASE_PATH:\s*\//);
+  assert.match(workflow, /VITE_BASE_PATH:\s*\$\{\{\s*vars\.PAGES_BASE_PATH/);
+  assert.match(workflow, /format\('\/\{0\}\/',\s*github\.event\.repository\.name\)/);
   assert.match(workflow, /cp dist\/index\.html dist\/404\.html/);
   assert.match(workflow, /cancel-in-progress:\s*false/);
 });

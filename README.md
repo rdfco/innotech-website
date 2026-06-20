@@ -3,8 +3,9 @@
 ## Deploying to GitHub Pages with a custom domain
 
 The GitHub Actions workflow in `.github/workflows/deploy-pages.yml` builds and
-deploys the site after each push to `main`. It uses `/` as its Vite base path,
-which is required when a custom domain serves the site from its root.
+deploys the site after each push to `main`. Until a custom domain is selected,
+it uses the repository's default Pages URL. When a custom domain is ready, set
+the repository Actions variable `PAGES_BASE_PATH` to `/` before deploying.
 
 One-time GitHub setup:
 
@@ -12,6 +13,8 @@ One-time GitHub setup:
 2. Set **Source** to **GitHub Actions**.
 3. Enter the company's chosen domain under **Custom domain**, save it, and enable
    **Enforce HTTPS** once GitHub verifies the DNS records.
+4. In **Settings → Secrets and variables → Actions → Variables**, create
+   `PAGES_BASE_PATH` with the value `/`, then re-run the Pages workflow.
 
 DNS setup (at the domain's DNS provider):
 
