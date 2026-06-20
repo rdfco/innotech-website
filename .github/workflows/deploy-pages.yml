@@ -32,7 +32,9 @@ jobs:
 
       - name: Build
         env:
-          VITE_BASE_PATH: /${{ github.event.repository.name }}/
+          # A custom domain serves this project from its root, not from the
+          # repository-name path used by the default github.io URL.
+          VITE_BASE_PATH: /
         run: npm run build
 
       - name: Add SPA fallback

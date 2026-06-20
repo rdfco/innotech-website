@@ -131,13 +131,16 @@ test("Gotham uses the original CDN stylesheet", () => {
   assert.doesNotMatch(html, /GothamRegular\.woff/);
 });
 
-test("GitHub Pages deployment builds with the current repository path", () => {
+test("GitHub Pages deployment is configured for the custom domain", () => {
   const workflow = fs.readFileSync(
     path.join(root, ".github", "workflows", "deploy-pages.yml"),
     "utf8",
   );
 
-  assert.match(workflow, /VITE_BASE_PATH:\s*\/\$\{\{\s*github\.event\.repository\.name\s*\}\}\//);
+  const cname = fs.readFileSync(path.join(root, "public", "CNAME"), "utf8").trim();
+
+  assert.match(workflow, /VITE_BASE_PATH:\s*\//);
+  assert.equal(cname, "innotech.global");
   assert.match(workflow, /cp dist\/index\.html dist\/404\.html/);
   assert.match(workflow, /cancel-in-progress:\s*false/);
 });
