@@ -137,8 +137,9 @@ test("GitHub Pages deployment supports the default URL and custom domains", () =
     "utf8",
   );
 
-  assert.match(workflow, /VITE_BASE_PATH:\s*\$\{\{\s*vars\.PAGES_BASE_PATH/);
+  assert.match(workflow, /VITE_BASE_PATH:\s*\$\{\{\s*github\.repository\s*==\s*'rdfco\/innotech-website'/);
   assert.match(workflow, /format\('\/\{0\}\/',\s*github\.event\.repository\.name\)/);
   assert.match(workflow, /cp dist\/index\.html dist\/404\.html/);
-  assert.match(workflow, /cancel-in-progress:\s*false/);
+  assert.match(workflow, /cancel-in-progress:\s*true/);
+  assert.match(workflow, /if:\s*github\.repository\s*==\s*'rdfco\/innotech-website'/);
 });
