@@ -32,9 +32,9 @@ jobs:
 
       - name: Build
         env:
-          # Defaults to the project Pages URL. Set the repository variable
-          # PAGES_BASE_PATH to / when a custom domain is connected.
-          VITE_BASE_PATH: "http://innotech.global/"
+          # Use / for a custom domain. Otherwise publish at the repository
+          # path, e.g. /innotech-website/. This must be a path, never a URL.
+          VITE_BASE_PATH: ${{ vars.PAGES_BASE_PATH || format('/{0}/', github.event.repository.name) }}
         run: npm run build
 
       - name: Add SPA fallback
